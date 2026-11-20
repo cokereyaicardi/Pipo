@@ -1,11 +1,16 @@
 import os
 import json
 import time
+import socket
+import urllib.request
 from datetime import datetime, timezone, timedelta
 import feedparser
 from google import genai
 from google.genai import types
 from google.genai.errors import APIError, ServerError
+
+# Evita que cualquier conexión de red se quede colgada para siempre
+socket.setdefaulttimeout(12)
 
 FEEDS = {
     "economia": [
@@ -46,26 +51,41 @@ MODELS_TO_TRY = [
 ]
 
 
+def fetch_feed_with_timeout(url, timeout=10):
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": "Mozilla/5.0 (PipoRadar/1.0)"},
+    )
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        raw_bytes = resp.read()
+    return feedparser.parse(raw_bytes)
+
+
 def fetch_headlines():
     collected = {}
     for cat, urls in FEEDS.items():
         entries = []
         for url in urls:
             try:
-                feed = feedparser.parse(url)
-                for entry in feed.entries[:6]:
+                print(f"Leyendo feed [{cat}]: {url}")
+                feed = fetch_feed_with_timeout(url, timeout=10)
+                for entry in feed.entries[:5]:
                     title = entry.get("title", "").strip()
-                    summary = entry.get("summary", "").strip()[:220]
+                    summary = entry.get("summary", "").strip()[:200]
                     if title:
                         entries.append(f"- {title}: {summary}")
             except Exception as e:
-                print(f"Error leyendo {url}: {e}")
-        collected[cat] = "\n".join(entries[:12])
+                print(f"Saltando {url} por error/timeout: {e}")
+        collected[cat] = "\n".join(entries[:10])
     return collected
 
 
 def build_briefing(raw_news):
-    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        raise RuntimeError("Falta GEMINI_API_KEY en el entorno.")
+
+    client = genai.Client(api_key=api_key)
 
     prompt = f"""
 Eres Pipo, un cronista y analista sin filtro que reemplaza el scroll tóxico de redes sociales.
@@ -115,10 +135,13 @@ Noticias recogidas hoy:
                 print(f"Respuesta obtenida con {model_name}")
                 break
             except ServerError as e:
-                print(f"[{model_name}] Intento {attempt}/2 con error 503. Esperando...")
-                time.sleep(5 * attempt)
+                print(f"[{model_name}] Intento {attempt}/2 con error 503. Esperando 3s...")
+                time.sleep(3)
             except APIError as e:
                 print(f"[{model_name}] Error de API ({e.code}): {e.message}")
+                break
+            except Exception as e:
+                print(f"[{model_name}] Error inesperado: {e}")
                 break
         if response is not None:
             break
@@ -142,10 +165,12 @@ Noticias recogidas hoy:
 
 
 if __name__ == "__main__":
+    print("Pipo iniciando búsqueda de noticias...")
     news = fetch_headlines()
+    print("Noticias recolectadas. Consultando a los modelos...")
     briefing = build_briefing(news)
     if briefing is None:
-        print("Los modelos devolvieron error temporal en esta corrida. Se mantiene el briefing actual.")
+        print("Los modelos no respondieron en esta corrida. Se mantiene el briefing actual.")
         raise SystemExit(0)
 
     os.makedirs("data", exist_ok=True)
