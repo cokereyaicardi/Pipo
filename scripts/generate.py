@@ -9,7 +9,6 @@ from google import genai
 from google.genai import types
 from google.genai.errors import APIError, ServerError
 
-# Evita que cualquier conexión de red se quede colgada para siempre
 socket.setdefaulttimeout(12)
 
 FEEDS = {
@@ -21,6 +20,7 @@ FEEDS = {
     "chile": [
         "https://www.biobiochile.cl/lista/categorias/deportes/rss.xml",
         "https://redgol.cl/feed",
+        "https://www.alairelibre.cl/noticias/site/list/port/rss.xml",
     ],
     "argentina": [
         "https://www.ole.com.ar/rss/ultimas-noticias/",
@@ -69,14 +69,17 @@ def fetch_headlines():
             try:
                 print(f"Leyendo feed [{cat}]: {url}")
                 feed = fetch_feed_with_timeout(url, timeout=10)
-                for entry in feed.entries[:5]:
+                for entry in feed.entries[:8]:
                     title = entry.get("title", "").strip()
-                    summary = entry.get("summary", "").strip()[:200]
-                    if title:
-                        entries.append(f"- {title}: {summary}")
+                    summary = entry.get("summary", "").strip()[:240]
+                    link = entry.get("link", "").strip()
+                    if title and link:
+                        entries.append(
+                            f"- TITULAR: {title} | RESUMEN: {summary} | LINK: {link}"
+                        )
             except Exception as e:
                 print(f"Saltando {url} por error/timeout: {e}")
-        collected[cat] = "\n".join(entries[:10])
+        collected[cat] = "\n".join(entries[:18])
     return collected
 
 
@@ -89,17 +92,18 @@ def build_briefing(raw_news):
 
     prompt = f"""
 Eres Pipo, un cronista y analista sin filtro que reemplaza el scroll tóxico de redes sociales.
-Tu tarea es procesar las siguientes noticias recientes y devolver un JSON estricto con 2 a 3 tarjetas por cada una de las 5 categorías:
+Tu tarea es procesar las siguientes noticias recientes y devolver un JSON estricto con **5 a 6 tarjetas** por cada una de las 5 categorías (alrededor de 25 a 30 tarjetas en total):
 - economia (Economía y finanzas de Chile, EE. UU. y el mundo)
 - chile (Fútbol chileno)
 - argentina (Fútbol argentino)
 - italia (Fútbol italiano)
 - brasil (Fútbol brasileño)
 
-Reglas de estilo para cada tarjeta:
+Reglas estrictas para cada tarjeta:
 1. "headline": Titular claro, directo y con gancho (máximo 12 palabras).
-2. "formal": Dato duro, contexto económico/táctico/dirigencial serio, objetivo y bien explicado (2 a 3 oraciones).
-3. "tribuna": La reacción cruda, pasional, callejera y de "barrabrava" o mesa de café frente a esa noticia. Usa modismos naturales de fútbol/calle (sin difamar ni insultar con odio a personas reales). Que se sienta auténtico, picante y sin lenguaje corporativo (2 a 3 oraciones).
+2. "url": Copia EXACTAMENTE el LINK correspondiente de la noticia original entregada abajo. No inventes URLs.
+3. "formal": Dato duro, contexto económico/táctico/dirigencial serio, objetivo y bien explicado (2 a 3 oraciones).
+4. "tribuna": El pulso real de la calle, los hinchas y la gente común frente a esa noticia. Incluye reacciones auténticas de hinchas, debates reales de tablón, quejas o festejos concretos que genera este hecho en la gente (como leer los comentarios más picantes y sinceros de la hinchada o el ciudadano de a pie, sin difamar ni insultar con odio).
 
 Usa estas claves exactas en el JSON:
 {{
@@ -108,6 +112,7 @@ Usa estas claves exactas en el JSON:
       "category": "economia | chile | argentina | italia | brasil",
       "category_label": "Nombre legible de la categoría",
       "headline": "...",
+      "url": "https://...",
       "formal": "...",
       "tribuna": "..."
     }}
@@ -134,7 +139,7 @@ Noticias recogidas hoy:
                 )
                 print(f"Respuesta obtenida con {model_name}")
                 break
-            except ServerError as e:
+            except ServerError:
                 print(f"[{model_name}] Intento {attempt}/2 con error 503. Esperando 3s...")
                 time.sleep(3)
             except APIError as e:
