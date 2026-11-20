@@ -38,6 +38,13 @@ CATEGORY_LABELS = {
     "brasil": "Fútbol Brasileño",
 }
 
+MODELS_TO_TRY = [
+    "gemini-4-hydrogen",
+    "gemini-3.8-flash",
+    "gemini-3.5-flash-lite",
+    "gemini-3.1-flash-lite",
+]
+
 
 def fetch_headlines():
     collected = {}
@@ -91,30 +98,33 @@ Noticias recogidas hoy:
 {json.dumps(raw_news, ensure_ascii=False)}
 """
 
-    max_retries = 3
-    last_error = None
     response = None
 
-    for attempt in range(1, max_retries + 1):
-        try:
-            response = client.models.generate_content(
-                model="gemini-3.8-flash",
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
-                    temperature=0.8,
-                ),
-            )
+    for model_name in MODELS_TO_TRY:
+        print(f"Probando modelo: {model_name}")
+        for attempt in range(1, 3):
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                        temperature=0.8,
+                    ),
+                )
+                print(f"Respuesta obtenida con {model_name}")
+                break
+            except ServerError as e:
+                print(f"[{model_name}] Intento {attempt}/2 con error 503. Esperando...")
+                time.sleep(5 * attempt)
+            except APIError as e:
+                print(f"[{model_name}] Error de API ({e.code}): {e.message}")
+                break
+        if response is not None:
             break
-        except ServerError as e:
-            last_error = e
-            print(f"Intento {attempt}/{max_retries} falló por saturación (503). Esperando...")
-            if attempt < max_retries:
-                time.sleep(10 * attempt)
-            else:
-                raise last_error
-        except APIError as e:
-            raise e
+
+    if response is None:
+        return None
 
     parsed = json.loads(response.text)
     chile_tz = timezone(timedelta(hours=-3))
@@ -134,15 +144,10 @@ Noticias recogidas hoy:
 if __name__ == "__main__":
     news = fetch_headlines()
     briefing = build_briefing(news)
-    os.makedirs("data", exist_ok=True)
-    with open("data/briefing.json", "w", encoding="utf-8") as f:
-        json.dump(briefing, f, ensure_ascii=False, indent=2)
-    print("Briefing de Pipo actualizado correctamente.")
+    if briefing is None:
+        print("Los modelos devolvieron error temporal en esta corrida. Se mantiene el briefing actual.")
+        raise SystemExit(0)
 
-
-if __name__ == "__main__":
-    news = fetch_headlines()
-    briefing = build_briefing(news)
     os.makedirs("data", exist_ok=True)
     with open("data/briefing.json", "w", encoding="utf-8") as f:
         json.dump(briefing, f, ensure_ascii=False, indent=2)
