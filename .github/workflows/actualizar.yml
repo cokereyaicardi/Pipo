@@ -5,19 +5,6 @@ on:
     - cron: "0 */2 * * *"
   workflow_dispatch:
 
-permissions:
-  contents: write
-
-jobs:
-  update-briefing:
-    runs-on: ubuntu-latest
-    name: Actualizar Radar de Pipo
-
-on:
-  schedule:
-    - cron: "0 */2 * * *"
-  workflow_dispatch:
-
 concurrency:
   group: pipo-briefing
   cancel-in-progress: true
