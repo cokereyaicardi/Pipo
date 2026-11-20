@@ -1,40 +1,68 @@
 {
-  "updated_at": "Hoy · Edición de prueba",
+  "updated_at": "20/11/2026 · 18:20 hrs (Chile)",
   "items": [
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Mercados atentos a tasas, dólar y materias primas",
-      "formal": "Los inversionistas monitorean señales de política monetaria en EE. UU., movimientos del tipo de cambio y el desempeño de commodities clave para Chile y la región.",
-      "tribuna": "En el escritorio hablan de 'anclaje de expectativas y cautela', pero el bolsillo siente cada movimiento del dólar y del cobre al tiro. Mucho PowerPoint y poca claridad cuando toca pagar cuentas."
+      "headline": "Wall Street tiembla: el desplome de la IA golpea al Nasdaq",
+      "formal": "El índice tecnológico Nasdaq sufrió una caída superior al 5% semanal, marcando su racha negativa más extensa desde 2020. La corrección se atribuye a un desmoronamiento de las apuestas especulativas en inteligencia artificial, afectando directamente a empresas como Anthropic.",
+      "tribuna": "Se les pinchó la burbuja a los genios de Wall Street y ahora todos corren como locos. Tanto cuento con la IA y a la primera de cambio se les desarmó el castillo de naipes, ¡a llorar a la iglesia!"
+    },
+    {
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Tesla aterriza en Buenos Aires: apuesta fuerte por el mercado argentino",
+      "formal": "La automotriz de Elon Musk inauguró su primera concesionaria en Buenos Aires, marcando un hito en su expansión regional. Esta apertura responde a la reciente apertura del mercado argentino y a la creciente competencia en el sector de vehículos eléctricos.",
+      "tribuna": "¡Llegó la nave espacial a Buenos Aires! Vamos a ver si con estos precios de lujo alguien se baja del bondi para subirse a un Tesla, pero al menos ya tenemos al gigante acá."
     },
     {
       "category": "chile",
       "category_label": "Fútbol Chileno",
-      "headline": "La lucha arriba y la angustia abajo en el torneo local",
-      "formal": "La recta de los campeonatos nacionales aprieta tanto la definición del título y copas como la tabla del descenso, con planteles cortos y calendarios exigentes.",
-      "tribuna": "En Chile siempre pasa lo mismo: se juega a media máquina varias fechas y de repente todos se acuerdan de que hay puntos en juego. Arbitrajes cuestionados y pasión intacta igual."
+      "headline": "Histórica unión: Bloque Pesquero del Biobío busca salvar el sector",
+      "formal": "Ocho organizaciones gremiales y sindicales de la pesca artesanal e industrial han conformado el Bloque Pesquero del Biobío. La alianza busca enfrentar la crisis laboral y la escasez de recursos mediante una postura conjunta ante la normativa vigente.",
+      "tribuna": "¡Por fin dejaron de pelear y se pusieron los pantalones! Cuando el agua llega al cuello, hasta los enemigos se abrazan; ojalá que esta unión sirva para que los pescadores no sigan pasando hambre."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Presión máxima en cada fecha y ruido en los vestuarios",
-      "formal": "La paridad competitiva y el peso de los promedios o clasificaciones mantienen a técnicos y dirigencias bajo evaluación constante tras cada resultado.",
-      "tribuna": "Allá no existe un partido tranquilo: empatar de local ya es crisis nacional y ganarlo de visita por un gol sucio es épica pura. Puro potrero con micrófonos encima."
+      "headline": "Fausto Vera en duda: River aguarda por su tobillo antes de Lanús",
+      "formal": "El volante padece una molestia en el tobillo que complica su participación para el próximo encuentro ante Lanús. El club deberá evaluar su estado físico y decidir si ejecutará la opción de compra al finalizar el préstamo.",
+      "tribuna": "¡Qué sal que tiene el pibe, justo ahora que el técnico lo necesita! Si no se recupera rápido, va a ver el partido desde la platea y con las valijas hechas, porque así no le sirve a nadie."
+    },
+    {
+      "category": "argentina",
+      "category_label": "Fútbol Argentino",
+      "headline": "Atlético Mineiro: el análisis que pone en alerta a Boca",
+      "formal": "Marcelo Méndez, DT de City Torque, advirtió sobre la superioridad técnica del Mineiro antes de la final. Destacó que, aunque el equipo brasileño es peligroso, Boca cuenta con herramientas tácticas para aprovechar sus desatenciones defensivas.",
+      "tribuna": "Que hablen todo lo que quieran, pero la camiseta de Boca pesa un quintal en estas finales. El Mineiro podrá jugar lindo, pero en el barro y contra la gente, esa copa se suda distinto."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Ajedrez táctico y pelea cerrada en la Serie A",
-      "formal": "Los equipos de la parte alta disputan cupos europeos y el scudetto en duelos cerrados donde el orden defensivo y las transiciones marcan diferencias.",
-      "tribuna": "Si te gusta ver líneas de cinco bien paradas y un 1-0 decidido en el minuto 84, el Calcio es tu religión. Dramático, calculado y con más humo que asado de domingo."
+      "headline": "El Inter recupera su esencia: vuelve la mítica camiseta naranja",
+      "formal": "El Inter de Milán anunció el regreso de su icónico uniforme naranja para la próxima temporada. El diseño integrará motivos inspirados en las escamas del Biscione, símbolo histórico del club milanés.",
+      "tribuna": "¡Esa camiseta es un fuego! Los hinchas estaban pidiendo algo con historia y no tanta modernidad rara; con el naranja van a salir a la cancha como verdaderos guerreros."
+    },
+    {
+      "category": "italia",
+      "category_label": "Fútbol Italiano",
+      "headline": "Conte y su mensaje de hierro en la Juventus",
+      "formal": "Antonio Conte reveló cómo utilizó la jerarquía de Pirlo y Buffon para imponer disciplina y mentalidad ganadora en su etapa en Turín. El técnico enfatizó la importancia de contar con líderes que transmitan los valores del club.",
+      "tribuna": "Con Conte no se jode, el tipo te hace correr hasta que escupas los pulmones. Si tenés a un Pirlo y un Buffon bancándolo, cualquier jugador se pone las pilas por puro miedo o por respeto."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Calendario apretado, billeteras pesadas y rotaciones",
-      "formal": "La acumulación de torneos estaduales, ligas y copas obliga a los clubes brasileños a gestionar planteles amplios y rotar piezas clave.",
-      "tribuna": "En Brasil tienen tanta plata y tantos partidos que un suplente de ellos cobra lo que medio plantel en otras ligas. Ritmo frenético y cero tregua."
+      "headline": "Desafío logístico: Novorizontino complica los viajes en la Serie A",
+      "formal": "El club Novorizontino presenta un reto logístico significativo para sus rivales debido a su ubicación geográfica, carente de cercanía a aeropuertos y hoteles de alta capacidad. Esta condición afecta la planificación de los desplazamientos durante el campeonato.",
+      "tribuna": "¡Qué viaje les espera a los demás! Ir a jugar allá es un parto, más tiempo en el micro que en la cancha; esto sí es fútbol de verdad, lejos del glamour de los estadios cinco estrellas."
+    },
+    {
+      "category": "brasil",
+      "category_label": "Fútbol Brasileño",
+      "headline": "Baja sensible: Rafael Tolói se pierde partidos por lesión",
+      "formal": "El defensor del São Paulo sufrió una lesión en el muslo que lo dejará fuera de las próximas convocatorias. El cuerpo técnico deberá ajustar la línea defensiva en un momento crucial de la temporada.",
+      "tribuna": "¡Justo ahora que se viene lo bueno se nos rompe el capitán! Espero que el suplente esté a la altura, porque en esta etapa del torneo no se puede regalar ni medio centímetro atrás."
     }
   ]
 }
