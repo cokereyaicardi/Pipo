@@ -1,0 +1,40 @@
+{
+  "updated_at": "Hoy · Edición de prueba",
+  "items": [
+    {
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Mercados atentos a tasas, dólar y materias primas",
+      "formal": "Los inversionistas monitorean señales de política monetaria en EE. UU., movimientos del tipo de cambio y el desempeño de commodities clave para Chile y la región.",
+      "tribuna": "En el escritorio hablan de 'anclaje de expectativas y cautela', pero el bolsillo siente cada movimiento del dólar y del cobre al tiro. Mucho PowerPoint y poca claridad cuando toca pagar cuentas."
+    },
+    {
+      "category": "chile",
+      "category_label": "Fútbol Chileno",
+      "headline": "La lucha arriba y la angustia abajo en el torneo local",
+      "formal": "La recta de los campeonatos nacionales aprieta tanto la definición del título y copas como la tabla del descenso, con planteles cortos y calendarios exigentes.",
+      "tribuna": "En Chile siempre pasa lo mismo: se juega a media máquina varias fechas y de repente todos se acuerdan de que hay puntos en juego. Arbitrajes cuestionados y pasión intacta igual."
+    },
+    {
+      "category": "argentina",
+      "category_label": "Fútbol Argentino",
+      "headline": "Presión máxima en cada fecha y ruido en los vestuarios",
+      "formal": "La paridad competitiva y el peso de los promedios o clasificaciones mantienen a técnicos y dirigencias bajo evaluación constante tras cada resultado.",
+      "tribuna": "Allá no existe un partido tranquilo: empatar de local ya es crisis nacional y ganarlo de visita por un gol sucio es épica pura. Puro potrero con micrófonos encima."
+    },
+    {
+      "category": "italia",
+      "category_label": "Fútbol Italiano",
+      "headline": "Ajedrez táctico y pelea cerrada en la Serie A",
+      "formal": "Los equipos de la parte alta disputan cupos europeos y el scudetto en duelos cerrados donde el orden defensivo y las transiciones marcan diferencias.",
+      "tribuna": "Si te gusta ver líneas de cinco bien paradas y un 1-0 decidido en el minuto 84, el Calcio es tu religión. Dramático, calculado y con más humo que asado de domingo."
+    },
+    {
+      "category": "brasil",
+      "category_label": "Fútbol Brasileño",
+      "headline": "Calendario apretado, billeteras pesadas y rotaciones",
+      "formal": "La acumulación de torneos estaduales, ligas y copas obliga a los clubes brasileños a gestionar planteles amplios y rotar piezas clave.",
+      "tribuna": "En Brasil tienen tanta plata y tantos partidos que un suplente de ellos cobra lo que medio plantel en otras ligas. Ritmo frenético y cero tregua."
+    }
+  ]
+}
