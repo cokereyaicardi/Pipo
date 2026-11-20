@@ -1,9 +1,11 @@
 import os
 import json
+import time
 from datetime import datetime, timezone, timedelta
 import feedparser
 from google import genai
 from google.genai import types
+from google.genai.errors import APIError, ServerError
 
 FEEDS = {
     "economia": [
@@ -89,14 +91,30 @@ Noticias recogidas hoy:
 {json.dumps(raw_news, ensure_ascii=False)}
 """
 
-    response = client.models.generate_content(
-        model="gemini-3.8-flash",
-        contents=prompt,
-        config=types.GenerateContentConfig(
-            response_mime_type="application/json",
-            temperature=0.8,
-        ),
-    )
+    max_retries = 3
+    last_error = None
+    response = None
+
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.8-flash",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.8,
+                ),
+            )
+            break
+        except ServerError as e:
+            last_error = e
+            print(f"Intento {attempt}/{max_retries} falló por saturación (503). Esperando...")
+            if attempt < max_retries:
+                time.sleep(10 * attempt)
+            else:
+                raise last_error
+        except APIError as e:
+            raise e
 
     parsed = json.loads(response.text)
     chile_tz = timezone(timedelta(hours=-3))
@@ -111,6 +129,15 @@ Noticias recogidas hoy:
         "updated_at": now_str,
         "items": parsed.get("items", []),
     }
+
+
+if __name__ == "__main__":
+    news = fetch_headlines()
+    briefing = build_briefing(news)
+    os.makedirs("data", exist_ok=True)
+    with open("data/briefing.json", "w", encoding="utf-8") as f:
+        json.dump(briefing, f, ensure_ascii=False, indent=2)
+    print("Briefing de Pipo actualizado correctamente.")
 
 
 if __name__ == "__main__":
