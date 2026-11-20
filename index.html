@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radar de Pipo — Sin Filtro y Sin Algoritmo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>RADAR DE PIPO</h1>
+      <p id="last-updated" class="subtitle">Pipo está revisando la pizarra...</p>
+    </div>
+    <div class="mode-switch">
+      <button class="mode-btn active" data-mode="all">Ambos tonos</button>
+      <button class="mode-btn" data-mode="formal">Solo Análisis</button>
+      <button class="mode-btn" data-mode="tribuna">La Tribuna de Pipo</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="category-tabs">
+    <button class="tab active" data-cat="all">Todo</button>
+    <button class="tab" data-cat="economia">Economía & Mercados</button>
+    <button class="tab" data-cat="chile">Fútbol Chileno</button>
+    <button class="tab" data-cat="argentina">Fútbol Argentino</button>
+    <button class="tab" data-cat="italia">Fútbol Italiano</button>
+    <button class="tab" data-cat="brasil">Fútbol Brasileño</button>
+  </nav>
+
+  <main id="feed-container" class="grid"></main>
+
+  <script src="app.js"></script>
+</body>
+</html>
