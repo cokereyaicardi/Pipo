@@ -3,25 +3,55 @@ let currentMode = "all";
 let briefingData = null;
 
 async function loadBriefing() {
+  const refreshBtn = document.getElementById("refresh-btn");
+  const lastUpdatedEl = document.getElementById("last-updated");
+  const feedContainer = document.getElementById("feed-container");
+
+  if (refreshBtn) {
+    refreshBtn.disabled = true;
+    refreshBtn.textContent = "Actualizando...";
+  }
+
   try {
-    const res = await fetch("./data/briefing.json");
+    const res = await fetch(`./data/briefing.json?v=${Date.now()}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}`);
+    }
     briefingData = await res.json();
-    document.getElementById("last-updated").textContent =
-      `Actualizado: ${briefingData.updated_at}`;
+    if (lastUpdatedEl) {
+      lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at || "Recién"}`;
+    }
     render();
   } catch (err) {
-    document.getElementById("feed-container").innerHTML =
-      `<p>Error cargando briefing.json.</p>`;
+    if (feedContainer) {
+      feedContainer.innerHTML = `<p>Error cargando briefing.json.</p>`;
+    }
+  } finally {
+    if (refreshBtn) {
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = "Actualizar noticias";
+    }
   }
 }
 
 function render() {
   const container = document.getElementById("feed-container");
+  if (!container || !briefingData || !Array.isArray(briefingData.items)) {
+    return;
+  }
+
   container.innerHTML = "";
 
   const items = briefingData.items.filter(
     (item) => currentCategory === "all" || item.category === currentCategory
   );
+
+  if (items.length === 0) {
+    container.innerHTML = `<p>No hay tarjetas en esta categoría por ahora.</p>`;
+    return;
+  }
 
   items.forEach((item) => {
     const card = document.createElement("article");
@@ -30,9 +60,15 @@ function render() {
     const showFormal = currentMode === "all" || currentMode === "formal";
     const showTribuna = currentMode === "all" || currentMode === "tribuna";
 
+    const sourceLinkHtml = item.url
+      ? `<div class="card-footer" style="margin-top: 12px;">
+           <a href="${item.url}" target="_blank" rel="noopener noreferrer">Leer noticia ↗</a>
+         </div>`
+      : "";
+
     card.innerHTML = `
       <div>
-        <span class="badge">${item.category_label}</span>
+        <span class="badge">${item.category_label || item.category}</span>
         <h2>${item.headline}</h2>
       </div>
       <div class="block-formal ${showFormal ? "" : "hidden"}">
@@ -43,6 +79,7 @@ function render() {
         <span class="block-label">La Tribuna de Pipo</span>
         ${item.tribuna}
       </div>
+      ${sourceLinkHtml}
     `;
     container.appendChild(card);
   });
@@ -57,13 +94,20 @@ document.querySelectorAll(".tab").forEach((btn) => {
   });
 });
 
-document.querySelectorAll(".mode-btn").forEach((btn) => {
+document.querySelectorAll(".mode-btn[data-mode]").forEach((btn) => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll(".mode-btn").forEach((b) => b.classList.remove("active"));
+    document
+      .querySelectorAll(".mode-btn[data-mode]")
+      .forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
     currentMode = btn.dataset.mode;
     render();
   });
 });
+
+const refreshBtn = document.getElementById("refresh-btn");
+if (refreshBtn) {
+  refreshBtn.addEventListener("click", loadBriefing);
+}
 
 loadBriefing();
