@@ -11,6 +11,24 @@ permissions:
 jobs:
   update-briefing:
     runs-on: ubuntu-latest
+    name: Actualizar Radar de Pipo
+
+on:
+  schedule:
+    - cron: "0 */2 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: pipo-briefing
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update-briefing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
