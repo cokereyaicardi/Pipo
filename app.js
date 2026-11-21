@@ -1,33 +1,101 @@
+const RAW_JSON_URL =
+  "https://raw.githubusercontent.com/cokereyaicardi/Pipo/main/data/briefing.json";
+const WORKFLOW_DISPATCH_URL =
+  "https://api.github.com/repos/cokereyaicardi/Pipo/actions/workflows/actualizar.yml/dispatches";
+const TOKEN_STORAGE_KEY = "pipo_gh_token";
+
 let currentCategory = "all";
 let currentMode = "all";
 let briefingData = null;
 
-async function loadBriefing() {
+function setStatus(msg) {
+  const el = document.getElementById("status-msg");
+  if (el) el.textContent = msg;
+}
+
+async function fetchLatestBriefing() {
+  const res = await fetch(`${RAW_JSON_URL}?t=${Date.now()}`, {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP ${res.status}`);
+  }
+  return await res.json();
+}
+
+async function loadBriefing(isManualClick = false) {
   const refreshBtn = document.getElementById("refresh-btn");
   const lastUpdatedEl = document.getElementById("last-updated");
   const feedContainer = document.getElementById("feed-container");
 
   if (refreshBtn) {
     refreshBtn.disabled = true;
-    refreshBtn.textContent = "Actualizando...";
+    refreshBtn.textContent = "Revisando pizarra...";
   }
 
   try {
-    const res = await fetch(`./data/briefing.json?v=${Date.now()}`, {
-      cache: "no-store",
-    });
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}`);
+    const previousTimestamp = briefingData ? briefingData.updated_at : null;
+    const savedToken = localStorage.getItem(TOKEN_STORAGE_KEY);
+
+    // Si es clic manual y el usuario guardó un token personal en su navegador, dispara el robot
+    if (isManualClick && savedToken) {
+      setStatus("Enviando orden al robot de Pipo en GitHub...");
+      const dispatchRes = await fetch(WORKFLOW_DISPATCH_URL, {
+        method: "POST",
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${savedToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ref: "main" }),
+      });
+
+      if (dispatchRes.ok) {
+        setStatus("Robot corriendo (tarda ~35 seg). Esperando noticias nuevas...");
+        // Esperamos a que el robot termine y actualice el archivo
+        for (let i = 0; i < 8; i++) {
+          await new Promise((r) => setTimeout(r, 8000));
+          const candidate = await fetchLatestBriefing();
+          if (candidate.updated_at !== previousTimestamp) {
+            briefingData = candidate;
+            if (lastUpdatedEl) {
+              lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at}`;
+            }
+            render();
+            setStatus("¡Pizarra renovada con noticias recién salidas del horno!");
+            return;
+          }
+        }
+        setStatus("El robot sigue procesando; vuelve a pulsar en unos segundos.");
+        return;
+      } else {
+        setStatus("Token inválido o sin permiso Actions:write. Leyendo última pizarra...");
+      }
     }
-    briefingData = await res.json();
+
+    // Lectura directa sin caché desde GitHub
+    const latest = await fetchLatestBriefing();
+    briefingData = latest;
+
     if (lastUpdatedEl) {
       lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at || "Recién"}`;
     }
     render();
-  } catch (err) {
-    if (feedContainer) {
-      feedContainer.innerHTML = `<p>Error cargando briefing.json.</p>`;
+
+    if (isManualClick) {
+      if (previousTimestamp && latest.updated_at === previousTimestamp) {
+        setStatus(
+          "Ya estás viendo la última edición publicada. Pulsa 'Correr robot ↗' o configura tu token para generar noticias nuevas ahora."
+        );
+      } else {
+        setStatus("Pizarra sincronizada con la última edición.");
+      }
     }
+  } catch (err) {
+    if (feedContainer && !briefingData) {
+      feedContainer.innerHTML = `<p>Error cargando noticias. Intenta recargar en unos segundos.</p>`;
+    }
+    setStatus("No se pudo conectar con GitHub en este intento.");
   } finally {
     if (refreshBtn) {
       refreshBtn.disabled = false;
@@ -107,7 +175,26 @@ document.querySelectorAll(".mode-btn[data-mode]").forEach((btn) => {
 
 const refreshBtn = document.getElementById("refresh-btn");
 if (refreshBtn) {
-  refreshBtn.addEventListener("click", loadBriefing);
+  refreshBtn.addEventListener("click", () => loadBriefing(true));
 }
 
-loadBriefing();
+const tokenBtn = document.getElementById("token-btn");
+if (tokenBtn) {
+  tokenBtn.addEventListener("click", () => {
+    const current = localStorage.getItem(TOKEN_STORAGE_KEY) || "";
+    const input = prompt(
+      "Pega tu GitHub Fine-Grained Token (con permiso Actions: Read & Write solo en el repo Pipo) para que 'Actualizar noticias' dispare el robot desde esta web.\n\nDéjalo vacío para borrarlo:",
+      current
+    );
+    if (input === null) return;
+    if (input.trim() === "") {
+      localStorage.removeItem(TOKEN_STORAGE_KEY);
+      setStatus("Token eliminado de este navegador.");
+    } else {
+      localStorage.setItem(TOKEN_STORAGE_KEY, input.trim());
+      setStatus("Token guardado en tu navegador. ¡Ahora 'Actualizar noticias' dispara el robot!");
+    }
+  });
+}
+
+loadBriefing(false);
