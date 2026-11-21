@@ -1,185 +1,215 @@
 {
-  "updated_at": "21/11/2026 · 15:29 hrs (Chile)",
+  "updated_at": "21/11/2026 · 15:59 hrs (Chile)",
   "items": [
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Hidrógeno verde en crisis por la caída de demanda internacional",
+      "headline": "Desplome tecnológico golpea a Anthropic tras su histórico debut en bolsa",
+      "url": "http://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-anthropic-tras-su-histórico-debut-en-bolsa-y",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: Con una recaudación que superó los US$ 81.000 millones, la OPI del dueño de Claude batió récords de escala pero sufrió un fuerte ajuste. Este fenómeno revive las inevitables comparaciones financieras con el meteórico despegue bursátil de SpaceX.",
+      "tribuna": "Los inversionistas están con calculadora en mano y el susto en el pecho viendo cómo se inflan las burbujas tecnológicas. Nadie sabe si esto es el futuro de la IA o el timo del siglo para los incautos de Wall Street.",
+      "image": ""
+    },
+    {
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Hidrógeno verde en pausa: exdirector culpa a fallas de la autoridad",
       "url": "http://www.df.cl/senal-df/senales-financieras/mario-marchese-exdirector-de-hnh-energy-la-autoridad-fallo-en-reaccionar",
-      "formal": "El exdirector de HNH Energy, Mario Marchese, criticó la falta de reacción rápida de la autoridad ante el freno del hidrógeno verde en Magallanes. La desaceleración responde principalmente a la contracción del mercado global y los altos costos asociados.",
-      "tribuna": "Los bolsillos de siempre pagan los platos rotos mientras los políticos prometen humo verde que nunca llega. Nadie pone plata real y nos dejan esperando un futuro que ya se fue a pérdida.",
+      "date": "20/11/2026",
+      "formal": "Publicado el 20/11/2026: Mario Marchese, exlíder gremial en Magallanes, atribuyó el estancamiento del sector a la caída en la demanda internacional y a los elevados costos operativos. Sostuvo que el Estado falló al no reaccionar con agilidad para modificar las normativas vigentes.",
+      "tribuna": "Se llenaron la boca hablando de la energía del futuro mientras ahogaban los proyectos con burocracia criolla. Así, los inversionistas pescan sus maletas y se van a buscar pastos más verdes a otros países.",
       "image": ""
     },
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Histórico debut de Anthropic choca con desplome tecnológico mundial",
-      "url": "http://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-a-anthropic-tras-su-historico-debut-en-bolsa-y",
-      "formal": "La OPI del creador de Claude recaudó más de US$ 81.000 millones, superando el estreno bursátil de SpaceX. Sin embargo, este hito coincidió con una fuerte corrección en Wall Street que arrastró al sector tecnológico.",
-      "tribuna": "Los genios de Silicon Valley celebran miles de millones mientras la economía real sigue asfixiada por la inflación. Al final, la burbuja de la IA infla egos pero no le llena la despensa a nadie.",
-      "image": ""
-    },
-    {
-      "category": "economia",
-      "category_label": "Economía & Mercados",
-      "headline": "Gira asiática de Kast busca frenar riesgos de PIB negativo",
-      "url": "http://www.df.cl/economia-y-politica/gobierno/la-trastienda-de-la-gira-de-kast-por-asia-el-menu-del-banquete-con-xi",
-      "formal": "El Presidente José Antonio Kast concretó una gira por Vietnam, China y Japón enfocada en atraer inversiones y profundizar acuerdos comerciales. Analistas advierten sobre los riesgos latentes de un posible crecimiento negativo hacia 2026.",
-      "tribuna": "Se van a comer banquete con Xi Jinping mientras el chileno de a pie hace malabares para llegar a fin de mes con los precios por las nubes. Viajes caros para arreglar un panorama económico que pinta puras sombras.",
-      "image": ""
-    },
-    {
-      "category": "economia",
-      "category_label": "Economía & Mercados",
-      "headline": "Wall Street sufre su peor semana desde 2020 tras sacudida bursátil",
-      "url": "https://www.cnbc.com/2026/11/21/anthropic-ipo-tech-selloff.html",
-      "formal": "El debut bursátil de Anthropic colisionó con la peor racha semanal de Nvidia y el mercado tecnológico desde 2020. Los inversionistas reducen posiciones de riesgo ante la incertidumbre macroeconómica global.",
-      "tribuna": "Los millonarios de Wall Street lloran porque sus acciones bajan un par de puntos porcentuales en una semana mala. Mientras tanto, el trabajador común reza para que el supermercado no vuelva a subir mañana.",
+      "headline": "Grand Theft Auto VI rompe récord histórico con US$ 3.790 millones",
+      "url": "http://www.df.cl/internacional/multinacionales/grand-theft-auto-vi-rompe-record-historico-con-us-3-790-millones-en-ventas",
+      "date": "20/11/2026",
+      "formal": "Publicado el 20/11/2026: El esperado título de Rockstar Games tardó más de ocho años en desarrollarse y vio la luz 13 años después de su predecesor. La industria cultural celebró cifras sin precedentes que reafirman el peso pesado de los videojuegos a nivel global.",
+      "tribuna": "Trece años esperando esta joya y pagamos con gusto lo que pidan por viciar en alta definición. Los gamers del mundo paralizaron la economía personal solo para ver si el mapa cumple las expectativas.",
       "image": ""
     },
     {
       "category": "chile",
       "category_label": "Fútbol Chileno",
-      "headline": "Colo Colo asegura la continuidad de Fernando Ortiz hasta 2027",
-      "url": "https://www.latercera.com/el-deportivo/noticia/por-todo-2027-fernando-ortiz-extiende-su-vinculo-en-colo-colo/",
-      "formal": "La dirigencia alba confirmó la renovación del director técnico Fernando Ortiz por toda la temporada 2027. La decisión llega tras consolidar el título en la Liga de Primera y estabilizar el proyecto deportivo.",
-      "tribuna": "Al fin hay un poco de estabilidad en el Monumental sin andar echando técnicos cada tres fechas. Ojalá el Profe mantenga el tranco y no nos hagamos ilusiones falsas en la Copa.",
-      "image": "https://www.latercera.com/resizer/v2/C4DXXHDVP5CKPMNKI3TXWNO4CI.jpg?auth=ec3ff18f231e65792fa9b6723059f5894c8c21bec005591f1e41ea9a5f110623&smart=true&width=1280&height=854"
-    },
-    {
-      "category": "chile",
-      "category_label": "Fútbol Chileno",
-      "headline": "La Roja Sub 17 logra heroica remontada sobre Argelia en el Mundial",
-      "url": "https://www.latercera.com/el-deportivo/noticia/la-roja-sub-17-debuta-con-una-heroica-remontada-sobre-argelia-en-le-mundial-de-la-categoria/",
-      "formal": "El combinado dirigido por Ariel Leporati debutó en el Mundial de Catar con un triunfo por 4-2. Tras ir perdiendo 2-0 ante los africanos, el equipo nacional reaccionó con jerarquía en el complemento.",
-      "tribuna": "¡Qué manera de sufrir con estos cabros chicos, pero qué huevos mostraron para dar vuelta esa mística! Da gusto ver que todavía queda sangre y rebeldía en las inferiores.",
+      "headline": "Fernando Ortiz extiende su vínculo en Colo Colo por todo el 2027",
+      "url": "https://www.latercera.com/el-deportivo/noticia/por-todo-2027-fernando-ortiz-renueva-su-contrato-en-colo-colo/",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El director técnico consolidó su continuidad al frente del Cacique tras alzar el trofeo de la Liga de Primera. La dirigencia alba apostó por la estabilidad del proyecto deportivo de cara a los desafíos internacionales de la próxima temporada.",
+      "tribuna": "¡Al fin una dirigencia que no desarma el plantel y al técnico a las primeras de cambio! Los hinchas albos piden refuerzos de categoría para no pasar vergüenza internacional y pelear la Copa.",
       "image": ""
     },
     {
       "category": "chile",
       "category_label": "Fútbol Chileno",
-      "headline": "Gabriel Suazo y Manuel Pellegrini animan el vibrante clásico andaluz",
-      "url": "https://www.latercera.com/el-deportivo/noticia/en-vivo-el-sevilla-de-gabriel-suazo-recibe-al-betis-de-manuel-pellegrini-en-el-derbi/",
-      "formal": "El Sevilla de Gabriel Suazo se enfrenta al Real Betis dirigido por Manuel Pellegrini en una nueva edición del derbi. El duelo genera gran expectativa en España por la presencia protagónica de los referentes chilenos.",
-      "tribuna": "Ver a Don Manuel y al Gabi Suazo dejando en alto el apellido chileno en Europa es un orgullo total. ¡Ponele empeño, Ingeniero, que este clásico hay que ganarlo como sea!",
-      "image": "https://www.latercera.com/resizer/v2/6IJS6ZVZVZGPBHMGL5NEB2VDAE.jpg?auth=50b67f17c932bb323adcbe06023b9ec85f143481d6594460f7023332949b7da5&smart=true&width=1920&height=1080"
+      "headline": "La Roja Sub 17 debuta con heroica remontada sobre Argelia",
+      "url": "https://www.latercera.com/el-deportivo/noticia/la-roja-sub-17-debuta-con-una-heroica-remontada-sobre-argelia-en-el-mundial-de-la-categoria/",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El combinado dirigido por Ariel Leporati comenzó perdiendo por dos goles en el Mundial de Qatar, pero supo reaccionar a tiempo. Con carácter y fútbol, sellaron un contundente 4-2 definitivo ante el cuadro africano.",
+      "tribuna": "¡Qué manera de darnos un susto monumental y después revivir con el corazón en la mano! Estos cabros chicos tienen más temple que varios de la adulta que andan puro trotando.",
+      "image": "https://www.latercera.com/resizer/v2/T6RLZLL5SVH4HFCBMB4WG5ZWN4.jpg?auth=ece0a4d4964cd6ad084aadbdebcc9b9d7d03d1fb91d37ce7059617bb60debaec&smart=true&width=1920&height=1080"
     },
     {
       "category": "chile",
       "category_label": "Fútbol Chileno",
-      "headline": "Víctor Felipe Méndez lidera ranking de ocasiones generadas",
-      "url": "https://chile.as.com/chile/2022/03/01/futbol/1646170370_214651.html#?ref=rss&format=simple&link=link",
-      "formal": "El mediocampista de Unión Española destaca en el inicio del torneo local como el jugador que más situaciones de gol crea. Sus estadísticas ratifican su condición de pieza clave en el esquema hispano.",
-      "tribuna": "Este pendejo juega a otro ritmo y hace rato que pide selección a gritos en el mediocampo. Menos mal que todavía nos deleita en el torneo local antes de que se lo lleven.",
-      "image": "https://as00.epimg.net/chile/imagenes/2022/03/01/futbol/1646170370_214651_1646170440_miniatura_normal.jpg"
+      "headline": "Claudio Borghi cuestiona el prematuro recambio generacional en la Roja",
+      "url": "https://www.latercera.com/el-deportivo/noticia/la-critica-de-claudio-borghi-al-recambio-de-nicolas-cordova-en-la-roja-la-juventud-no-significa-tener-fuerza/",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El histórico exentrenador analizó las condiciones en las que los juveniles debutan en la selección bajo la dirección de Nicolás Córdova. Argumentó que la inexperiencia y la falta de roce competitivo pesan más que el empuje físico inicial.",
+      "tribuna": "El Bichi siempre le atina al clóset sin asco ni pelos en la lengua. Tirar a los lobos a puros pibes sin jerarquía es quemarlos antes de tiempo por culpa de la nefasta dirigencia.",
+      "image": "https://www.latercera.com/resizer/v2/7CSPTCAYAJAUXFJDFP25O2QUSE.jpg?auth=ebc6460ad178d6d57fbed57bbd4db0694dd75edcd1c6d1e2e93f7f3872e652f2&smart=true&width=3264&height=2026"
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Franco Colapinto acelera rumbo al Gran Premio de Las Vegas",
-      "url": "https://www.ole.com.ar/autos/franco-colapinto-vivo-gran-premio-vegas-hora-ver-f1-formula-1-tv-online_0_jbQlmlQW1j.html",
-      "formal": "El piloto argentino de Alpine largará desde la novena posición en el circuito callejero de Las Vegas. El objetivo principal es sumar puntos valiosos en la recta final del campeonato de Fórmula 1.",
-      "tribuna": "¡Vamos Franco carajo, a comerse las curvas de Las Vegas sin miedo a nadie! Todo el país está pegado a la pantalla bancando al pibe que revolucionó la categoría.",
-      "image": "https://www.ole.com.ar/images/2026/11/20/ZGWukGHS9_1200x630__1.jpg"
+      "headline": "Nieto del Virrey palpita la final de Boca: “Que pierda Eduardo es feo, pero que gane Boca”",
+      "url": "https://www.ole.com.ar/boca-juniors/paul-bianchi-nieto-carlos-final-boca-sudamericana-eduardo-dominguez-atletico-mineiro_0_JtpgewrsM0.html",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: Paul Bianchi, nieto de Carlos Bianchi, se refirió al cruce definitivo por la Copa Sudamericana entre Boca Juniors y el Atlético Mineiro de Eduardo Domínguez. La familia vive un duelo particular cruzado por los afectos y la gloria histórica del club.",
+      "tribuna": "¡Qué dilema familiar más futbolero y hermoso para un domingo de tensión! En la mesa de los Bianchi no se habla de otra cosa que no sea la mística de la camiseta azul y oro.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/JSvyXOaDN_1200x630__1.jpg"
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Sebastián Boselli cosecha elogios inmejorables en el Getafe",
-      "url": "https://www.ole.com.ar/river-plate/river-plate-sebastian-boselli-getafe-jugador-mes_0_QZK4xX3eNe.html",
-      "formal": "El defensor uruguayo, transferido desde River Plate en el último mercado, atraviesa un gran momento en La Liga. Su solidez defensiva le ha valido reconocimientos tempranos en el fútbol español.",
-      "tribuna": "Y pensar que en River lo regalaron sin darle muchas oportunidades de afianzarse como titular. Ahora nos queremos arrancar los pelos viendo cómo brilla en Europa.",
-      "image": "https://www.ole.com.ar/images/2026/11/21/44jhLxbZT_1200x630__1.jpg"
+      "headline": "Miguel Barbieri sorprende y critica el giro dirigencial de Racing",
+      "url": "https://www.ole.com.ar/racing/racing-barbieri-blanco-milito_0_5WNHTu13OL.html",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El exdefensor de la Academia expresó su desconcierto ante los cambios institucionales y la salida de la gestión previa de Víctor Blanco. Señaló que alterar las estructuras que daban buenos resultados económicos y deportivos suele traer consecuencias imprevistas.",
+      "tribuna": "El hincha académico no entiende cómo mandan al tacho de la basura un modelo ordenado. Cuando la política interna se mete en la cancha, el que sufre siempre es el fanático.",
+      "image": "https://www.ole.com.ar/images/2026/11/16/Ih2PUuD2D_1200x630__1.jpg"
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Preocupación en el PSG por dura lesión de rodilla de Désiré Doué",
-      "url": "https://www.ole.com.ar/futbol-internacional/francia/video-dura-lesion-desire-doue-psg_0_titiqnjaFi.html",
-      "formal": "El volante francés sufrió una severa torsión en su rodilla durante un encuentro con el Paris Saint-Germain. Los gestos de dolor encendieron las alarmas en el cuerpo técnico de cara al próximo choque europeo.",
-      "tribuna": "Pobre pibe, gritar así de dolor te parte el alma sin importar la camiseta que defienda. Los calendarios están tan saturados que los jugadores terminan destrozados físicamente.",
-      "image": "https://www.ole.com.ar/images/2026/11/21/3HevEHL57_1200x630__1.jpg"
-    },
-    {
-      "category": "argentina",
-      "category_label": "Fútbol Argentino",
-      "headline": "Mattia Colnaghi brilla con podio y vuelta rápida en Macao",
-      "url": "https://www.ole.com.ar/autos/mattia-colnaghi-macao-carrera-clasificatoria_0_25B4n2AmH7.html",
-      "formal": "El piloto vinculado a Red Bull completó una destacada actuación en la carrera clasificatoria de la Fórmula Regional en Macao. Su rendimiento incluyó un lugar en el podio y el récord de vuelta rápida.",
-      "tribuna": "Hay talento argentino de sobra en el automovilismo internacional y este pibe lo demuestra fin de semana a fin de semana. Ojalá siga escalando sin escalas hacia la máxima categoría.",
-      "image": "https://www.ole.com.ar/images/2026/11/21/oT20ywwAn_1200x630__1.jpg"
+      "headline": "El pibe Benjamín Rodríguez aguarda su gran estreno en River Plate",
+      "url": "https://www.ole.com.ar/river-plate/river-plate-lanus-benjamin-rodriguez-clausura-lista-convocados_0_AUyqds9QTV.html",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El juvenil millonario fue integrado a la última concentración especial en Pilar bajo la atenta mirada institucional. Ahora aguarda por una posible convocatoria oficial frente a Lanús ante las múltiples bajas en el plantel.",
+      "tribuna": "Los hinchas de la banda roja se ilusionan siempre que aparece un diamantito en las inferiores. Ojalá lo pongan sin miedo a que se queme, que la gente banca a los pibes de la casa.",
+      "image": "https://www.ole.com.ar/images/2026/11/12/_LAN2XrFD_1200x630__1.jpg"
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Juventus sufre sequía de minutos para sus jóvenes talentos Next Gen",
-      "url": "https://www.gazzetta.it/Calcio/Serie-A/Juventus/21-11-2026/juventus-perche-giovani-non-trovano-spazio-next-gen.shtml",
-      "formal": "A pesar de la plaga de lesiones, el técnico Spalletti apenas ha otorgado diez minutos combinados a los juveniles Owusu y Oboavwoduo. La falta de espacio en el primer equipo cuestiona la eficiencia del proyecto sub-23.",
-      "tribuna": "Tienen una cantera supuestamente modelo y al final juegan siempre los mismos vacas sagradas. Si no les dan confianza cuando hay emergencia, ¿cuándo diablos van a debutar?",
-      "image": "https://dimages2.gazzettaobjects.it/files/image_640_384/files/fp/uploads/2025/06/09/6846e36928c2d.r_d.958-531-3960.jpeg"
-    },
-    {
-      "category": "italia",
-      "category_label": "Fútbol Italiano",
-      "headline": "Antonio Conte arremete contra el perfil sumiso de los entrenadores",
+      "headline": "Antonio Conte arremete contra los entrenadores sumisos en la Serie A",
       "url": "https://www.gazzetta.it/Calcio/Serie-A/Napoli/21-11-2026/napoli-conte-su-allegri-l-aziendalista-e-uno-yes-man.shtml",
-      "formal": "El estratega del Napoli criticó tajantemente la figura del técnico complaciente al que definió como un 'yes-man'. Según Conte, la honestidad profesional exige confrontar las decisiones dirigenciales cuando sea necesario.",
-      "tribuna": "¡Genio y figura, maestro! Diga las cosas como son y sin anestesia para que los dirigentes no hagan lo que quieran. Por eso a Conte lo aman o lo odian, pero nunca pasa piola.",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El técnico del Napoli aseguró que un verdadero estratega jamás debe ser un simple «yes-man» complaciente con los directivos. Añadió que si el responsable técnico advierte un error estratégico, tiene la obligación moral de confrontar a la cúpula.",
+      "tribuna": "¡Pura personalidad y fuego cruzado en el Calcio! Conte no le teme a nadie y deja temblando a los dirigentes que buscan monigotes en el banco de suplentes.",
       "image": "https://dimages2.gazzettaobjects.it/files/image_640_384/files/fp/uploads/2026/11/21/6b01b6b62e8be.r_d.1500-964-1760.jpeg"
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Francesco Camarda saldrá cedido al Cagliari en el mercado invernal",
-      "url": "https://www.gazzetta.it/Calcio/Serie-A/Milan/21-11-2026/camarda-milan-cessione-prestito-cagliari-ipotesi.shtml",
-      "formal": "La directiva del AC Milan acordó buscarle un préstamo a su joven promesa Francesco Camarda para que gane rodaje en la Serie A. El Cagliari lidera las opciones para recibir al delantero en enero.",
-      "tribuna": "Es la mejor decisión para que el chico se foguee y no se queme en la banca del Milan. Que vaya a mojar la camiseta a un equipo donde realmente lo hagan jugar.",
-      "image": "https://dimages2.gazzettaobjects.it/files/image_640_384/files/fp/uploads/2026/11/10/6af387880144d.r_d.768-468-0.jpeg"
+      "headline": "La Juventus sufre la sequía de minutos para sus jóvenes talentos",
+      "url": "https://www.gazzetta.it/Calcio/Serie-A/Juventus/21-11-2026/juventus-perche-giovani-no-trovano-spazio-next-gen.shtml",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: A pesar de atravesar una severa crisis de lesiones y emergencias tácticas, los canteranos de la Next Gen apenas suman diez minutos conjuntos con el primer equipo. Spalletti ha priorizado la experiencia por sobre la apuesta institucional en la plantilla principal.",
+      "tribuna": "Tienen una de las mejores canteras de Europa para puro tenerlas adornando la vitrina. Los tifosi bianconeros están hartos de ver a veteranos fundidos mientras los pibes se pudren en la reserva.",
+      "image": ""
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Gennaro Gattuso celebra la mentalidad arrolladora de la Lazio",
-      "url": "https://football-italia.net/gattuso-so-proud-of-lazio-mentality-high-tempo/",
-      "formal": "Gennaro Gattuso expresó su absoluto orgullo tras la goleada por 3-0 de la Lazio sobre el Lecce. El rendimiento colectivo consolida al equipo en la parte alta de la tabla con un ritmo intenso.",
-      "tribuna": "Esa es la actitud que imprime 'Rino' en sus equipos: correr hasta el último minuto sin regalar nada. Cuando hay hambre de gloria y disciplina, los resultados caen por su propio peso.",
-      "image": "https://icdn.football-italia.net/wp-content/uploads/2026/11/ssc-napoli-v-ss-lazio-serie-a-2026-27-6-1-414x289.jpg"
+      "headline": "Sassuolo y Genoa calientan motores con elogios cruzados y bajas sensibles",
+      "url": "https://www.derbyderbyderby.it/calcio-italiano/sassuolo-genoa-le-prime-parole-di-daversa-bisogna-migliorare-in-fase-difensiva-adzic-e-volpato-sono-out/",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: D'Aversa advirtió que su equipo debe corregir urgencias defensivas y lidiará con ausencias importantes como Adzic y Volpato. Por su parte, Daniele De Rossi alertó sobre el peligro individual del rival y evaluó cuidadosamente el rendimiento de Frendrup.",
+      "tribuna": "Partido trampa de esos donde nadie quiere regalar ni un metro de pasto en la mitad de la cancha. Los técnicos se tiran flores en la previa pero adentro se van a dar con todo.",
+      "image": ""
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Corinthians pierde a Gabriel Paulista por grave lesión de rodilla",
+      "headline": "Leonardo Jardim arremete contra Abel Ferreira antes del partidazo",
+      "url": "https://ge.globo.com/futebol/times/flamengo/noticia/2026/11/21/jardim-cutuca-abel-ferreira-antes-de-palmeiras-x-flamengo.ghtml",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: En la antesala del choque entre Palmeiras y Flamengo, Jardim le respondió con dureza a su compatriota tras las quejas sobre títulos supuestamente entregados. Señaló que los discursos victimistas sobran en el fútbol brasileño de alta exigencia.",
+      "tribuna": "¡Se encendió el fuego cruzado entre portugueses en el Brasileirão! Ninguno quiere dar ventaja psicológica antes de un duelo que promete sacar chispas en cada pelota dividida.",
+      "image": ""
+    },
+    {
+      "category": "brasil",
+      "category_label": "Fútbol Brasileño",
+      "headline": "Gabriel Paulista sufre dura lesión de rodilla y se despide hasta 2027",
       "url": "https://ge.globo.com/futebol/times/corinthians/noticia/2026/11/21/gabriel-paulista-sofre-lesao-no-joelho-e-deve-voltar-ao-corinthians-apenas-em-2027.ghtml",
-      "formal": "El zaguero Gabriel Paulista sufrió un estiramiento colateral en el joelho y su recuperación lo marginará de las canchas hasta 2027. Representa una baja sumamente sensible para la retaguardia del Timão.",
-      "tribuna": "¡No te lo puedo creer, justo ahora que la defensa necesitaba más jerarquía! La mala suerte nos persigue este año con las lesiones de los referentes.",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El experimentado defensor central del Corinthians sufrió un estiramiento severo en el ligamento colateral. Su recuperación demandará varios meses, por lo que recién volverá a pisar los terrenos de juego en la próxima temporada.",
+      "tribuna": "Pésima noticia para el Timão en el peor momento deportivo del año defensivo. Perder a un caudillo de experiencia en la última línea deja al equipo totalmente expuesto.",
       "image": "https://s2-ge.glbimg.com/NPgGBlU_6IiDPtBHwzN3ETCsmfk=/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/B/8/tHRZChQFADdVq7dA0bJA/249263.jpg"
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Boletos agotados para el clásico entre Atlético-GO y Vila Nova",
-      "url": "https://ge.globo.com/go/futebol/times/atletico-go/noticia/2026/11/21/atletico-go-x-vila-nova-ingressos-esgotados-para-jogo-de-ida-dos-playoffs.ghtml",
-      "formal": "Las entradas para el partido de ida de los playoffs regionales se agotaron en tiempo récord. El tradicional enfrentamiento en Goiânia promete un lleno total y máxima tensión en las gradas.",
-      "tribuna": "¡Esto es fútbol de verdad, con las calles encendidas y las tribunas repletas de pasión! Que se preparen los jugadores porque en la cancha se va a echar chispas.",
-      "image": "https://s2-ge.glbimg.com/1xdxqwGYCjKsvR3OgtTp4nu-ZsY=/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2024/U/J/R6DtWAQwiYOyozP4ibqA/53787062143-ddceb0660f-k.jpg"
+      "headline": "Defensa de Tite en el Botafogo hace agua: 15 goles en ocho partidos",
+      "url": "https://ge.globo.com/futebol/times/botafogo/noticia/2026/11/21/defesa-vira-problema-para-tite-botafogo-sofre-15-gols-em-oito-jogos-e-tropeca-contra-rivales.ghtml",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El conjunto dirigido por Tite atraviesa una crisis defensiva alarmante que preocupa severamente a la directiva tras los últimos traspiés. Acumular semejante cantidad de goles en contra en pocos encuentros desató reproches públicos de la presidencia.",
+      "tribuna": "Los equipos del ex seleccionador solían ser murallas inexpugnables y ahora hacen agua por todos lados. La torcida ya perdió la paciencia con tanto descuido atrás.",
+      "image": ""
     },
     {
-      "category": "brasil",
-      "category_label": "Fútbol Brasileño",
-      "headline": "Marcos Antônio avanza favorablemente en su recuperación en São Paulo",
-      "url": "https://ge.globo.com/futebol/times/sao-paulo/noticia/2026/11/21/treino-do-sao-paulo-marcos-antonio-avanca-em-recuperacao.ghtml",
-      "formal": "El volante surgido en las inferiores del São Paulo volvió a pisar el gramado para realizar trabajos diferenciados. El cuerpo técnico espera contar con su aporte futbolístico en el tramo final del certamen.",
-      "tribuna": "Ojalá vuelva pronto al nivel que le conocemos porque el mediocampo del Tricolor sufre cuando falta claridad. Necesitamos piernas frescas para asegurar copas este año.",
-      "image": "https://s2-ge.glbimg.com/c4pjOGIhrlAzKACr_gWzJFrDCwI=/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/m/X/vO0cRfRcqL6EFqoSGkuQ/img-9439-jpg-1-768x960.jpeg"
+      "category": "mis_equipos",
+      "category_label": "AC Milan & Palestino",
+      "headline": "Gerry Cardinale elogia a Endrick y lo posiciona en la élite mundial",
+      "url": "https://football-italia.net/milan-cardinale-endrick-one-of-the-best/",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El propietario del AC Milan, Gerry Cardinale, destacó públicamente las cualidades del joven delantero brasileño. Lo catalogó sin titubeos como uno de los mejores futbolistas del planeta en su respectiva posición dentro del campo.",
+      "tribuna": "Los hinchas rossoneri miran atentos cada movimiento dirigencial mientras esperan fichajes que de verdad devuelvan al Milan a la cima europea. Declaraciones bonitas hay muchas, pero faltan títulos en las vitrinas.",
+      "image": "https://icdn.football-italia.net/wp-content/uploads/2026/10/Gerry-Cardinale-thumbs-up-414x276.jpg"
     },
     {
-      "category": "brasil",
-      "category_label": "Fútbol Brasileño",
-      "headline": "Oliver Bearman evalúa opciones fuera de Ferrari y tienta a Alpine",
-      "url": "https://motorsport.uol.com.br/f1/news/f1-bearman-estuda-opcoes-fora-do-nucleo-ferrari-e-sonda-alpine/10876543/",
-      "formal": "El joven piloto británico analiza su futuro de cara a la temporada 2027 ante la falta de hueco asegurado en el núcleo de Ferrari. Los sondeos preliminares apuntan a un posible acercamiento con la escudería Alpine.",
-      "tribuna": "El mercado de la Fórmula 1 se mueve antes de tiempo y los talentos jóvenes no quieren calentar banca por culpa de los veteranos. Si Ferrari no le da un asiento, que vuele a donde le den motor.",
-      "image": "https://conteudo.imguol.com.br/c/parceiros/c7/2026/11/21/f1-bearman-estuda-opcoes-fora-do-nucleo-ferrari-e-sonda-alpine-1795274752116_v2_142x100.jpg"
+      "category": "mis_equipos",
+      "category_label": "AC Milan & Palestino",
+      "headline": "Exentrenador del Milan, Sergio Conceição, reaparece en el fútbol italiano",
+      "url": "https://www.gazzetta.it/Calcio/Serie-A/Parma/21/11/2026/conceicao-a-parma-roma-ritorno-dopo-20-anni.shtml",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El estratega con pasado rossonero regresó al estadio Ennio Tardini más de dos décadas después de su etapa como jugador. Su presencia en territorio italiano alimenta de inmediato los rumores sobre un posible futuro banquillo en la Serie A.",
+      "tribuna": "El nombre de Conceição siempre suena con fuerza cuando algún grande entra en crisis en Italia. La Curva Sud lo recuerda con respeto y analiza si algún día podría ponerse el buzo milanista.",
+      "image": ""
+    },
+    {
+      "category": "mis_equipos",
+      "category_label": "AC Milan & Palestino",
+      "headline": "El Milan decide ceder a Francesco Camarda en enero con Cagliari en pole",
+      "url": "https://www.gazzetta.it/Calcio/Serie-A/Milan/21/11/2026/camarda-milan-cessione-prestito-cagliari-ipotesi.shtml",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: La directiva rossonera acordó que la joven promesa salga cedida durante el mercado invernal para sumar continuidad competitiva. El Cagliari lidera la puja por sus servicios, evaluando además la inclusión de jóvenes talentos como el prometedor Mendy.",
+      "tribuna": "Mandarlo a foguear a un equipo de provincia es lo mejor que pueden hacer para que termine de explotar. Si se queda en Milan lo van a tener comiendo banca y eso mata a cualquier joya.",
+      "image": ""
+    },
+    {
+      "category": "fichajes",
+      "category_label": "Fichajes & Rumores",
+      "headline": "Sebastián Boselli brilla en España y cosecha elogios en el Getafe",
+      "url": "https://www.ole.com.ar/river-plate/river-plate-sebastian-boselli-getafe-jugador-mes_0_QZK4xX3eNe.html",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El defensor uruguayo, transferido por River Plate en el último mercado estival, atraviesa un momento inmejorable en La Liga. Sus sólidas actuaciones defensivas lo han convertido rápidamente en la figura indiscutible y favorita de los hinchas azulones.",
+      "tribuna": "En River lo dejaron ir sin darle demasiadas oportunidades y ahora en España la rompe todita. Los dirigentes a veces tienen menos ojo clínico que un topo en la oscuridad.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/44jhLxbZT_1200x630__1.jpg"
+    },
+    {
+      "category": "fichajes",
+      "category_label": "Fichajes & Rumores",
+      "headline": "Equi Fernández anota en la goleada del Bayer Leverkusen en la Bundesliga",
+      "url": "https://www.ole.com.ar/futbol-internacional/video-gol-equi-fernandez-leverkusen-paderborn_0_n5h8pwvT0x.html",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El exmediocampista de Boca Juniors se hizo presente en el marcador durante la aplastante victoria por 4-0 del conjunto alemán ante el Paderborn. Su rápida adaptación al fútbol europeo confirma el acierto en su costosa transferencia.",
+      "tribuna": "¡Qué clase de jugador se robaron de Sudamérica sin asco! El pibe pisa el área rival con una elegancia notable y ya se ganó el cariño absoluto de la hinchada germana.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/YrHRlOZ5r_1200x630__1.jpg"
+    },
+    {
+      "category": "fichajes",
+      "category_label": "Fichajes & Rumores",
+      "headline": "Ronaldinho Gaúcho regresa oficialmente a las canchas con el Ravenna italiano",
+      "url": "https://www.latercera.com/el-deportivo/noticia/alto-costo-y-grandes-beneficios-las-cifras-que-rodean-el-regreso-de-ronaldinho-gaucho-en-el-ravenna-de-italia/",
+      "date": "21/11/2026",
+      "formal": "Publicado el 21/11/2026: El legendario astro brasileño sorprendió al mundo futbolístico al oficializar su retorno a la actividad profesional con la camiseta del Ravenna, club de la tercera categoría italiana del cual es inversor. La operación combina un alto impacto mediático y beneficios comerciales masivos.",
+      "tribuna": "¡Pura magia vintage aunque sea en tercera división! Ver a Dinho tirar una elástica con los años que tiene vale cada centavo de lo que cobra por dar este tremendo espectáculo.",
+      "image": "https://www.latercera.com/resizer/v2/5RHVIS66YFE45B57RSTS4DVRBM.jpg?auth=35a59dba0b1e67bc70b79a8be3f95cba00b8259ac6c3ff5d3f425a8d8e8596f6&smart=true&width=4096&height=2740"
     }
   ]
 }
