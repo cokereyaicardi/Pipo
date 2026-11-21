@@ -1,101 +1,109 @@
 {
-  "updated_at": "21/11/2026 · 11:00 hrs (Chile)",
+  "updated_at": "21/11/2026 · 11:27 hrs (Chile)",
   "items": [
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Desplome tecnológico golpea a Anthropic y sacude Wall Street",
-      "url": "https://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-anthropic-sus-historico-debut-bolsa",
-      "formal": "La OPI del creador de Claude superó en recaudación a SpaceX al alcanzar más de US$ 81.000 millones. Sin embargo, el mercado sufrió una fuerte corrección tecnológica que dejó la peor semana bursátil desde la pandemia.",
-      "tribuna": "Los analistas de sillón ya están llorando con sus carteras en rojo mientras compran humo IA. Dicen que la burbuja se pinchó, pero todos sabemos que el lunes vuelven a apostar sueldo y aguinaldo."
+      "headline": "Wall Street sufre su peor semana desde la pandemia por desplome tecnológico",
+      "url": "https://www.bbc.com/mundo/articles/cm8791vvwelno",
+      "formal": "Las bolsas globales experimentaron fuertes caídas arrastradas por el desplome masivo de las acciones tecnológicas. El índice S&P 500 y el Dow Jones cerraron en territorio de corrección, perdiendo un 10% desde sus máximos históricos.",
+      "tribuna": "Los inversores de la vieja escuela dicen que era una burbuja anunciada y que la fiesta de la IA por fin se pinchó. En los foros ya hay memes de gente vendiendo el auto para comprar acciones que no paran de caer."
+    },
+    {
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Anthropic se desploma en su debut bursátil tras superar a SpaceX",
+      "url": "http://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-anthropic-tras-su-historico-debut-en-bolsa-y",
+      "formal": "La oferta pública inicial de la empresa dueña de Claude recaudó más de US$ 81.000 millones, superando el registro histórico de SpaceX. Sin embargo, el mal momento general de las tecnológicas provocó una abrupta caída posterior en su cotización.",
+      "tribuna": "Pasaron de tocar el cielo con las manos a celebrar que todavía les queda café en la oficina. La gente no entiende cómo una empresa vale tanto en papel y al día siguiente se desploma sin piedad."
     },
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
       "headline": "Exdirector de HNH Energy culpa a la autoridad por freno del hidrógeno verde",
       "url": "http://www.df.cl/senal-df/senales-financieras/mario-marchese-exdirector-de-hnh-energy-la-autoridad-fallo-en-reaccionar",
-      "formal": "Mario Marchese apuntó a la falta de agilidad gubernamental y la caída de la demanda internacional como causas del estancamiento industrial en Magallanes. La falta de adaptación rápida dejó proyectos clave congelados en la región.",
-      "tribuna": "Acá prometieron el oro y el moro con la energía del futuro, pero la burocracia estatal se encargó de espantar hasta al último inversionista. Nos quedamos mirando los barcos pasar mientras otros países nos comen el mandado."
+      "formal": "Mario Marchese apuntó contra la falta de agilidad gubernamental ante la caída de la demanda internacional y los elevados costos operativos. Señaló que el estancamiento de la industria en Magallanes responde a una reacción tardía del Estado.",
+      "tribuna": "Acá en el sur nos vendieron el cuento del oro verde y ahora nos quedamos mirando maquetas. Los políticos prometen empleos del futuro mientras los proyectos se mueren esperando un trámite."
     },
     {
-      "category": "economia",
-      "category_label": "Economía & Mercados",
-      "headline": "Gira asiática de Kast busca frenar riesgos de PIB negativo en 2026",
-      "url": "http://www.df.cl/economia-y-politica/gobierno/la-trastienda-de-la-gira-de-kast-por-asia-el-menu-del-banquete-con-xi",
-      "formal": "El Presidente realizó una gira por Vietnam, China y Japón para asegurar inversiones bilaterales de cara a un escenario macroeconómico complejo. Las proyecciones económicas anticipan desafíos severos para el crecimiento nacional en el mediano plazo.",
-      "tribuna": "Se fue a comer banquetes con Xi Jinping mientras la calle sigue sufriendo con el costo de la vida y el desempleo. Ojalá traiga inversiones reales y no puro humo diplomático para la foto."
-    },
-    {
-      "category": "argentina",
-      "category_label": "Fútbol Argentino",
-      "headline": "Invasión total de hinchas de Boca en Barranquilla por la Sudamericana",
-      "url": "https://www.ole.com.ar/boca-juniors/barranquilla-boca-invasion-total-plazas-hotel-locales-final-sudamerciana_0_uVcbli5tUb.html",
-      "formal": "La parcialidad xeneize colapsó la capacidad hotelera de la ciudad colombiana previa al choque decisivo ante Atlético Mineiro. Dirigivos de la AFA y Boca mantuvieron cumbres institucionales antes de saltar al campo.",
-      "tribuna": "¡Locales otra vez por todos lados hermano, copamos el continente entero! Que se agarren los brasileños porque la fiesta en la tribuna ya la ganamos por goleada."
+      "category": "chile",
+      "category_label": "Fútbol Chileno",
+      "headline": "La trastienda de la gira asiática de Kast y el banquete con Xi Jinping",
+      "url": "http://www.df.cl/economia-y-politica/gobierno/la-trastienda-de-la-gira-por-asia-de-kast",
+      "formal": "El periplo del Presidente José Antonio Kast por Vietnam, China y Japón tuvo como eje central la atracción de nuevas inversiones extranjeras. La comitiva oficial combinó reuniones bilaterales de alto nivel con encuentros comerciales estratégicos.",
+      "tribuna": "Unos aplauden que salga a buscar billeteras afuera para mover la aguja, mientras los críticos dicen que puro fue a pasearse con los peces gordos. Al chileno de a pie le importa poco el banquete si el pan sigue subiendo en la esquina."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Argentina cae ante Japón y queda al borde del abismo en la Billie Jean King Cup",
-      "url": "https://www.ole.com.ar/tenis/argentina-cae-2-0-japon-billie-jean-king-cup_0_ytTgdvNfqX.html",
-      "formal": "El equipo nacional femenino cedió los primeros dos puntos de la serie ante el conjunto asiático. Quedaron matchpoint en contra y obligadas a una hazaña histórica para revertir el marcador.",
-      "tribuna": "Siempre nos cuesta el doble contra las potencias, pero las chicas se matan en la cancha dejando el alma. Hay que levantar cabeza y quemar las naves en el dobles para dar vuelta esta historia."
+      "headline": "El Dibu Martínez regresa a la titularidad del Chelsea frente al Leeds",
+      "url": "https://www.ole.com.ar/futbol-internacional/inglaterra/dibu-vuelve-atajar-chelsea-leeds_0_phIpYlm4pO.html",
+      "formal": "El arquero argentino superó satisfactoriamente una fractura de mandíbula que lo mantuvo marginado de las canchas. Tras sumar minutos con la Selección, volverá a custodiar el arco de su club en la Premier League.",
+      "tribuna": "¡Qué va a estar roto ese muchacho si es de acero puro! Los hinchas ya lo pedían a gritos porque con él en el arco el equipo entra a la cancha ganando un gol de ventaja."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Rafael Nadal asume como directivo del Real Madrid entre ovaciones",
-      "url": "https://www.ole.com.ar/futbol-internacional/espana/rafa-nadal-real-madrid-ovacion_0_f5FF30mCDl.html",
-      "formal": "La leyenda del tenis español fue presentada oficialmente como nuevo miembro de la junta directiva del club merengue. Recibió una calurosa ovación por parte de los asistentes durante el acto protocolar.",
-      "tribuna": "Hasta retirado de las canchas de polvo de ladrillo, el tipo sigue mandando y giganteando su leyenda ahora en el palco blanco. Un monstruo total que merece esto y mucho más."
+      "headline": "Presidente de Argentinos Juniors descarta rumores de quiebra institucional",
+      "url": "https://www.ole.com.ar/argentinos/cristian-malaspina-argentinos-quiebra-deuda-charla-socios_0_epMm5WBfWV.html",
+      "formal": "Cristian Malaspina salió al paso de las versiones sobre la salud financiera del club y conversó directamente con los socios. Aseguró de forma categórica que no existe ninguna notificación judicial de quiebra.",
+      "tribuna": "Saltaron todos los socios con el corazón en la boca apenas corrió el rumor en el barrio. Menos mal que salieron a dar la cara porque la plata de los clubes sagrada no se toca."
+    },
+    {
+      "category": "argentina",
+      "category_label": "Fútbol Argentino",
+      "headline": "River se juega todo ante Lanús en los octavos de final del Clausura",
+      "url": "https://www.ole.com.ar/futbol-primera/river-vs-lanus-octavos-torneo-clausura-hora-ver-tv-online-formaciones_0_2nr9oTEPvM.html",
+      "formal": "El equipo dirigido por Leo Ponzio enfrenta un duelo crucial para mantener aspiraciones de título en el año. El Millonario está obligado a conseguir una victoria en condición de local para seguir con vida en el torneo.",
+      "tribuna": "Hoy se moja la camiseta o nos vamos todos a llorar a la cordillera. La gente en la tribuna no acepta otro resultado que ganar, gustar y golear."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Cesc Fágbregas avisa sobre los videojuegos y la Serie A se mueve",
+      "headline": "Cesc Fàbregas lanza advertencia sobre la obsesión con los videojuegos",
       "url": "https://video.gazzetta.it/calcio/video-fabregas-gta-speriamo-non-ci-giochi-nessuno/5f1aa8c5-f1c1-43cb-b0d2-f9da65addxlk",
-      "formal": "El técnico español dejó declaraciones llamativas en la previa del Como, mientras el mercado invernal empieza a agitarse en el Calcio. Equipos como el Milan y Cagliari evalúan fichajes estratégicos para enero.",
-      "tribuna": "Entre declaraciones insólitas y la locura del mercado de pases, el fútbol italiano nunca aburre a nadie. Todos opinan de todo mientras sufren en los bancos y en las gradas."
+      "formal": "El técnico español comentó en tono de preocupación el impacto de los títulos virtuales en la concentración de los deportistas modernos. Sus declaraciones sobre el lanzamiento de franquicias masivas generaron debate en el fútbol italiano.",
+      "tribuna": "El viejo Fàbregas tiene toda la razón, los pibes de ahora se quedan hasta las tantas viciando en la Play. Después en la cancha caminan porque no dan más del sueño."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Amorim y el momento del Milan: las prioridades de enero en la mira",
+      "headline": "Amorim reconoce la sequía del Milan y respalda al joven Camarda",
+      "url": "https://football-italia.net/amorim-without-ramos-milan-dont-score/",
+      "formal": "El estratega del Milan admitió que la ausencia de su delantero principal frena la capacidad ofensiva del equipo rossonero. Asimismo, valoró el retorno anímico del joven Francesco Camarda al plantel profesional.",
+      "tribuna": "Si no le ponemos un 9 que la empuje adentro, vamos a seguir sufriendo contra cualquier equipito de mitad de tabla. Menos mal que los pibes de la cantera ponen garra para salvar el negocio."
+    },
+    {
+      "category": "italia",
+      "category_label": "Fútbol Italiano",
+      "headline": "Milan vigila de cerca la situación contractual de Bruno Fernandes",
       "url": "https://football-italia.net/milan-monitoring-bruno-three-jan-priorities/",
-      "formal": "La dirigencia rossonera vigila de cerca la situación contractual de Bruno Fernandes en el Manchester United para posibles movimientos. A su vez, gestionan salidas y fichajes prioritarios para corregir el rumbo táctico.",
-      "tribuna": "Si traen a Bruno Fernandes de verdad se arman hasta los dientes para pelear arriba de nuevo. Ya era hora de que la directiva mueva la chequera sin andar especulando tanto."
-    },
-    {
-      "category": "italia",
-      "category_label": "Fútbol Italiano",
-      "headline": "Cagliari busca el préstamo de Camarda en el mercado invernal",
-      "url": "https://football-italia.net/cagliari-want-camarda-mendy-for-milan/",
-      "formal": "Reportes desde Italia confirman el interés del Cagliari por sumar a la joven promesa Francesco Camarda en calidad de cedido. La operación podría incluir el intercambio de piezas para convencer al Milan.",
-      "tribuna": "A los pibes hay que dejarlos foguearse en equipos donde sumen minutos reales y no quemarlos en la banca grande. Si el Milan los cede bien, todos terminan ganando."
+      "formal": "Medios italianos confirman que la directiva rossonera sigue atenta a las negociaciones del mediocampista portugués con el Manchester United. Su fichaje se perfila como uno de los objetivos complejos de cara al mercado de invierno.",
+      "tribuna": "Traigan a alguien que sepa dar dos pases seguidos por el amor de Dios. Los hinchas ya soñamos con un volante que ponga orden en el mediocampo de una vez por todas."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Flamengo y Palmeiras disputan una auténtica final en el Brasileirão",
+      "headline": "Neymar gana torneo de póquer en el BSOP Millions y se lleva R$ 380 mil",
+      "url": "https://www.gazetaesportiva.com/neymar/neymar-conquista-titulo-poker-bsop-millions-380-mil/",
+      "formal": "El delantero brasileño se impuso en una de las mesas de alto nivel del prestigioso circuito nacional de cartas. Con esta victoria, sumó un nuevo trofeo a su palmarés fuera de los campos de fútbol.",
+      "tribuna": "Mientras unos corren noventa minutos bajo la lluvia, el Ney gana más plata jugando a las cartas un fin de semana. Genio y figura hasta en el casino."
+    },
+    {
+      "category": "brasil",
+      "category_label": "Fútbol Brasileño",
+      "headline": "Flamengo y Palmeiras disputan un Brasileirao de dominio absoluto",
       "url": "https://ge.globo.com/futebol/times/flamengo/noticia/2026/11/21/flamengo-e-palmeiras-fazem-final-em-brasileirao-de-dominio-sobre-concorrentes.ghtml",
-      "formal": "Los dos gigantes del fútbol brasileño protagonizan un duelo clave que refleja su absoluto dominio sobre el resto de los competidores locales. El choque define gran parte de las aspiraciones al título de la temporada.",
-      "tribuna": "Juegan en otra liga estos dos monstruos, tienen billetera y plantel para armar tres equipos distintos. El resto de los clubes miran desde lejos cómo se reparten todas las copas."
+      "formal": "Los dos gigantes del fútbol brasileño consolidaron una distancia inalcanzable frente al resto de los competidores del torneo. La lucha por el título se reduce a un mano a mano histórico entre ambos planteles.",
+      "tribuna": "Los demás equipos juegan por ver quién sale tercero porque estos dos compran hasta el aire que respiran. Es un campeonato aburrido de ricos contra ricos."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Crisis en el Figueirense: revelan que un atleta estuvo cerca del desalojo",
-      "url": "https://ge.globo.com/sc/futebol/times/figueirense/noticia/2026/11/21/tivemos-atleta-quase-sendo-despejado-revela-tulio-guerreiro-sobre-crise-no-figueirense.ghtml",
-      "formal": "Túlio Guerreiro expuso la grave crisis financiera institucional que atraviesa el club y que impacta directamente en la vida diaria de los jugadores. La precariedad laboral en divisiones tradicionales vuelve a encender alarmas.",
-      "tribuna": "Una vergüenza total lo que hacen los dirigentes con los clubes históricos del ascenso y del interior. Mientras tanto ellos cobran sus sueldos gordos y los futbolistas sufren para pagar el alquiler."
-    },
-    {
-      "category": "brasil",
-      "category_label": "Fútbol Brasileño",
-      "headline": "Homenaje y emoción: arquero presente en tributo tras trágico episodio",
-      "url": "https://ge.globo.com/futebol/futebol-internacional/noticia/2026/11/21/goleiro-envolvido-em-lance-que-causou-morte-de-jesus-de-miguel-comparece-a-homenagem.ghtml",
-      "formal": "El guardameta involucrado en la jugada que provocó el fallecimiento de Jesús de Miguel asistió al acto en su memoria. El mundo del fútbol se unió en un respetuoso gesto de dolor y solidaridad.",
-      "tribuna": "Un momento durísimo que te demuestra que la pelota a veces pasa a un segundo plano absoluto. Nadie quiere pasar por algo así en una cancha, fuerza gigante para todas las familias afectadas."
+      "headline": "Max Verstappen largará en la pole tras la clasificación en Las Vegas",
+      "url": "https://www.gazetaesportiva.com/motor/formula-1/verstappen-pole-gp-las-vegas-antonelli-bortoleto/",
+      "formal": "El piloto neerlandés se quedó con el mejor tiempo de la sesión a pesar de la destacada actuación inicial del joven Antonelli. Red Bull buscará capitalizar la primera posición en el circuito urbano estadounidense.",
+      "tribuna": "El neerlandés es una máquina perfecta que no te regala ni un centímetro en la pista. Ya aburre un poco ver al mismo ganar siempre, pero hay que reconocer que maneja con un talante único."
     }
   ]
 }
