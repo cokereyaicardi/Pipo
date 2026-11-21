@@ -3,19 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radar de Pipo — Sin Filtro y Sin Algoritmo</title>
+  <title>Radar de Pipo — Sin Algoritmo. Sin Humo.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand-block">
-      <div class="brand-eyebrow">EDICIÓN EN VIVO · MÁX. 48H</div>
+      <div class="brand-kicker">
+        <span class="radar-dot" id="radar-dot" aria-hidden="true"></span>
+        <span>RADAR EDITORIAL · MÁX. 48H</span>
+      </div>
       <h1>RADAR DE PIPO</h1>
-      <p id="last-updated" class="subtitle">Pipo está revisando la pizarra...</p>
+      <p class="manifesto">Sin algoritmo. Sin humo. Economía, mercados y fútbol contados con contexto y calle.</p>
+      <div class="meta-strip">
+        <span id="last-updated">Pipo está revisando la pizarra...</span>
+        <span class="sep">·</span>
+        <span id="items-count">0 noticias</span>
+      </div>
       <div class="action-bar">
         <button id="refresh-btn" type="button" class="btn-primary">Actualizar noticias</button>
         <button id="token-btn" type="button" class="btn-secondary" title="Configura tu token de GitHub para disparar el robot desde aquí">
-          ⚙️ Configurar botón
+          ⚙️ Token
         </button>
         <a
           href="https://github.com/cokereyaicardi/Pipo/actions/workflows/actualizar.yml"
@@ -23,31 +37,38 @@
           rel="noopener noreferrer"
           class="btn-secondary btn-link"
         >
-          Correr robot ↗
+          Actions ↗
         </a>
       </div>
-      <p id="status-msg" class="status-msg"></p>
+      <p id="status-msg" class="status-msg" role="status" aria-live="polite"></p>
     </div>
 
-    <div class="mode-switch" aria-label="Modo de lectura">
-      <button class="mode-btn active" data-mode="all">Ambos tonos</button>
-      <button class="mode-btn" data-mode="formal">Solo Análisis</button>
-      <button class="mode-btn" data-mode="tribuna">La Tribuna de Pipo</button>
+    <div class="controls-right">
+      <span class="control-label">TONO DE LECTURA</span>
+      <div class="mode-switch" role="tablist" aria-label="Modo de lectura">
+        <button class="mode-btn active" type="button" data-mode="all">Ambos</button>
+        <button class="mode-btn" type="button" data-mode="formal">📊 Análisis</button>
+        <button class="mode-btn" type="button" data-mode="tribuna">🔥 Tribuna</button>
+      </div>
     </div>
   </header>
 
-  <nav class="tabs" id="category-tabs">
-    <button class="tab active" data-cat="all">Todo</button>
-    <button class="tab tab-highlight" data-cat="mis_equipos">AC Milan & Palestino</button>
-    <button class="tab" data-cat="fichajes">Fichajes & Rumores</button>
-    <button class="tab" data-cat="economia">Economía & Mercados</button>
-    <button class="tab" data-cat="chile">Fútbol Chileno</button>
-    <button class="tab" data-cat="argentina">Fútbol Argentino</button>
-    <button class="tab" data-cat="italia">Fútbol Italiano</button>
-    <button class="tab" data-cat="brasil">Fútbol Brasileño</button>
+  <nav class="tabs" id="category-tabs" aria-label="Secciones">
+    <button class="tab active" type="button" data-cat="all">Todo <span class="tab-count" data-count="all"></span></button>
+    <button class="tab tab-highlight" type="button" data-cat="mis_equipos">🔴⚫ AC Milan & Palestino <span class="tab-count" data-count="mis_equipos"></span></button>
+    <button class="tab" type="button" data-cat="fichajes">🚨 Fichajes <span class="tab-count" data-count="fichajes"></span></button>
+    <button class="tab" type="button" data-cat="economia">📈 Economía <span class="tab-count" data-count="economia"></span></button>
+    <button class="tab" type="button" data-cat="chile">🇨🇱 Chile <span class="tab-count" data-count="chile"></span></button>
+    <button class="tab" type="button" data-cat="argentina">🇦🇷 Argentina <span class="tab-count" data-count="argentina"></span></button>
+    <button class="tab" type="button" data-cat="italia">🇮🇹 Italia <span class="tab-count" data-count="italia"></span></button>
+    <button class="tab" type="button" data-cat="brasil">🇧🇷 Brasil <span class="tab-count" data-count="brasil"></span></button>
   </nav>
 
   <main id="feed-container" class="grid"></main>
+
+  <button id="scroll-top-btn" type="button" class="scroll-top" aria-label="Volver arriba" title="Volver arriba">
+    ↑ Arriba
+  </button>
 
   <script src="app.js"></script>
 </body>
