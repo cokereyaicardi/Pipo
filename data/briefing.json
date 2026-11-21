@@ -1,101 +1,185 @@
 {
-  "updated_at": "21/11/2026 · 11:31 hrs (Chile)",
+  "updated_at": "21/11/2026 · 11:38 hrs (Chile)",
   "items": [
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Desplome tecnológico golpea a mercados",
-      "url": "https://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-a-anthropic-tras-su-historico-debut-en-bolsa-y",
-      "formal": "La OPI del dueño de Claude superó en recaudación a SpaceX, pero la caída generalizada arrastró a Wall Street a su peor semana desde la pandemia. Los analistas apuntan a una corrección del mercado tras meses de euforia en el sector tecnológico.",
-      "tribuna": "Los inversores están con los pelos de punta viendo cómo se esfuman las ganancias de todo el año en cuestión de horas. Ya nadie cree en la burbuja fácil y el pánico se apodera de los foros financieros."
+      "headline": "Hidrógeno verde en Chile: el fracaso de la reacción gubernamental",
+      "url": "http://www.df.cl/senal-df/senales-financieras/mario-marchese-exdirector-de-hnh-energy-la-autoridad-fallo-en-reaccionar",
+      "formal": "La industria del hidrógeno en Magallanes se estanca por baja demanda externa y falta de agilidad pública. Expertos critican la gestión estatal para reaccionar ante los cambios del mercado global.",
+      "tribuna": "Se nos llena la boca con el futuro verde mientras las inversiones se escapan. Otra oportunidad histórica que se pierde por la parsimonia de siempre.",
+      "image": ""
     },
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Hidrógeno verde en pausa por falta de reacción",
-      "url": "https://www.df.cl/senal-df/senales-financieras/mario-marchese-exdirector-de-hnh-energy-la-autoridad-fallo-en-reaccionar",
-      "formal": "Exlíderes gremiales en Magallanes atribuyen el freno de la industria a la caída de la demanda internacional y la lentitud estatal. La falta de agilidad regulatoria ahuyenta los capitales necesarios para sostener los proyectos a gran escala.",
-      "tribuna": "Nos vendieron el cuento del combustible del futuro y ahora los proyectos se quedan en puras maquetas y promesas de oficina. Así no hay economía que aguante, pura burocracia matando la inversión."
+      "headline": "Desplome de Anthropic en bolsa revive fantasmas de SpaceX",
+      "url": "http://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-a-anthropic-tras-su-historico-debut-en-bolsa-y",
+      "formal": "La OPI de la dueña de Claude recaudó US$ 81.000 millones pero sufrió una caída inmediata. La volatilidad del sector tecnológico recuerda a los tropiezos previos de SpaceX.",
+      "tribuna": "La burbuja de la IA empieza a desinflarse y los inversores están sudando frío. Mucho humo y poco valor real para tanto ruido mediático.",
+      "image": ""
     },
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Wall Street sufre su peor semana",
+      "headline": "Gira asiática de Kast: inversiones bajo la sombra de la recesión",
+      "url": "http://www.df.cl/economia-y-politica/gobierno/la-trastienda-de-la-gira-de-kast-por-asia-el-menu-del-banquete-con-xi",
+      "formal": "El Presidente Kast buscó atraer inversiones en China, Japón y Vietnam ante proyecciones de PIB negativo en 2026. La agenda incluyó fortalecer lazos comerciales con Xi Jinping.",
+      "tribuna": "Mientras el dólar sube y el PIB peligra, el gobierno apuesta todo a los banquetes internacionales. Ojalá los acuerdos se traduzcan en empleos y no solo en fotos.",
+      "image": ""
+    },
+    {
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Wall Street sufre su peor semana desde la pandemia por tecnológicas",
       "url": "https://www.bbc.com/mundo/articles/cm8791vvwelno",
-      "formal": "Los principales índices bursátiles cerraron con fuertes pérdidas arrastrados por la masiva liquidación de acciones tecnológicas. El S&P 500 y el Dow Jones entraron oficialmente en territorio de corrección tras perder un 10% desde sus máximos.",
-      "tribuna": "Los trolls de internet celebran la caída de los millonarios de Silicon Valley mientras el ciudadano de a pie reza para que sus fondos de pensiones no desaparezcan. ¡Menudo panorama para encarar fin de mes!"
+      "formal": "El desplome bursátil afecta gravemente al S&P 500 y Dow Jones, que entran en terreno de corrección. La desconfianza en el sector tecnológico lidera la caída masiva.",
+      "tribuna": "El mercado está en pánico total y el ahorro de la gente empieza a peligrar. Cuando Wall Street estornuda, a nosotros nos da una neumonía.",
+      "image": ""
+    },
+    {
+      "category": "chile",
+      "category_label": "Fútbol Chileno",
+      "headline": "Claudio Borghi critica recambio de Córdova en la Roja",
+      "url": "https://www.latercera.com/el-deportivo/noticia/la-critica-de-claudio-borghi-al-recambio-de-nicolas-cordova-en-la-roja-la-juventud-no-significa-tener-fuerza/",
+      "formal": "El exentrenador cuestionó la estrategia de Nicolás Córdova al integrar jóvenes sin experiencia en el equipo nacional. Borghi enfatiza que la juventud no reemplaza la fortaleza competitiva necesaria.",
+      "tribuna": "El Bichi tiene razón, la Roja no es un jardín infantil para experimentos. Estamos lanzando a los cabros al matadero sin preparación ni liderazgo.",
+      "image": "https://www.latercera.com/resizer/v2/7CSPTCAYAJAUXFJDFP25O2QUSE.jpg?auth=ebc6460ad178d6d57fbed57bbd4db0694dd75edcd1c6d1e2e93f7f3872e652f2&smart=true&width=3264&height=2026"
+    },
+    {
+      "category": "chile",
+      "category_label": "Fútbol Chileno",
+      "headline": "Everton asegura clasificación histórica en Copa Libertadores",
+      "url": "https://chile.as.com/chile/2022/03/02/futbol/1646179868_611888.html",
+      "formal": "Los ruleteros avanzaron a la tercera fase del torneo continental a pesar de perder ante Monagas. La ventaja obtenida en el partido de ida fue decisiva para el resultado.",
+      "tribuna": "Se sufrió hasta el final, pero el que quiere celeste que le cueste. Qué alegría ver equipos de región dando cara en el extranjero.",
+      "image": ""
+    },
+    {
+      "category": "chile",
+      "category_label": "Fútbol Chileno",
+      "headline": "Joyas de la Roja Sub 17 militan en Argentina e Italia",
+      "url": "https://www.latercera.com/el-deportivo/noticia/uno-en-argentina-el-otro-en-italia-quienes-son-los-extranjeros-de-la-roja-sub-17-que-debuta-en-el-mundial-de-qatar/",
+      "formal": "La selección chilena Sub 17 cuenta con dos jugadores formados en el extranjero para el Mundial. El equipo debuta este sábado frente a Argelia bajo el mando de Leporati.",
+      "tribuna": "A ver si estos pibes que vienen de afuera tienen el hambre necesaria. Ojalá traigan el profesionalismo que falta en las inferiores locales.",
+      "image": "https://www.latercera.com/resizer/v2/G4UCA4EMPZE73DCAB6X244OICM.jpg?auth=1f39444ea61dcae41d69adb7616391b5e46dd6297fd6c8f206004738af2dd20c&smart=true&width=1200&height=800"
+    },
+    {
+      "category": "chile",
+      "category_label": "Fútbol Chileno",
+      "headline": "Palestino bajo Gustavo Costas: la promesa de pelear arriba",
+      "url": "https://chile.as.com/chile/2022/03/01/futbol/1646143170_209829.html",
+      "formal": "Gustavo Costas ha posicionado a los tricolores en el subliderato del torneo local. El técnico ha transformado el rendimiento del equipo desde su llegada.",
+      "tribuna": "Costas le cambió la cara a Palestino, se nota que hay mano de DT serio. A ver si aguantan el ritmo durante todo el torneo.",
+      "image": ""
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Riquelme emociona a fanático en Colombia",
+      "headline": "River ante Lanús: partido decisivo para seguir con vida",
+      "url": "https://www.ole.com.ar/futbol-primera/river-vs-lanus-octavos-torneo-clausura-hora-ver-tv-online-formaciones_0_2nr9oTEPvM.html",
+      "formal": "El equipo de Leo Ponzio enfrenta un duelo crucial en el Torneo Clausura. Una victoria es obligatoria para mantener las aspiraciones del club en el campeonato.",
+      "tribuna": "El Millonario no puede dejar más puntos en el camino. Los hinchas ya están perdiendo la paciencia, hoy se tiene que ganar sí o sí.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/EVq5142E0_1200x630__1.jpg"
+    },
+    {
+      "category": "argentina",
+      "category_label": "Fútbol Argentino",
+      "headline": "Riquelme emociona a hinchas en su visita a Barranquilla",
       "url": "https://www.ole.com.ar/boca-juniors/juanromanriquelme-boca-barranquilla-copasudamericana-juandiegoriquet-juanromanriquet-conmebol-pibevalderrama-colombia_0_2ZwwxEHFCu.html",
-      "formal": "Durante la estadía de Boca Juniors en Barranquilla por competiciones internacionales, el presidente del club protagonizó un emotivo encuentro con hinchas locales. Las muestras de afecto hacia el dirigente se multiplicaron en tierras colombianas.",
-      "tribuna": "Para algunos es un dirigente discutido, pero para el hincha común Román sigue siendo un dios terrenal que te arregla la vida con un saludo. ¡Qué locura genera este club por donde vaya!"
+      "formal": "Juan Román Riquelme protagonizó momentos de cercanía con fanáticos colombianos durante la estadía de Boca. El gesto fue ampliamente celebrado por los seguidores del club.",
+      "tribuna": "Román es el último ídolo real, sabe cómo ganarse al hincha. Gestos así valen más que cualquier título, es la esencia del fútbol.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/yHYJLV9oT_1200x630__1.jpg"
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "El Dibu regresa a la titularidad",
+      "headline": "Dibu Martínez regresa a la titularidad con el Chelsea",
       "url": "https://www.ole.com.ar/futbol-internacional/inglaterra/dibu-vuelve-atajar-chelsea-leeds_0_phIpYlm4pO.html",
-      "formal": "Tras superar una compleja fractura de mandíbula y sumar minutos con la Albiceleste, el arquero marplatense vuelve al arco en el duelo entre Chelsea y Leeds. Su recuperación total alivia al cuerpo técnico de la selección.",
-      "tribuna": "¡Vuelve el dueño del arco nacional con esa locura hermosa que nos salvó en Qatar! A los delanteros rivales ya les vuelve a temblar el pulso cuando lo ven bajo los tres palos."
+      "formal": "Tras superar una fractura de mandíbula, el guardameta argentino vuelve al arco en el duelo contra Leeds. El portero ya había sumado minutos previamente con la Selección.",
+      "tribuna": "El Dibu es un animal, volvió más rápido de lo esperado. Que se cuide la mandíbula, pero qué bueno verlo de nuevo en la cancha.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/hw6rih2wb_1200x630__1.jpg"
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Argentinos Juniors niega supuesta quiebra",
+      "headline": "Argentinos Juniors calma las aguas: sin notificación de quiebra",
       "url": "https://www.ole.com.ar/argentinos/cristian-malaspina-argentinos-quiebra-deuda-charla-socios_0_epMm5WBfWV.html",
-      "formal": "El presidente del club, Cristian Malaspina, salió al paso de los rumores sobre el estado financiero de la institución y descartó cualquier notificación legal de quiebra. Los directivos buscan llevar tranquilidad a los socios ante versiones infundadas.",
-      "tribuna": "En el fútbol argentino tiran bombas de humo todos los días para desestabilizar a los clubes que hacen las cosas bien. Menos mal que salieron a desmentir rápido antes de que cundiera el pánico en La Paternal."
+      "formal": "El presidente Cristian Malaspina desmintió rumores sobre una posible quiebra en una reunión con socios. La dirigencia aclaró la situación financiera del club ante la incertidumbre.",
+      "tribuna": "Menos mal que salieron a hablar, el rumor de quiebra mata a cualquiera. Hay que ser transparentes porque el club es de la gente.",
+      "image": "https://www.ole.com.ar/images/2026/11/21/f_8LUbprR_1200x630__1.jpg"
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Amorim analiza las bajas sensibles del Milan",
-      "url": "https://www.gazzetta.it/Calcio/Serie-A/Milan/21-11-2026/amorim-en-conferenza-stampa-pavlovic-verra-convocato-ma-non-so-se-partira-dall-inizio.shtml",
-      "formal": "El técnico rossonero reconoció en conferencia de prensa que la ausencia de jugadores clave reduce el poder de gol del equipo en la Serie A. Asimismo, evaluará el estado físico de sus convocados de cara al próximo compromiso liguero.",
-      "tribuna": "Los hinchas en las redes ya están pidiendo explicaciones y refuerzos urgentes para enero porque sin delanteros eficaces no se le gana a nadie. ¡La paciencia de la curva sur se está acabando rápido!"
+      "headline": "Cesc Fábregas opina sobre el fenómeno social de GTA VI",
+      "url": "https://video.gazzetta.it/calcio/video-fabregas-gta-speriamo-non-ci-giochi-nessuno/5f1aa8c5-f1c1-43cb-b0d2-f9da65addxlk",
+      "formal": "El exfutbolista comentó con ironía el impacto cultural del nuevo videojuego GTA VI. Fábregas espera que sus jugadores no dediquen demasiado tiempo a esta distracción.",
+      "tribuna": "Cesc se pone en modo abuelo, pero tiene razón: el foco debe estar en la cancha. Aunque a ver quién se resiste a jugar eso.",
+      "image": "https://dimages2.gazzettaobjects.it/files/image_896_504/files/fp/uploads/2026/11/21/6b019fe22d4c8.r_d.495-270-8159.png"
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Bologna define convocados sin varias figuras",
-      "url": "https://www.gazzetta.it/calcio/fantanews/21-11-2026/bologna-i-convocati-per-l-udinese-out-heggem-happonen-e-miranda.shtml",
-      "formal": "El conjunto dirigido tácticamente afronta el duelo ante el Udinese con ausencias obligadas por lesión en su plantilla titular. El cuerpo técnico debió reestructurar el once inicial para buscar tres puntos vitales en el estadio Dall'Ara.",
-      "tribuna": "Con tantas bajas importantes en la defensa, los fanáticos del fantacalcio y del equipo están sufriendo antes de que empiece el partido. ¡Esperemos que los suplentes respondan en la cancha y no fallen!"
+      "headline": "Rubén Amorim busca soluciones ofensivas para el Milan",
+      "url": "https://www.gazzetta.it/Calcio/Serie-A/Milan/21-11-2026/amorim-in-conferenza-stampa-pavlovic-verra-convocato-ma-non-so-se-partira-dall-inizio.shtml",
+      "formal": "El técnico admitió que el equipo sufre sin Ramos y necesita reforzar el ataque. La falta de gol es una preocupación prioritaria para el entrenador rossonero.",
+      "tribuna": "Si no traen un delantero, el Milan va a terminar peleando mitad de tabla. Amorim tiene que sacudirse la modorra pronto.",
+      "image": "https://dimages2.gazzettaobjects.it/files/image_640_384/uploads/2026/11/21/6b017a5bcac40.jpeg"
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Milan vigila el futuro de Bruno Fernandes",
+      "headline": "Tonali fuera de la convocatoria del Tottenham contra Ipswich",
+      "url": "https://football-italia.net/italy-tonali-tottenham-hotspur-udogie-start/",
+      "formal": "El mediocampista italiano quedó fuera de la lista de convocados para el partido en Londres. Udogie, en cambio, vuelve a la titularidad para el conjunto de los Spurs.",
+      "tribuna": "Qué le pasa a Tonali, no termina de despegar en Inglaterra. Ojalá no sea otra lesión que lo deje fuera por mucho tiempo.",
+      "image": "https://icdn.football-italia.net/wp-content/uploads/2026/11/Da-Cunha-Tonali-414x276.jpg"
+    },
+    {
+      "category": "italia",
+      "category_label": "Fútbol Italiano",
+      "headline": "Milan vigila situación de Bruno Fernandes para el mercado",
       "url": "https://football-italia.net/milan-monitoring-bruno-three-jan-priorities/",
-      "formal": "Informaciones procedentes de Italia apuntan a que la directiva rossonera sigue de cerca la situación contractual del mediocampista portugués en el Manchester United. No obstante, el club prioriza resolver otras urgencias del plantel en el mercado de enero.",
-      "tribuna": "¡Vender humo en los diarios deportivos es el deporte nacional de los italianos durante el otoño! Si trajeran la mitad de los cracks que rumorean, el Milan ya habría ganado la Champions League tres veces seguidas."
+      "formal": "El club italiano monitorea el estado contractual del jugador del Manchester United. Aunque es una opción, el Milan tiene otras tres prioridades para enero.",
+      "tribuna": "Traer a Bruno sería un golpe sobre la mesa, pero primero que arreglen la defensa. El mercado de invierno es una ruleta rusa.",
+      "image": "https://icdn.football-italia.net/wp-content/uploads/2026/10/Bruno-Fernandes-annoyed.jpg"
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Neymar brilla lejos de las canchas",
+      "headline": "Neymar demuestra su destreza ganando torneo de póquer",
       "url": "https://www.gazetaesportiva.com/neymar/neymar-conquista-titulo-poker-bsop-millions-380-mil/",
-      "formal": "El astro brasileño se consagró campeón en un torneo de pôquer durante el BSOP Millions, embolsando un premio significativo en efectivo. Su afición por las cartas sigue compaginándose con su carrera en el fútbol profesional.",
-      "tribuna": "Mientras unos se matan entrenando bajo la lluvia, el Ney te gana un torneo de cartas millonario entre risas y amigos. ¡Un genio indomable dentro y fuera de los paños verdes!"
+      "formal": "El astro brasileño se consagró campeón en el BSOP Millions, embolsando R$ 380 mil. Neymar sigue vinculado a su pasión por las cartas durante su actividad.",
+      "tribuna": "Neymar juega mejor a las cartas que a la pelota últimamente. Algunos lo critican, pero el tipo se divierte y gana plata de sobra.",
+      "image": "https://static.gazetaesportiva.com/uploads/2026/11/WhatsApp-Image-2026-11-21-at-10.12.41.webp"
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Flamengo y Palmeiras definen el Brasileirão",
-      "url": "https://ge.globo.com/futebol/times/flamengo/noticia/2026/11/21/flamengo-e-palmeiras-fazem-final-em-brasileirao-de-dominio-sobre-concorrentes.gdf",
-      "formal": "Los dos gigantes del fútbol brasileño se enfrentan en un duelo con aroma a final anticipada que refleja su absoluto dominio sobre el resto de los competidores. La hegemonía económica y deportiva de ambos clubes marca el pulso del torneo nacional.",
-      "tribuna": "Parece una liga de dos equipos donde los demás son invitados de piedra gracias a las chequeras gigantes. ¡Que alguien avise al resto de los clubes que el campeonato ya empezó!"
+      "headline": "Flamengo y Palmeiras: la final anticipada del Brasileirão",
+      "url": "https://ge.globo.com/futebol/times/flamengo/noticia/2026/11/21/flamengo-e-palmeiras-fazem-final-em-brasileirao-de-dominio-sobre-concorrentes.ghtml",
+      "formal": "Los dos gigantes se enfrentan en un duelo que definirá el dominio del campeonato. La expectación es máxima ante el choque de los líderes del fútbol brasileño.",
+      "tribuna": "Esto es lo que el hincha quiere ver, los dos mejores cara a cara. Va a arder Brasil con este partido, el que gane se lleva todo.",
+      "image": "https://s2-ge.glbimg.com/3vB-zfjcVuE94Tkx-3AwizTsTog=/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/H/r/OTdrAURKCM5hOsWHEEdQ/whatsapp-image-2026-11-18-at-23.36.48.jpeg"
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "City tropieza y complica su temporada",
-      "url": "https://ge.globo.com/futebol/futebol-internacional/futebol-ingles/jogo/21-11-2026/Manchestercity-Fulham.ghtml",
-      "formal": "Con una destacada anotación del brasileño Rodrigo Muniz, el Fulham rescató un empate ante el Manchester City, extendiendo la mala racha de los Citizens a cuatro encuentros sin ganar. El equipo de Pep Guardiola atraviesa un bache preocupante en la Premier League.",
-      "tribuna": "¡Hasta los intocables de Guardiola sufren cuando los brasileños se inspiran en la Premier! Se armó tremendo debate en los bares de Río y Manchester por este partidazo."
+      "headline": "Manchester City de Guardiola suma cuatro partidos sin ganar",
+      "url": "https://www.gazetaesportiva.com/campeonatos/premier-league/manchester-city-empata-fulham-quatro-jogos-sem-vencer/",
+      "formal": "El equipo de Pep Guardiola empató con el Fulham y acumula una racha negativa histórica. El rendimiento del City preocupa a los seguidores en plena Premier League.",
+      "tribuna": "Hasta al mejor equipo se le acaba la nafta. Guardiola está entrando en crisis y los hinchas ya no saben qué más pedir.",
+      "image": "https://static.gazetaesportiva.com/uploads/2026/11/AFP__20261121__D88M7T8__v1__HighRes__FblEngPrManCityFulham.webp"
+    },
+    {
+      "category": "brasil",
+      "category_label": "Fútbol Brasileño",
+      "headline": "Cuiabá espera oferta del Southampton por Lorenzo",
+      "url": "https://ge.globo.com/mt/futebol/noticia/2026/11/21/cuiaba-aguarda-proposta-do-southampton-por-lorenzo-e-ve-venda-como-provavel.ghtml",
+      "formal": "El club brasileño considera altamente probable la salida del jugador hacia el fútbol inglés. La dirigencia ya planifica el próximo año asumiendo la transferencia inminente.",
+      "tribuna": "Otro talento que se nos va apenas empieza a brillar. Es la historia de siempre: el fútbol brasileño es un semillero para los europeos.",
+      "image": "https://s2-ge.glbimg.com/EndnHuuze9fSn2suYjPSGbpKRh0=/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2026/R/h/bkv7VTQwyR52Z10dJhaA/0w7a4096.jpg.jpeg"
     }
   ]
 }
