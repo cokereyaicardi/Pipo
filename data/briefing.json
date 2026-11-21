@@ -1,68 +1,101 @@
 {
-  "updated_at": "20/11/2026 · 18:20 hrs (Chile)",
+  "updated_at": "21/11/2026 · 11:00 hrs (Chile)",
   "items": [
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Wall Street tiembla: el desplome de la IA golpea al Nasdaq",
-      "formal": "El índice tecnológico Nasdaq sufrió una caída superior al 5% semanal, marcando su racha negativa más extensa desde 2020. La corrección se atribuye a un desmoronamiento de las apuestas especulativas en inteligencia artificial, afectando directamente a empresas como Anthropic.",
-      "tribuna": "Se les pinchó la burbuja a los genios de Wall Street y ahora todos corren como locos. Tanto cuento con la IA y a la primera de cambio se les desarmó el castillo de naipes, ¡a llorar a la iglesia!"
+      "headline": "Desplome tecnológico golpea a Anthropic y sacude Wall Street",
+      "url": "https://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-anthropic-sus-historico-debut-bolsa",
+      "formal": "La OPI del creador de Claude superó en recaudación a SpaceX al alcanzar más de US$ 81.000 millones. Sin embargo, el mercado sufrió una fuerte corrección tecnológica que dejó la peor semana bursátil desde la pandemia.",
+      "tribuna": "Los analistas de sillón ya están llorando con sus carteras en rojo mientras compran humo IA. Dicen que la burbuja se pinchó, pero todos sabemos que el lunes vuelven a apostar sueldo y aguinaldo."
     },
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Tesla aterriza en Buenos Aires: apuesta fuerte por el mercado argentino",
-      "formal": "La automotriz de Elon Musk inauguró su primera concesionaria en Buenos Aires, marcando un hito en su expansión regional. Esta apertura responde a la reciente apertura del mercado argentino y a la creciente competencia en el sector de vehículos eléctricos.",
-      "tribuna": "¡Llegó la nave espacial a Buenos Aires! Vamos a ver si con estos precios de lujo alguien se baja del bondi para subirse a un Tesla, pero al menos ya tenemos al gigante acá."
+      "headline": "Exdirector de HNH Energy culpa a la autoridad por freno del hidrógeno verde",
+      "url": "http://www.df.cl/senal-df/senales-financieras/mario-marchese-exdirector-de-hnh-energy-la-autoridad-fallo-en-reaccionar",
+      "formal": "Mario Marchese apuntó a la falta de agilidad gubernamental y la caída de la demanda internacional como causas del estancamiento industrial en Magallanes. La falta de adaptación rápida dejó proyectos clave congelados en la región.",
+      "tribuna": "Acá prometieron el oro y el moro con la energía del futuro, pero la burocracia estatal se encargó de espantar hasta al último inversionista. Nos quedamos mirando los barcos pasar mientras otros países nos comen el mandado."
     },
     {
-      "category": "chile",
-      "category_label": "Fútbol Chileno",
-      "headline": "Histórica unión: Bloque Pesquero del Biobío busca salvar el sector",
-      "formal": "Ocho organizaciones gremiales y sindicales de la pesca artesanal e industrial han conformado el Bloque Pesquero del Biobío. La alianza busca enfrentar la crisis laboral y la escasez de recursos mediante una postura conjunta ante la normativa vigente.",
-      "tribuna": "¡Por fin dejaron de pelear y se pusieron los pantalones! Cuando el agua llega al cuello, hasta los enemigos se abrazan; ojalá que esta unión sirva para que los pescadores no sigan pasando hambre."
-    },
-    {
-      "category": "argentina",
-      "category_label": "Fútbol Argentino",
-      "headline": "Fausto Vera en duda: River aguarda por su tobillo antes de Lanús",
-      "formal": "El volante padece una molestia en el tobillo que complica su participación para el próximo encuentro ante Lanús. El club deberá evaluar su estado físico y decidir si ejecutará la opción de compra al finalizar el préstamo.",
-      "tribuna": "¡Qué sal que tiene el pibe, justo ahora que el técnico lo necesita! Si no se recupera rápido, va a ver el partido desde la platea y con las valijas hechas, porque así no le sirve a nadie."
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Gira asiática de Kast busca frenar riesgos de PIB negativo en 2026",
+      "url": "http://www.df.cl/economia-y-politica/gobierno/la-trastienda-de-la-gira-de-kast-por-asia-el-menu-del-banquete-con-xi",
+      "formal": "El Presidente realizó una gira por Vietnam, China y Japón para asegurar inversiones bilaterales de cara a un escenario macroeconómico complejo. Las proyecciones económicas anticipan desafíos severos para el crecimiento nacional en el mediano plazo.",
+      "tribuna": "Se fue a comer banquetes con Xi Jinping mientras la calle sigue sufriendo con el costo de la vida y el desempleo. Ojalá traiga inversiones reales y no puro humo diplomático para la foto."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Atlético Mineiro: el análisis que pone en alerta a Boca",
-      "formal": "Marcelo Méndez, DT de City Torque, advirtió sobre la superioridad técnica del Mineiro antes de la final. Destacó que, aunque el equipo brasileño es peligroso, Boca cuenta con herramientas tácticas para aprovechar sus desatenciones defensivas.",
-      "tribuna": "Que hablen todo lo que quieran, pero la camiseta de Boca pesa un quintal en estas finales. El Mineiro podrá jugar lindo, pero en el barro y contra la gente, esa copa se suda distinto."
+      "headline": "Invasión total de hinchas de Boca en Barranquilla por la Sudamericana",
+      "url": "https://www.ole.com.ar/boca-juniors/barranquilla-boca-invasion-total-plazas-hotel-locales-final-sudamerciana_0_uVcbli5tUb.html",
+      "formal": "La parcialidad xeneize colapsó la capacidad hotelera de la ciudad colombiana previa al choque decisivo ante Atlético Mineiro. Dirigivos de la AFA y Boca mantuvieron cumbres institucionales antes de saltar al campo.",
+      "tribuna": "¡Locales otra vez por todos lados hermano, copamos el continente entero! Que se agarren los brasileños porque la fiesta en la tribuna ya la ganamos por goleada."
+    },
+    {
+      "category": "argentina",
+      "category_label": "Fútbol Argentino",
+      "headline": "Argentina cae ante Japón y queda al borde del abismo en la Billie Jean King Cup",
+      "url": "https://www.ole.com.ar/tenis/argentina-cae-2-0-japon-billie-jean-king-cup_0_ytTgdvNfqX.html",
+      "formal": "El equipo nacional femenino cedió los primeros dos puntos de la serie ante el conjunto asiático. Quedaron matchpoint en contra y obligadas a una hazaña histórica para revertir el marcador.",
+      "tribuna": "Siempre nos cuesta el doble contra las potencias, pero las chicas se matan en la cancha dejando el alma. Hay que levantar cabeza y quemar las naves en el dobles para dar vuelta esta historia."
+    },
+    {
+      "category": "argentina",
+      "category_label": "Fútbol Argentino",
+      "headline": "Rafael Nadal asume como directivo del Real Madrid entre ovaciones",
+      "url": "https://www.ole.com.ar/futbol-internacional/espana/rafa-nadal-real-madrid-ovacion_0_f5FF30mCDl.html",
+      "formal": "La leyenda del tenis español fue presentada oficialmente como nuevo miembro de la junta directiva del club merengue. Recibió una calurosa ovación por parte de los asistentes durante el acto protocolar.",
+      "tribuna": "Hasta retirado de las canchas de polvo de ladrillo, el tipo sigue mandando y giganteando su leyenda ahora en el palco blanco. Un monstruo total que merece esto y mucho más."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "El Inter recupera su esencia: vuelve la mítica camiseta naranja",
-      "formal": "El Inter de Milán anunció el regreso de su icónico uniforme naranja para la próxima temporada. El diseño integrará motivos inspirados en las escamas del Biscione, símbolo histórico del club milanés.",
-      "tribuna": "¡Esa camiseta es un fuego! Los hinchas estaban pidiendo algo con historia y no tanta modernidad rara; con el naranja van a salir a la cancha como verdaderos guerreros."
+      "headline": "Cesc Fágbregas avisa sobre los videojuegos y la Serie A se mueve",
+      "url": "https://video.gazzetta.it/calcio/video-fabregas-gta-speriamo-non-ci-giochi-nessuno/5f1aa8c5-f1c1-43cb-b0d2-f9da65addxlk",
+      "formal": "El técnico español dejó declaraciones llamativas en la previa del Como, mientras el mercado invernal empieza a agitarse en el Calcio. Equipos como el Milan y Cagliari evalúan fichajes estratégicos para enero.",
+      "tribuna": "Entre declaraciones insólitas y la locura del mercado de pases, el fútbol italiano nunca aburre a nadie. Todos opinan de todo mientras sufren en los bancos y en las gradas."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Conte y su mensaje de hierro en la Juventus",
-      "formal": "Antonio Conte reveló cómo utilizó la jerarquía de Pirlo y Buffon para imponer disciplina y mentalidad ganadora en su etapa en Turín. El técnico enfatizó la importancia de contar con líderes que transmitan los valores del club.",
-      "tribuna": "Con Conte no se jode, el tipo te hace correr hasta que escupas los pulmones. Si tenés a un Pirlo y un Buffon bancándolo, cualquier jugador se pone las pilas por puro miedo o por respeto."
+      "headline": "Amorim y el momento del Milan: las prioridades de enero en la mira",
+      "url": "https://football-italia.net/milan-monitoring-bruno-three-jan-priorities/",
+      "formal": "La dirigencia rossonera vigila de cerca la situación contractual de Bruno Fernandes en el Manchester United para posibles movimientos. A su vez, gestionan salidas y fichajes prioritarios para corregir el rumbo táctico.",
+      "tribuna": "Si traen a Bruno Fernandes de verdad se arman hasta los dientes para pelear arriba de nuevo. Ya era hora de que la directiva mueva la chequera sin andar especulando tanto."
+    },
+    {
+      "category": "italia",
+      "category_label": "Fútbol Italiano",
+      "headline": "Cagliari busca el préstamo de Camarda en el mercado invernal",
+      "url": "https://football-italia.net/cagliari-want-camarda-mendy-for-milan/",
+      "formal": "Reportes desde Italia confirman el interés del Cagliari por sumar a la joven promesa Francesco Camarda en calidad de cedido. La operación podría incluir el intercambio de piezas para convencer al Milan.",
+      "tribuna": "A los pibes hay que dejarlos foguearse en equipos donde sumen minutos reales y no quemarlos en la banca grande. Si el Milan los cede bien, todos terminan ganando."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Desafío logístico: Novorizontino complica los viajes en la Serie A",
-      "formal": "El club Novorizontino presenta un reto logístico significativo para sus rivales debido a su ubicación geográfica, carente de cercanía a aeropuertos y hoteles de alta capacidad. Esta condición afecta la planificación de los desplazamientos durante el campeonato.",
-      "tribuna": "¡Qué viaje les espera a los demás! Ir a jugar allá es un parto, más tiempo en el micro que en la cancha; esto sí es fútbol de verdad, lejos del glamour de los estadios cinco estrellas."
+      "headline": "Flamengo y Palmeiras disputan una auténtica final en el Brasileirão",
+      "url": "https://ge.globo.com/futebol/times/flamengo/noticia/2026/11/21/flamengo-e-palmeiras-fazem-final-em-brasileirao-de-dominio-sobre-concorrentes.ghtml",
+      "formal": "Los dos gigantes del fútbol brasileño protagonizan un duelo clave que refleja su absoluto dominio sobre el resto de los competidores locales. El choque define gran parte de las aspiraciones al título de la temporada.",
+      "tribuna": "Juegan en otra liga estos dos monstruos, tienen billetera y plantel para armar tres equipos distintos. El resto de los clubes miran desde lejos cómo se reparten todas las copas."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Baja sensible: Rafael Tolói se pierde partidos por lesión",
-      "formal": "El defensor del São Paulo sufrió una lesión en el muslo que lo dejará fuera de las próximas convocatorias. El cuerpo técnico deberá ajustar la línea defensiva en un momento crucial de la temporada.",
-      "tribuna": "¡Justo ahora que se viene lo bueno se nos rompe el capitán! Espero que el suplente esté a la altura, porque en esta etapa del torneo no se puede regalar ni medio centímetro atrás."
+      "headline": "Crisis en el Figueirense: revelan que un atleta estuvo cerca del desalojo",
+      "url": "https://ge.globo.com/sc/futebol/times/figueirense/noticia/2026/11/21/tivemos-atleta-quase-sendo-despejado-revela-tulio-guerreiro-sobre-crise-no-figueirense.ghtml",
+      "formal": "Túlio Guerreiro expuso la grave crisis financiera institucional que atraviesa el club y que impacta directamente en la vida diaria de los jugadores. La precariedad laboral en divisiones tradicionales vuelve a encender alarmas.",
+      "tribuna": "Una vergüenza total lo que hacen los dirigentes con los clubes históricos del ascenso y del interior. Mientras tanto ellos cobran sus sueldos gordos y los futbolistas sufren para pagar el alquiler."
+    },
+    {
+      "category": "brasil",
+      "category_label": "Fútbol Brasileño",
+      "headline": "Homenaje y emoción: arquero presente en tributo tras trágico episodio",
+      "url": "https://ge.globo.com/futebol/futebol-internacional/noticia/2026/11/21/goleiro-envolvido-em-lance-que-causou-morte-de-jesus-de-miguel-comparece-a-homenagem.ghtml",
+      "formal": "El guardameta involucrado en la jugada que provocó el fallecimiento de Jesús de Miguel asistió al acto en su memoria. El mundo del fútbol se unió en un respetuoso gesto de dolor y solidaridad.",
+      "tribuna": "Un momento durísimo que te demuestra que la pelota a veces pasa a un segundo plano absoluto. Nadie quiere pasar por algo así en una cancha, fuerza gigante para todas las familias afectadas."
     }
   ]
 }
