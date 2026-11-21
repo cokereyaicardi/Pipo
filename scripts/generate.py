@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import time
 import socket
@@ -18,9 +19,11 @@ FEEDS = {
         "https://www.cnbc.com/id/100003114/device/rss/rss.html",
     ],
     "chile": [
-        "https://www.biobiochile.cl/lista/categorias/deportes/rss.xml",
+        "https://chile.as.com/rss/chile/futbol.xml",
         "https://redgol.cl/feed",
-        "https://www.alairelibre.cl/noticias/site/list/port/rss.xml",
+        "https://www.adnradio.cl/feed/",
+        "https://www.latercera.com/arc/outboundfeeds/rss/category/el-deportivo/?outputType=xml",
+        "https://www.biobiochile.cl/lista/categorias/deportes/rss.xml",
     ],
     "argentina": [
         "https://www.ole.com.ar/rss/ultimas-noticias/",
@@ -54,10 +57,45 @@ MODELS_TO_TRY = [
 ]
 
 
+def extract_image(entry):
+    # 1. media_content
+    media = entry.get("media_content", [])
+    if media and isinstance(media, list):
+        url = media[0].get("url", "")
+        if url.startswith("http"):
+            return url
+
+    # 2. media_thumbnail
+    thumbs = entry.get("media_thumbnail", [])
+    if thumbs and isinstance(thumbs, list):
+        url = thumbs[0].get("url", "")
+        if url.startswith("http"):
+            return url
+
+    # 3. enclosures
+    for enc in entry.get("enclosures", []):
+        enc_type = enc.get("type", "")
+        href = enc.get("href", "") or enc.get("url", "")
+        if href.startswith("http") and ("image" in enc_type or href.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))):
+            return href
+
+    # 4. Etiqueta <img src="..."> en summary o content
+    html_blob = entry.get("summary", "")
+    if entry.get("content"):
+        html_blob += " " + entry["content"][0].get("value", "")
+    match = re.search(r'<img[^>]+src=["\'](https?://[^"\']+)["\']', html_blob, re.IGNORECASE)
+    if match:
+        return match.group(1)
+
+    return ""
+
+
 def fetch_feed_with_timeout(url, timeout=8):
     req = urllib.request.Request(
         url,
-        headers={"User-Agent": "Mozilla/5.0 (PipoRadar/1.0)"},
+        headers={
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+        },
     )
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         raw_bytes = resp.read()
@@ -66,48 +104,56 @@ def fetch_feed_with_timeout(url, timeout=8):
 
 def fetch_headlines():
     collected = {}
+    image_map = {}
+
     for cat, urls in FEEDS.items():
         entries = []
         for url in urls:
             try:
                 print(f"Leyendo feed [{cat}]: {url}")
                 feed = fetch_feed_with_timeout(url, timeout=8)
-                for entry in feed.entries[:4]:
+                for entry in feed.entries[:5]:
                     title = entry.get("title", "").strip()
-                    summary = entry.get("summary", "").strip()[:120]
+                    summary = re.sub(r"<[^>]+>", "", entry.get("summary", "")).strip()[:120]
                     link = entry.get("link", "").strip()
+                    img = extract_image(entry)
                     if title and link:
+                        if img:
+                            image_map[link] = img
                         entries.append(f"- {title} | {summary} | {link}")
             except Exception as e:
                 print(f"Saltando {url}: {e}")
-        collected[cat] = "\n".join(entries[:10])
-    return collected
+        print(f"Total entradas recolectadas para [{cat}]: {len(entries)}")
+        collected[cat] = "\n".join(entries[:12])
+
+    return collected, image_map
 
 
-def build_briefing(raw_news):
+def build_briefing(raw_news, image_map):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError("Falta GEMINI_API_KEY en el entorno.")
 
     client = genai.Client(
         api_key=api_key,
-        http_options=types.HttpOptions(timeout=35000),
+        http_options=types.HttpOptions(timeout=40000),
     )
 
     prompt = f"""
 Eres Pipo, un cronista y analista sin filtro que reemplaza el scroll tóxico de redes sociales.
-Procesa las noticias y devuelve un JSON estricto con **3 a 4 tarjetas** por categoría:
-- economia
-- chile
-- argentina
-- italia
-- brasil
+Procesa las noticias entregadas y devuelve un JSON estricto con **EXACTAMENTE 4 tarjetas por cada una de las 5 categorías (20 tarjetas en total)**:
+- economia (4 tarjetas)
+- chile (4 tarjetas de fútbol chileno: Primera División, La Roja, chilenos en el exterior)
+- argentina (4 tarjetas)
+- italia (4 tarjetas)
+- brasil (4 tarjetas)
 
-Reglas por tarjeta:
-1. "headline": Titular claro y con gancho (máx 12 palabras).
-2. "url": Copia EXACTAMENTE el link de la noticia original entregada. No inventes URLs.
-3. "formal": Dato duro y contexto serio/objetivo (2 oraciones breves).
-4. "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia; reacciones auténticas, debates reales de tablón o sentir ciudadano directo (2 oraciones breves, sin difamar ni insultar con odio).
+Reglas obligatorias por tarjeta:
+1. "category": Debe ser exactamente uno de estos valores: "economia", "chile", "argentina", "italia", "brasil". No omitas ninguna categoría.
+2. "headline": Titular claro y con gancho (máx 12 palabras).
+3. "url": Copia EXACTAMENTE el link de la noticia original entregada. No inventes URLs.
+4. "formal": Dato duro y contexto serio/objetivo (2 oraciones breves).
+5. "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia; reacciones auténticas, debates reales de tablón o sentir ciudadano directo (2 oraciones breves, sin difamar ni insultar con odio).
 
 JSON esperado:
 {{
@@ -161,6 +207,8 @@ Noticias:
         cat = item.get("category", "")
         if cat in CATEGORY_LABELS:
             item["category_label"] = CATEGORY_LABELS[cat]
+        item_url = item.get("url", "").strip()
+        item["image"] = image_map.get(item_url, "")
 
     return {
         "updated_at": now_str,
@@ -170,9 +218,9 @@ Noticias:
 
 if __name__ == "__main__":
     print("Pipo iniciando búsqueda de noticias...")
-    news = fetch_headlines()
+    news, img_map = fetch_headlines()
     print("Noticias recolectadas. Consultando a los modelos...")
-    briefing = build_briefing(news)
+    briefing = build_briefing(news, img_map)
     if briefing is None:
         print("Ningún modelo respondió a tiempo. Se mantiene el briefing actual.")
         raise SystemExit(0)
