@@ -37,7 +37,6 @@ async function loadBriefing(isManualClick = false) {
     const previousTimestamp = briefingData ? briefingData.updated_at : null;
     const savedToken = localStorage.getItem(TOKEN_STORAGE_KEY);
 
-    // Si es clic manual y el usuario guardó un token personal en su navegador, dispara el robot
     if (isManualClick && savedToken) {
       setStatus("Enviando orden al robot de Pipo en GitHub...");
       const dispatchRes = await fetch(WORKFLOW_DISPATCH_URL, {
@@ -52,7 +51,6 @@ async function loadBriefing(isManualClick = false) {
 
       if (dispatchRes.ok) {
         setStatus("Robot corriendo (tarda ~35 seg). Esperando noticias nuevas...");
-        // Esperamos a que el robot termine y actualice el archivo
         for (let i = 0; i < 8; i++) {
           await new Promise((r) => setTimeout(r, 8000));
           const candidate = await fetchLatestBriefing();
@@ -73,7 +71,6 @@ async function loadBriefing(isManualClick = false) {
       }
     }
 
-    // Lectura directa sin caché desde GitHub
     const latest = await fetchLatestBriefing();
     briefingData = latest;
 
@@ -128,6 +125,16 @@ function render() {
     const showFormal = currentMode === "all" || currentMode === "formal";
     const showTribuna = currentMode === "all" || currentMode === "tribuna";
 
+    const imageHtml = item.image
+      ? `<img
+           src="${item.image}"
+           alt=""
+           loading="lazy"
+           onerror="this.style.display='none'"
+           style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; display: block;"
+         />`
+      : "";
+
     const sourceLinkHtml = item.url
       ? `<div class="card-footer" style="margin-top: 12px;">
            <a href="${item.url}" target="_blank" rel="noopener noreferrer">Leer noticia ↗</a>
@@ -135,6 +142,7 @@ function render() {
       : "";
 
     card.innerHTML = `
+      ${imageHtml}
       <div>
         <span class="badge">${item.category_label || item.category}</span>
         <h2>${item.headline}</h2>
