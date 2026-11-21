@@ -11,8 +11,11 @@
     <div>
       <h1>RADAR DE PIPO</h1>
       <p id="last-updated" class="subtitle">Pipo está revisando la pizarra...</p>
-      <div class="action-bar" style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px;">
+      <div class="action-bar" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px;">
         <button id="refresh-btn" type="button" class="mode-btn">Actualizar noticias</button>
+        <button id="token-btn" type="button" class="mode-btn" title="Opcional: configura un token de GitHub para disparar el robot desde aquí">
+          ⚙️ Configurar botón
+        </button>
         <a
           href="https://github.com/cokereyaicardi/Pipo/actions/workflows/actualizar.yml"
           target="_blank"
@@ -23,6 +26,7 @@
           Correr robot ↗
         </a>
       </div>
+      <p id="status-msg" class="subtitle" style="margin-top: 6px; font-size: 0.85rem;"></p>
     </div>
     <div class="mode-switch">
       <button class="mode-btn active" data-mode="all">Ambos tonos</button>
