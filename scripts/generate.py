@@ -20,6 +20,10 @@ FEEDS = {
         "https://www.df.cl/noticias/site/list/port/rss.xml",
         "https://feeds.bbci.co.uk/mundo/topics/c2dwqd1zr92t/rss.xml",
         "https://www.cnbc.com/id/100003114/device/rss/rss.html",
+        "https://www.latercera.com/arc/outboundfeeds/rss/category/pulso/?outputType=xml",
+        "https://www.emol.com/rss/rss.asp?canal=3",
+        "https://feeds.marketwatch.com/marketwatch/topstories/",
+        "https://finance.yahoo.com/news/rssindex",
     ],
     "chile": [
         "https://chile.as.com/rss/chile/futbol.xml",
@@ -184,11 +188,14 @@ def fetch_headlines():
 
     for cat, urls in FEEDS.items():
         entries = []
+        per_feed_limit = 7 if cat == "economia" else 10
+        max_cat_entries = 16 if cat == "economia" else 10
+
         for url in urls:
             try:
                 print(f"Leyendo feed [{cat}]: {url}")
                 feed = fetch_feed_with_timeout(url, timeout=8)
-                for entry in feed.entries[:10]:
+                for entry in feed.entries[:per_feed_limit]:
                     dt_local = parse_entry_date(entry)
                     if not is_recent_enough(dt_local, now_local):
                         continue
@@ -204,8 +211,11 @@ def fetch_headlines():
                     if cat == "mis_equipos" and not matches_any_keyword(combined_text, TEAM_KEYWORDS):
                         continue
                     if cat == "fichajes" and not matches_any_keyword(combined_text, TRANSFER_KEYWORDS):
-                        # Acepta también entradas del feed de fichajes/OneFootball si tienen pinta de mercado
-                        if "onefootball" not in url.lower() and "fichaje" not in url.lower() and "transfer" not in url.lower():
+                        if (
+                            "onefootball" not in url.lower()
+                            and "fichaje" not in url.lower()
+                            and "transfer" not in url.lower()
+                        ):
                             continue
 
                     date_str = dt_local.strftime("%d/%m/%Y")
@@ -218,7 +228,7 @@ def fetch_headlines():
                 print(f"Saltando {url}: {e}")
 
         print(f"Total entradas recientes (<=2 días) para [{cat}]: {len(entries)}")
-        collected[cat] = "\n".join(entries[:10])
+        collected[cat] = "\n".join(entries[:max_cat_entries])
 
     return collected, image_map, date_map
 
@@ -235,17 +245,17 @@ def build_briefing(raw_news, image_map, date_map):
 
     prompt = f"""
 Eres Pipo, un cronista y analista sin filtro que reemplaza el scroll tóxico de redes sociales.
-Procesa las noticias entregadas y devuelve un JSON estricto con **3 tarjetas por cada una de las 7 categorías (21 tarjetas en total)**:
-- economia (3 tarjetas)
-- chile (3 tarjetas de fútbol chileno)
-- argentina (3 tarjetas de fútbol argentino)
-- italia (3 tarjetas de fútbol italiano)
-- brasil (3 tarjetas de fútbol brasileño)
-- mis_equipos (3 tarjetas enfocadas en AC Milan y/o Palestino; si hay pocas menciones exactas en el lote, prioriza las más cercanas de Serie A/Milan o fútbol chileno/Palestino dentro de las entregadas)
-- fichajes (3 tarjetas enfocadas en fichajes, traspasos, renovaciones o rumores de mercado del mundo y ligas cubiertas)
+Procesa las noticias entregadas y devuelve un JSON estricto con estas cantidades exactas:
+- economia: **5 tarjetas** (economía, finanzas, mercados, tasas, dólar, empresas e inversiones de Chile, EE. UU. y el mundo)
+- chile: **3 tarjetas** de fútbol chileno
+- argentina: **3 tarjetas** de fútbol argentino
+- italia: **3 tarjetas** de fútbol italiano
+- brasil: **3 tarjetas** de fútbol brasileño
+- mis_equipos: **3 tarjetas** enfocadas en AC Milan y/o Palestino
+- fichajes: **3 tarjetas** enfocadas en fichajes, traspasos, renovaciones o rumores de mercado
 
 Reglas obligatorias por tarjeta:
-1. "category": Debe ser exactamente uno de: "economia", "chile", "argentina", "italia", "brasil", "mis_equipos", "fichajes".
+1. "category": Debe ser exactamente uno de: "economia", "chile", "argentina", "italia", "brasil", "mis_equipos", "fichajes". No omitas ninguna categoría.
 2. "headline": Titular claro y con gancho (máx 12 palabras).
 3. "url": Copia EXACTAMENTE el link de la noticia original entregada. No inventes URLs.
 4. "date": Copia la fecha [DD/MM/YYYY] de esa noticia específica (si no aparece, usa la fecha de hoy en Chile).
