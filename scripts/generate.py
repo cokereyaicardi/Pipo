@@ -12,6 +12,9 @@ from google.genai.errors import APIError, ServerError
 
 socket.setdefaulttimeout(10)
 
+CHILE_TZ = timezone(timedelta(hours=-3))
+MAX_AGE_DAYS = 2
+
 FEEDS = {
     "economia": [
         "https://www.df.cl/noticias/site/list/port/rss.xml",
@@ -39,6 +42,21 @@ FEEDS = {
         "https://www.lance.com.br/rss",
         "https://rss.uol.com.br/feed/esporte.xml",
     ],
+    "mis_equipos": [
+        "https://football-italia.net/feed/",
+        "https://www.gazzetta.it/dynamic-feed/rss/section/Calcio/Serie-A.xml",
+        "https://chile.as.com/rss/chile/futbol.xml",
+        "https://redgol.cl/feed",
+        "https://www.adnradio.cl/feed/",
+        "https://www.biobiochile.cl/lista/categorias/deportes/rss.xml",
+    ],
+    "fichajes": [
+        "https://onefootball.com/es/noticias/rss",
+        "https://football-italia.net/feed/",
+        "https://chile.as.com/rss/chile/futbol.xml",
+        "https://www.ole.com.ar/rss/ultimas-noticias/",
+        "https://www.lance.com.br/rss",
+    ],
 }
 
 CATEGORY_LABELS = {
@@ -47,7 +65,42 @@ CATEGORY_LABELS = {
     "argentina": "Fútbol Argentino",
     "italia": "Fútbol Italiano",
     "brasil": "Fútbol Brasileño",
+    "mis_equipos": "AC Milan & Palestino",
+    "fichajes": "Fichajes & Rumores",
 }
+
+TEAM_KEYWORDS = (
+    "milan",
+    "rossoneri",
+    "san siro",
+    "palestino",
+    "tino",
+    "la cisterna",
+)
+
+TRANSFER_KEYWORDS = (
+    "fichaje",
+    "fichajes",
+    "mercado",
+    "rumor",
+    "rumores",
+    "traspaso",
+    "refuerzo",
+    "refuerzos",
+    "interés",
+    "pretende",
+    "cláusula",
+    "cesión",
+    "préstamo",
+    "transfer",
+    "signing",
+    "deal",
+    "mercato",
+    "calciomercato",
+    "contrato",
+    "renovación",
+    "agente",
+)
 
 MODELS_TO_TRY = [
     "gemini-4-hydrogen",
@@ -57,29 +110,45 @@ MODELS_TO_TRY = [
 ]
 
 
+def parse_entry_date(entry):
+    struct_time = entry.get("published_parsed") or entry.get("updated_parsed")
+    if not struct_time:
+        return None
+    try:
+        dt_utc = datetime(*struct_time[:6], tzinfo=timezone.utc)
+        return dt_utc.astimezone(CHILE_TZ)
+    except Exception:
+        return None
+
+
+def is_recent_enough(dt_local, now_local):
+    if dt_local is None:
+        return False
+    age = now_local - dt_local
+    return timedelta(days=-1) <= age <= timedelta(days=MAX_AGE_DAYS)
+
+
 def extract_image(entry):
-    # 1. media_content
     media = entry.get("media_content", [])
     if media and isinstance(media, list):
         url = media[0].get("url", "")
         if url.startswith("http"):
             return url
 
-    # 2. media_thumbnail
     thumbs = entry.get("media_thumbnail", [])
     if thumbs and isinstance(thumbs, list):
         url = thumbs[0].get("url", "")
         if url.startswith("http"):
             return url
 
-    # 3. enclosures
     for enc in entry.get("enclosures", []):
         enc_type = enc.get("type", "")
         href = enc.get("href", "") or enc.get("url", "")
-        if href.startswith("http") and ("image" in enc_type or href.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))):
+        if href.startswith("http") and (
+            "image" in enc_type or href.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))
+        ):
             return href
 
-    # 4. Etiqueta <img src="..."> en summary o content
     html_blob = entry.get("summary", "")
     if entry.get("content"):
         html_blob += " " + entry["content"][0].get("value", "")
@@ -102,9 +171,16 @@ def fetch_feed_with_timeout(url, timeout=8):
     return feedparser.parse(raw_bytes)
 
 
+def matches_any_keyword(text, keywords):
+    low = text.lower()
+    return any(kw in low for kw in keywords)
+
+
 def fetch_headlines():
+    now_local = datetime.now(CHILE_TZ)
     collected = {}
     image_map = {}
+    date_map = {}
 
     for cat, urls in FEEDS.items():
         entries = []
@@ -112,64 +188,86 @@ def fetch_headlines():
             try:
                 print(f"Leyendo feed [{cat}]: {url}")
                 feed = fetch_feed_with_timeout(url, timeout=8)
-                for entry in feed.entries[:5]:
-                    title = entry.get("title", "").strip()
-                    summary = re.sub(r"<[^>]+>", "", entry.get("summary", "")).strip()[:120]
+                for entry in feed.entries[:10]:
+                    dt_local = parse_entry_date(entry)
+                    if not is_recent_enough(dt_local, now_local):
+                        continue
+
+                    title = re.sub(r"\s+", " ", entry.get("title", "")).strip()
+                    summary = re.sub(r"<[^>]+>", "", entry.get("summary", ""))
+                    summary = re.sub(r"\s+", " ", summary).strip()[:130]
                     link = entry.get("link", "").strip()
+                    if not title or not link:
+                        continue
+
+                    combined_text = f"{title} {summary} {link}"
+                    if cat == "mis_equipos" and not matches_any_keyword(combined_text, TEAM_KEYWORDS):
+                        continue
+                    if cat == "fichajes" and not matches_any_keyword(combined_text, TRANSFER_KEYWORDS):
+                        # Acepta también entradas del feed de fichajes/OneFootball si tienen pinta de mercado
+                        if "onefootball" not in url.lower() and "fichaje" not in url.lower() and "transfer" not in url.lower():
+                            continue
+
+                    date_str = dt_local.strftime("%d/%m/%Y")
                     img = extract_image(entry)
-                    if title and link:
-                        if img:
-                            image_map[link] = img
-                        entries.append(f"- {title} | {summary} | {link}")
+                    if img:
+                        image_map[link] = img
+                    date_map[link] = date_str
+                    entries.append(f"- [{date_str}] {title} | {summary} | {link}")
             except Exception as e:
                 print(f"Saltando {url}: {e}")
-        print(f"Total entradas recolectadas para [{cat}]: {len(entries)}")
-        collected[cat] = "\n".join(entries[:12])
 
-    return collected, image_map
+        print(f"Total entradas recientes (<=2 días) para [{cat}]: {len(entries)}")
+        collected[cat] = "\n".join(entries[:10])
+
+    return collected, image_map, date_map
 
 
-def build_briefing(raw_news, image_map):
+def build_briefing(raw_news, image_map, date_map):
     api_key = os.environ.get("GEMINI_API_KEY")
     if not api_key:
         raise RuntimeError("Falta GEMINI_API_KEY en el entorno.")
 
     client = genai.Client(
         api_key=api_key,
-        http_options=types.HttpOptions(timeout=40000),
+        http_options=types.HttpOptions(timeout=45000),
     )
 
     prompt = f"""
 Eres Pipo, un cronista y analista sin filtro que reemplaza el scroll tóxico de redes sociales.
-Procesa las noticias entregadas y devuelve un JSON estricto con **EXACTAMENTE 4 tarjetas por cada una de las 5 categorías (20 tarjetas en total)**:
-- economia (4 tarjetas)
-- chile (4 tarjetas de fútbol chileno: Primera División, La Roja, chilenos en el exterior)
-- argentina (4 tarjetas)
-- italia (4 tarjetas)
-- brasil (4 tarjetas)
+Procesa las noticias entregadas y devuelve un JSON estricto con **3 tarjetas por cada una de las 7 categorías (21 tarjetas en total)**:
+- economia (3 tarjetas)
+- chile (3 tarjetas de fútbol chileno)
+- argentina (3 tarjetas de fútbol argentino)
+- italia (3 tarjetas de fútbol italiano)
+- brasil (3 tarjetas de fútbol brasileño)
+- mis_equipos (3 tarjetas enfocadas en AC Milan y/o Palestino; si hay pocas menciones exactas en el lote, prioriza las más cercanas de Serie A/Milan o fútbol chileno/Palestino dentro de las entregadas)
+- fichajes (3 tarjetas enfocadas en fichajes, traspasos, renovaciones o rumores de mercado del mundo y ligas cubiertas)
 
 Reglas obligatorias por tarjeta:
-1. "category": Debe ser exactamente uno de estos valores: "economia", "chile", "argentina", "italia", "brasil". No omitas ninguna categoría.
+1. "category": Debe ser exactamente uno de: "economia", "chile", "argentina", "italia", "brasil", "mis_equipos", "fichajes".
 2. "headline": Titular claro y con gancho (máx 12 palabras).
 3. "url": Copia EXACTAMENTE el link de la noticia original entregada. No inventes URLs.
-4. "formal": Dato duro y contexto serio/objetivo (2 oraciones breves).
-5. "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia; reacciones auténticas, debates reales de tablón o sentir ciudadano directo (2 oraciones breves, sin difamar ni insultar con odio).
+4. "date": Copia la fecha [DD/MM/YYYY] de esa noticia específica (si no aparece, usa la fecha de hoy en Chile).
+5. "formal": Dato duro y contexto serio/objetivo (2 oraciones breves). **IMPORTANTE: Comienza siempre indicando la fecha de la noticia, por ejemplo: "Publicado el DD/MM/YYYY: ..."**
+6. "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia; reacciones auténticas, debates reales de tablón o sentir ciudadano directo (2 oraciones breves, sin difamar ni insultar con odio).
 
 JSON esperado:
 {{
   "items": [
     {{
-      "category": "economia | chile | argentina | italia | brasil",
+      "category": "economia | chile | argentina | italia | brasil | mis_equipos | fichajes",
       "category_label": "Nombre legible",
       "headline": "...",
       "url": "https://...",
-      "formal": "...",
+      "date": "DD/MM/YYYY",
+      "formal": "Publicado el DD/MM/YYYY: ...",
       "tribuna": "..."
     }}
   ]
 }}
 
-Noticias:
+Noticias recientes (máximo 2 días de antigüedad):
 {json.dumps(raw_news, ensure_ascii=False)}
 """
 
@@ -200,15 +298,23 @@ Noticias:
         return None
 
     parsed = json.loads(response.text)
-    chile_tz = timezone(timedelta(hours=-3))
-    now_str = datetime.now(chile_tz).strftime("%d/%m/%Y · %H:%M hrs (Chile)")
+    now_local = datetime.now(CHILE_TZ)
+    now_str = now_local.strftime("%d/%m/%Y · %H:%M hrs (Chile)")
+    default_date = now_local.strftime("%d/%m/%Y")
 
     for item in parsed.get("items", []):
         cat = item.get("category", "")
         if cat in CATEGORY_LABELS:
             item["category_label"] = CATEGORY_LABELS[cat]
+
         item_url = item.get("url", "").strip()
         item["image"] = image_map.get(item_url, "")
+        real_date = date_map.get(item_url) or item.get("date") or default_date
+        item["date"] = real_date
+
+        formal_txt = item.get("formal", "").strip()
+        if real_date not in formal_txt:
+            item["formal"] = f"Publicado el {real_date}: {formal_txt}"
 
     return {
         "updated_at": now_str,
@@ -217,10 +323,10 @@ Noticias:
 
 
 if __name__ == "__main__":
-    print("Pipo iniciando búsqueda de noticias...")
-    news, img_map = fetch_headlines()
-    print("Noticias recolectadas. Consultando a los modelos...")
-    briefing = build_briefing(news, img_map)
+    print("Pipo iniciando búsqueda de noticias recientes...")
+    news, img_map, dt_map = fetch_headlines()
+    print("Noticias recientes recolectadas. Consultando a los modelos...")
+    briefing = build_briefing(news, img_map, dt_map)
     if briefing is None:
         print("Ningún modelo respondió a tiempo. Se mantiene el briefing actual.")
         raise SystemExit(0)
