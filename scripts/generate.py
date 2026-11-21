@@ -9,7 +9,7 @@ from google import genai
 from google.genai import types
 from google.genai.errors import APIError, ServerError
 
-socket.setdefaulttimeout(12)
+socket.setdefaulttimeout(10)
 
 FEEDS = {
     "economia": [
@@ -51,7 +51,7 @@ MODELS_TO_TRY = [
 ]
 
 
-def fetch_feed_with_timeout(url, timeout=10):
+def fetch_feed_with_timeout(url, timeout=8):
     req = urllib.request.Request(
         url,
         headers={"User-Agent": "Mozilla/5.0 (PipoRadar/1.0)"},
@@ -68,18 +68,18 @@ def fetch_headlines():
         for url in urls:
             try:
                 print(f"Leyendo feed [{cat}]: {url}")
-                feed = fetch_feed_with_timeout(url, timeout=10)
-                for entry in feed.entries[:8]:
+                feed = fetch_feed_with_timeout(url, timeout=8)
+                for entry in feed.entries[:5]:
                     title = entry.get("title", "").strip()
-                    summary = entry.get("summary", "").strip()[:240]
+                    summary = entry.get("summary", "").strip()[:120]
                     link = entry.get("link", "").strip()
                     if title and link:
                         entries.append(
-                            f"- TITULAR: {title} | RESUMEN: {summary} | LINK: {link}"
+                            f"- {title} | {summary} | {link}"
                         )
             except Exception as e:
-                print(f"Saltando {url} por error/timeout: {e}")
-        collected[cat] = "\n".join(entries[:18])
+                print(f"Saltando {url}: {e}")
+        collected[cat] = "\n".join(entries[:8])
     return collected
 
 
@@ -88,29 +88,32 @@ def build_briefing(raw_news):
     if not api_key:
         raise RuntimeError("Falta GEMINI_API_KEY en el entorno.")
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(timeout=35000),
+    )
 
     prompt = f"""
 Eres Pipo, un cronista y analista sin filtro que reemplaza el scroll tóxico de redes sociales.
-Tu tarea es procesar las siguientes noticias recientes y devolver un JSON estricto con **5 a 6 tarjetas** por cada una de las 5 categorías (alrededor de 25 a 30 tarjetas en total):
-- economia (Economía y finanzas de Chile, EE. UU. y el mundo)
-- chile (Fútbol chileno)
-- argentina (Fútbol argentino)
-- italia (Fútbol italiano)
-- brasil (Fútbol brasileño)
+Procesa las noticias y devuelve un JSON estricto con **3 a 4 tarjetas** por categoría:
+- economia
+- chile
+- argentina
+- italia
+- brasil
 
-Reglas estrictas para cada tarjeta:
-1. "headline": Titular claro, directo y con gancho (máximo 12 palabras).
-2. "url": Copia EXACTAMENTE el LINK correspondiente de la noticia original entregada abajo. No inventes URLs.
-3. "formal": Dato duro, contexto económico/táctico/dirigencial serio, objetivo y bien explicado (2 a 3 oraciones).
-4. "tribuna": El pulso real de la calle, los hinchas y la gente común frente a esa noticia. Incluye reacciones auténticas de hinchas, debates reales de tablón, quejas o festejos concretos que genera este hecho en la gente (como leer los comentarios más picantes y sinceros de la hinchada o el ciudadano de a pie, sin difamar ni insultar con odio).
+Reglas por tarjeta:
+1. "headline": Titular claro y con gancho (máx 12 palabras).
+2. "url": Copia EXACTAMENTE el link de la noticia original entregada. No inventes URLs.
+3. "formal": Dato duro y contexto serio/objetivo (2 oraciones breves).
+4. "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia; reacciones auténticas, debates reales de tablón o sentir ciudadano directo (2 oraciones breves, sin difamar ni insultar con odio).
 
-Usa estas claves exactas en el JSON:
+JSON esperado:
 {{
   "items": [
     {{
       "category": "economia | chile | argentina | italia | brasil",
-      "category_label": "Nombre legible de la categoría",
+      "category_label": "Nombre legible",
       "headline": "...",
       "url": "https://...",
       "formal": "...",
@@ -119,7 +122,7 @@ Usa estas claves exactas en el JSON:
   ]
 }}
 
-Noticias recogidas hoy:
+Noticias:
 {json.dumps(raw_news, ensure_ascii=False)}
 """
 
@@ -127,29 +130,24 @@ Noticias recogidas hoy:
 
     for model_name in MODELS_TO_TRY:
         print(f"Probando modelo: {model_name}")
-        for attempt in range(1, 3):
-            try:
-                response = client.models.generate_content(
-                    model=model_name,
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                        temperature=0.8,
-                    ),
-                )
-                print(f"Respuesta obtenida con {model_name}")
-                break
-            except ServerError:
-                print(f"[{model_name}] Intento {attempt}/2 con error 503. Esperando 3s...")
-                time.sleep(3)
-            except APIError as e:
-                print(f"[{model_name}] Error de API ({e.code}): {e.message}")
-                break
-            except Exception as e:
-                print(f"[{model_name}] Error inesperado: {e}")
-                break
-        if response is not None:
+        try:
+            response = client.models.generate_content(
+                model=model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json",
+                    temperature=0.8,
+                ),
+            )
+            print(f"Respuesta obtenida con {model_name}")
             break
+        except ServerError:
+            print(f"[{model_name}] Saturación (503), pasando al siguiente modelo...")
+            time.sleep(2)
+        except APIError as e:
+            print(f"[{model_name}] Error de API ({e.code}): {e.message}")
+        except Exception as e:
+            print(f"[{model_name}] Timeout o error: {e}")
 
     if response is None:
         return None
@@ -175,7 +173,7 @@ if __name__ == "__main__":
     print("Noticias recolectadas. Consultando a los modelos...")
     briefing = build_briefing(news)
     if briefing is None:
-        print("Los modelos no respondieron en esta corrida. Se mantiene el briefing actual.")
+        print("Ningún modelo respondió a tiempo. Se mantiene el briefing actual.")
         raise SystemExit(0)
 
     os.makedirs("data", exist_ok=True)
