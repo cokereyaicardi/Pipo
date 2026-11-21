@@ -50,7 +50,7 @@ async function loadBriefing(isManualClick = false) {
       });
 
       if (dispatchRes.ok) {
-        setStatus("Robot corriendo (tarda ~35 seg). Esperando noticias nuevas...");
+        setStatus("Robot corriendo (tarda ~35 seg). Esperando noticias frescas...");
         for (let i = 0; i < 8; i++) {
           await new Promise((r) => setTimeout(r, 8000));
           const candidate = await fetchLatestBriefing();
@@ -60,7 +60,7 @@ async function loadBriefing(isManualClick = false) {
               lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at}`;
             }
             render();
-            setStatus("¡Pizarra renovada con noticias recién salidas del horno!");
+            setStatus("¡Pizarra renovada con noticias del día!");
             return;
           }
         }
@@ -90,7 +90,7 @@ async function loadBriefing(isManualClick = false) {
     }
   } catch (err) {
     if (feedContainer && !briefingData) {
-      feedContainer.innerHTML = `<p>Error cargando noticias. Intenta recargar en unos segundos.</p>`;
+      feedContainer.innerHTML = `<p class="empty-msg">Error cargando noticias. Intenta recargar en unos segundos.</p>`;
     }
     setStatus("No se pudo conectar con GitHub en este intento.");
   } finally {
@@ -114,7 +114,7 @@ function render() {
   );
 
   if (items.length === 0) {
-    container.innerHTML = `<p>No hay tarjetas en esta categoría por ahora.</p>`;
+    container.innerHTML = `<p class="empty-msg">No hay noticias recientes en esta sección por ahora.</p>`;
     return;
   }
 
@@ -126,36 +126,44 @@ function render() {
     const showTribuna = currentMode === "all" || currentMode === "tribuna";
 
     const imageHtml = item.image
-      ? `<img
-           src="${item.image}"
-           alt=""
-           loading="lazy"
-           onerror="this.style.display='none'"
-           style="width: 100%; height: 170px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; display: block;"
-         />`
+      ? `<div class="card-media">
+           <img
+             src="${item.image}"
+             alt=""
+             loading="lazy"
+             onerror="this.parentElement.style.display='none'"
+           />
+         </div>`
+      : "";
+
+    const dateBadgeHtml = item.date
+      ? `<span class="date-tag">🗓️ ${item.date}</span>`
       : "";
 
     const sourceLinkHtml = item.url
-      ? `<div class="card-footer" style="margin-top: 12px;">
-           <a href="${item.url}" target="_blank" rel="noopener noreferrer">Leer noticia ↗</a>
+      ? `<div class="card-footer">
+           <a href="${item.url}" target="_blank" rel="noopener noreferrer">Leer noticia completa ↗</a>
          </div>`
       : "";
 
     card.innerHTML = `
       ${imageHtml}
-      <div>
-        <span class="badge">${item.category_label || item.category}</span>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="badge">${item.category_label || item.category}</span>
+          ${dateBadgeHtml}
+        </div>
         <h2>${item.headline}</h2>
+        <div class="block-formal ${showFormal ? "" : "hidden"}">
+          <span class="block-label">Dato / Análisis</span>
+          <p>${item.formal}</p>
+        </div>
+        <div class="block-tribuna ${showTribuna ? "" : "hidden"}">
+          <span class="block-label">La Tribuna de Pipo</span>
+          <p>${item.tribuna}</p>
+        </div>
+        ${sourceLinkHtml}
       </div>
-      <div class="block-formal ${showFormal ? "" : "hidden"}">
-        <span class="block-label">Dato / Análisis</span>
-        ${item.formal}
-      </div>
-      <div class="block-tribuna ${showTribuna ? "" : "hidden"}">
-        <span class="block-label">La Tribuna de Pipo</span>
-        ${item.tribuna}
-      </div>
-      ${sourceLinkHtml}
     `;
     container.appendChild(card);
   });
