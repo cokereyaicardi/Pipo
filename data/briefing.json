@@ -1,109 +1,101 @@
 {
-  "updated_at": "21/11/2026 · 11:27 hrs (Chile)",
+  "updated_at": "21/11/2026 · 11:29 hrs (Chile)",
   "items": [
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Wall Street sufre su peor semana desde la pandemia por desplome tecnológico",
+      "headline": "Desplome tecnológico golpea a Anthropic tras su histórico debut en bolsa",
+      "url": "http://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-a-anthropic-tras-su-historico-debut-en-bolsa-y",
+      "formal": "La OPI de la empresa dueña de Claude recaudó más de US$ 81.000 millones, superando las expectativas iniciales. Sin embargo, el mercado reaccionó negativamente ante la volatilidad del sector tecnológico global.",
+      "tribuna": "Los inversores minoristas están con el corazón en la boca viendo cómo el hype de la IA se desinfla en tiempo real. Se acabó la luna de miel y ahora todos temen que sea otra burbuja a punto de estallar."
+    },
+    {
+      "category": "economia",
+      "category_label": "Economía & Mercados",
+      "headline": "Wall Street registra su peor semana desde la pandemia por desplome tecnológico",
       "url": "https://www.bbc.com/mundo/articles/cm8791vvwelno",
-      "formal": "Las bolsas globales experimentaron fuertes caídas arrastradas por el desplome masivo de las acciones tecnológicas. El índice S&P 500 y el Dow Jones cerraron en territorio de corrección, perdiendo un 10% desde sus máximos históricos.",
-      "tribuna": "Los inversores de la vieja escuela dicen que era una burbuja anunciada y que la fiesta de la IA por fin se pinchó. En los foros ya hay memes de gente vendiendo el auto para comprar acciones que no paran de caer."
+      "formal": "Los índices bursátiles principales cerraron con caídas drásticas, entrando en territorio de corrección tras perder un 10% desde sus máximos. El sector tecnológico lideró las ventas masivas ante temores de inestabilidad.",
+      "tribuna": "El pánico se siente en el aire; los que entraron tarde a comprar acciones tecnológicas están viendo sus ahorros evaporarse. Es el clásico baño de realidad después de años de euforia desmedida en los mercados."
     },
     {
       "category": "economia",
       "category_label": "Economía & Mercados",
-      "headline": "Anthropic se desploma en su debut bursátil tras superar a SpaceX",
-      "url": "http://www.df.cl/senal-df/senales-financieras/desplome-tecnologico-golpea-anthropic-tras-su-historico-debut-en-bolsa-y",
-      "formal": "La oferta pública inicial de la empresa dueña de Claude recaudó más de US$ 81.000 millones, superando el registro histórico de SpaceX. Sin embargo, el mal momento general de las tecnológicas provocó una abrupta caída posterior en su cotización.",
-      "tribuna": "Pasaron de tocar el cielo con las manos a celebrar que todavía les queda café en la oficina. La gente no entiende cómo una empresa vale tanto en papel y al día siguiente se desploma sin piedad."
-    },
-    {
-      "category": "economia",
-      "category_label": "Economía & Mercados",
-      "headline": "Exdirector de HNH Energy culpa a la autoridad por freno del hidrógeno verde",
+      "headline": "Hidrógeno verde en crisis: exdirector de HNH Energy critica falta de reacción",
       "url": "http://www.df.cl/senal-df/senales-financieras/mario-marchese-exdirector-de-hnh-energy-la-autoridad-fallo-en-reaccionar",
-      "formal": "Mario Marchese apuntó contra la falta de agilidad gubernamental ante la caída de la demanda internacional y los elevados costos operativos. Señaló que el estancamiento de la industria en Magallanes responde a una reacción tardía del Estado.",
-      "tribuna": "Acá en el sur nos vendieron el cuento del oro verde y ahora nos quedamos mirando maquetas. Los políticos prometen empleos del futuro mientras los proyectos se mueren esperando un trámite."
-    },
-    {
-      "category": "chile",
-      "category_label": "Fútbol Chileno",
-      "headline": "La trastienda de la gira asiática de Kast y el banquete con Xi Jinping",
-      "url": "http://www.df.cl/economia-y-politica/gobierno/la-trastienda-de-la-gira-por-asia-de-kast",
-      "formal": "El periplo del Presidente José Antonio Kast por Vietnam, China y Japón tuvo como eje central la atracción de nuevas inversiones extranjeras. La comitiva oficial combinó reuniones bilaterales de alto nivel con encuentros comerciales estratégicos.",
-      "tribuna": "Unos aplauden que salga a buscar billeteras afuera para mover la aguja, mientras los críticos dicen que puro fue a pasearse con los peces gordos. Al chileno de a pie le importa poco el banquete si el pan sigue subiendo en la esquina."
+      "formal": "La industria del hidrógeno verde en Magallanes enfrenta un freno significativo debido a la baja demanda internacional y altos costos. Expertos señalan que la falta de agilidad estatal agravó la situación del sector.",
+      "tribuna": "Prometieron oro y futuro, pero ahora solo quedan proyectos estancados y promesas vacías. La gente en Magallanes siente que otra oportunidad de desarrollo se escapa por la burocracia y la falta de visión."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "El Dibu Martínez regresa a la titularidad del Chelsea frente al Leeds",
+      "headline": "El Dibu Martínez vuelve a ser titular en el Chelsea",
       "url": "https://www.ole.com.ar/futbol-internacional/inglaterra/dibu-vuelve-atajar-chelsea-leeds_0_phIpYlm4pO.html",
-      "formal": "El arquero argentino superó satisfactoriamente una fractura de mandíbula que lo mantuvo marginado de las canchas. Tras sumar minutos con la Selección, volverá a custodiar el arco de su club en la Premier League.",
-      "tribuna": "¡Qué va a estar roto ese muchacho si es de acero puro! Los hinchas ya lo pedían a gritos porque con él en el arco el equipo entra a la cancha ganando un gol de ventaja."
+      "formal": "Tras superar una fractura de mandíbula, el arquero argentino regresa al arco del Chelsea para enfrentar al Leeds. El jugador ya había sumado minutos recientes con la selección nacional.",
+      "tribuna": "¡El Dibu es un animal, no lo para nadie! Todos los hinchas estamos prendidos a la tele para ver si mantiene el arco en cero y sigue agrandando su leyenda."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "Presidente de Argentinos Juniors descarta rumores de quiebra institucional",
+      "headline": "Argentinos Juniors desmiente versión de quiebra tras rumores financieros",
       "url": "https://www.ole.com.ar/argentinos/cristian-malaspina-argentinos-quiebra-deuda-charla-socios_0_epMm5WBfWV.html",
-      "formal": "Cristian Malaspina salió al paso de las versiones sobre la salud financiera del club y conversó directamente con los socios. Aseguró de forma categórica que no existe ninguna notificación judicial de quiebra.",
-      "tribuna": "Saltaron todos los socios con el corazón en la boca apenas corrió el rumor en el barrio. Menos mal que salieron a dar la cara porque la plata de los clubes sagrada no se toca."
+      "formal": "El presidente del club, Cristian Malaspina, negó categóricamente la existencia de notificaciones de quiebra. El dirigente buscó llevar tranquilidad a los socios ante las versiones que circulaban sobre la deuda institucional.",
+      "tribuna": "El clima en el Bicho está tenso; los socios no perdonan una y quieren transparencia total. Más de uno se asustó con los rumores, pero ahora esperan ver los números reales sobre la mesa."
     },
     {
       "category": "argentina",
       "category_label": "Fútbol Argentino",
-      "headline": "River se juega todo ante Lanús en los octavos de final del Clausura",
+      "headline": "River Plate se juega la vida ante Lanús en el Clausura",
       "url": "https://www.ole.com.ar/futbol-primera/river-vs-lanus-octavos-torneo-clausura-hora-ver-tv-online-formaciones_0_2nr9oTEPvM.html",
-      "formal": "El equipo dirigido por Leo Ponzio enfrenta un duelo crucial para mantener aspiraciones de título en el año. El Millonario está obligado a conseguir una victoria en condición de local para seguir con vida en el torneo.",
-      "tribuna": "Hoy se moja la camiseta o nos vamos todos a llorar a la cordillera. La gente en la tribuna no acepta otro resultado que ganar, gustar y golear."
+      "formal": "El equipo dirigido por Ponzio encara un partido crucial para mantener sus aspiraciones en el torneo local. Una victoria es obligatoria para seguir compitiendo por los objetivos de fin de año.",
+      "tribuna": "El Monumental va a ser una caldera porque no hay margen de error. El hincha sabe que si el equipo no despierta hoy, el año se termina antes de tiempo."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Cesc Fàbregas lanza advertencia sobre la obsesión con los videojuegos",
+      "headline": "Fabregas advierte sobre el impacto de los videojuegos en el vestuario",
       "url": "https://video.gazzetta.it/calcio/video-fabregas-gta-speriamo-non-ci-giochi-nessuno/5f1aa8c5-f1c1-43cb-b0d2-f9da65addxlk",
-      "formal": "El técnico español comentó en tono de preocupación el impacto de los títulos virtuales en la concentración de los deportistas modernos. Sus declaraciones sobre el lanzamiento de franquicias masivas generaron debate en el fútbol italiano.",
-      "tribuna": "El viejo Fàbregas tiene toda la razón, los pibes de ahora se quedan hasta las tantas viciando en la Play. Después en la cancha caminan porque no dan más del sueño."
+      "formal": "Cesc Fàbregas expresó su preocupación sobre la influencia de ciertos videojuegos en la disciplina del grupo. El técnico del Como busca mantener el enfoque total de sus jugadores en los objetivos deportivos.",
+      "tribuna": "Es el clásico técnico de la vieja escuela que no entiende que los pibes de hoy viven en la consola. Igual, si los resultados no acompañan, la culpa siempre se la van a echar al joystick."
     },
     {
       "category": "italia",
       "category_label": "Fútbol Italiano",
-      "headline": "Amorim reconoce la sequía del Milan y respalda al joven Camarda",
-      "url": "https://football-italia.net/amorim-without-ramos-milan-dont-score/",
-      "formal": "El estratega del Milan admitió que la ausencia de su delantero principal frena la capacidad ofensiva del equipo rossonero. Asimismo, valoró el retorno anímico del joven Francesco Camarda al plantel profesional.",
-      "tribuna": "Si no le ponemos un 9 que la empuje adentro, vamos a seguir sufriendo contra cualquier equipito de mitad de tabla. Menos mal que los pibes de la cantera ponen garra para salvar el negocio."
-    },
-    {
-      "category": "italia",
-      "category_label": "Fútbol Italiano",
-      "headline": "Milan vigila de cerca la situación contractual de Bruno Fernandes",
+      "headline": "El Milan monitorea a Bruno Fernandes pero prioriza otros fichajes",
       "url": "https://football-italia.net/milan-monitoring-bruno-three-jan-priorities/",
-      "formal": "Medios italianos confirman que la directiva rossonera sigue atenta a las negociaciones del mediocampista portugués con el Manchester United. Su fichaje se perfila como uno de los objetivos complejos de cara al mercado de invierno.",
-      "tribuna": "Traigan a alguien que sepa dar dos pases seguidos por el amor de Dios. Los hinchas ya soñamos con un volante que ponga orden en el mediocampo de una vez por todas."
+      "formal": "El club rossonero observa la situación contractual del portugués en el Manchester United. Sin embargo, la directiva ha establecido tres prioridades de mercado más urgentes para el mes de enero.",
+      "tribuna": "Los hinchas del Milan están impacientes; quieren un refuerzo de peso ya. Bruno sería un salto de calidad, pero todos saben que si no traen lo que hace falta en defensa, de poco servirá."
+    },
+    {
+      "category": "italia",
+      "category_label": "Fútbol Italiano",
+      "headline": "Diawara se consolida como el talismán defensivo de Amorim",
+      "url": "https://www.gazzetta.it/Calcio/Serie-A/Milan/21-11-2026/milan-diawara-e-il-talismano-di-amorim-con-lui-si-vince.shtml",
+      "formal": "El defensor francés de 20 años ha ganado protagonismo bajo las órdenes de Rúben Amorim. Estadísticamente, su presencia en el campo coincide con una racha de resultados positivos para el equipo.",
+      "tribuna": "¡Qué descubrimiento este pibe! Nadie lo tenía en el radar y ahora es el dueño de la defensa. Cuando un chico rinde así, la grada se ilusiona rápido."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Neymar gana torneo de póquer en el BSOP Millions y se lleva R$ 380 mil",
+      "headline": "Neymar gana torneo de póquer y factura R$ 380 mil",
       "url": "https://www.gazetaesportiva.com/neymar/neymar-conquista-titulo-poker-bsop-millions-380-mil/",
-      "formal": "El delantero brasileño se impuso en una de las mesas de alto nivel del prestigioso circuito nacional de cartas. Con esta victoria, sumó un nuevo trofeo a su palmarés fuera de los campos de fútbol.",
-      "tribuna": "Mientras unos corren noventa minutos bajo la lluvia, el Ney gana más plata jugando a las cartas un fin de semana. Genio y figura hasta en el casino."
+      "formal": "El astro brasileño se consagró campeón en el BSOP Millions, uno de los circuitos más importantes de póquer. Neymar demostró una vez más su afición por este juego de estrategia fuera de las canchas.",
+      "tribuna": "Mientras algunos le piden que se enfoque en el fútbol, él sigue ganando en las mesas de cartas. Es el estilo Neymar: siempre dando que hablar, para bien o para mal."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Flamengo y Palmeiras disputan un Brasileirao de dominio absoluto",
+      "headline": "Flamengo y Palmeiras definen el dominio en el Brasileirão",
       "url": "https://ge.globo.com/futebol/times/flamengo/noticia/2026/11/21/flamengo-e-palmeiras-fazem-final-em-brasileirao-de-dominio-sobre-concorrentes.ghtml",
-      "formal": "Los dos gigantes del fútbol brasileño consolidaron una distancia inalcanzable frente al resto de los competidores del torneo. La lucha por el título se reduce a un mano a mano histórico entre ambos planteles.",
-      "tribuna": "Los demás equipos juegan por ver quién sale tercero porque estos dos compran hasta el aire que respiran. Es un campeonato aburrido de ricos contra ricos."
+      "formal": "Los dos gigantes del fútbol brasileño se enfrentan en un duelo que definirá gran parte de la hegemonía de la temporada. Ambos clubes han logrado distanciarse del resto de los competidores en la tabla.",
+      "tribuna": "Este es el partido que todos quieren ver; el resto del campeonato es solo relleno. Es la guerra de titanes que divide al país y define quién manda realmente en Brasil."
     },
     {
       "category": "brasil",
       "category_label": "Fútbol Brasileño",
-      "headline": "Max Verstappen largará en la pole tras la clasificación en Las Vegas",
+      "headline": "Verstappen largará primero en el GP de Las Vegas",
       "url": "https://www.gazetaesportiva.com/motor/formula-1/verstappen-pole-gp-las-vegas-antonelli-bortoleto/",
-      "formal": "El piloto neerlandés se quedó con el mejor tiempo de la sesión a pesar de la destacada actuación inicial del joven Antonelli. Red Bull buscará capitalizar la primera posición en el circuito urbano estadounidense.",
-      "tribuna": "El neerlandés es una máquina perfecta que no te regala ni un centímetro en la pista. Ya aburre un poco ver al mismo ganar siempre, pero hay que reconocer que maneja con un talante único."
+      "formal": "Max Verstappen aseguró la pole position en una clasificación marcada por el buen desempeño de Antonelli. La carrera promete ser decisiva para el campeonato mundial de Fórmula 1.",
+      "tribuna": "Verstappen es una máquina y no deja respirar a nadie. Aunque los jóvenes vienen empujando fuerte, el neerlandés siempre encuentra la vuelta para quedarse con la gloria."
     }
   ]
 }
