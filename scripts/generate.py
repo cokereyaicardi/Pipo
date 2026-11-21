@@ -32,6 +32,9 @@ FEEDS = {
     ],
     "brasil": [
         "https://ge.globo.com/rss/ge/futebol/",
+        "https://www.gazetaesportiva.com/feed/",
+        "https://www.lance.com.br/rss",
+        "https://rss.uol.com.br/feed/esporte.xml",
     ],
 }
 
@@ -69,17 +72,15 @@ def fetch_headlines():
             try:
                 print(f"Leyendo feed [{cat}]: {url}")
                 feed = fetch_feed_with_timeout(url, timeout=8)
-                for entry in feed.entries[:5]:
+                for entry in feed.entries[:4]:
                     title = entry.get("title", "").strip()
                     summary = entry.get("summary", "").strip()[:120]
                     link = entry.get("link", "").strip()
                     if title and link:
-                        entries.append(
-                            f"- {title} | {summary} | {link}"
-                        )
+                        entries.append(f"- {title} | {summary} | {link}")
             except Exception as e:
                 print(f"Saltando {url}: {e}")
-        collected[cat] = "\n".join(entries[:8])
+        collected[cat] = "\n".join(entries[:10])
     return collected
 
 
