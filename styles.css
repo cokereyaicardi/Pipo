@@ -1117,3 +1117,9 @@ a {
     letter-spacing: 2px;
   }
 }
+.cat-nav .cat-chip {
+  width: max-content !important;
+  min-width: max-content !important;
+  max-width: none !important;
+  flex: 0 0 auto !important;
+}
