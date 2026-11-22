@@ -263,9 +263,9 @@ Reglas obligatorias por tarjeta:
    - "formal": Dato duro y contexto serio/objetivo (2 oraciones breves). Comienza siempre con "Publicado el DD/MM/YYYY: ...".
    - "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia (2 oraciones breves, sin difamar ni insultar con odio).
 6. Para la categoría "fichajes", además de "headline", "url" y "date", incluye estos campos cortos y limpios:
-   - "player_name": Nombre del futbolista involucrado (o protagonista del movimiento).
-   - "from_club": Club de origen actual o "Agente libre" (máx 4 palabras).
-   - "to_club": Club destino rumoreado o confirmado (máx 4 palabras).
+   - "player_name": Nombre del futbolista involucrado.
+   - "from_club": Club actual o anterior del jugador (nunca uses "Origen por confirmar" si aparece un club o selección en la noticia; usa "Agente libre" solo si está libre).
+   - "to_club": Club que lo ficha o lo pretende/rumorea (nunca uses "Destino por confirmar" si se menciona un club destino).
    - "transfer_status": "OFICIAL" si ya se cerró/anunció o "RUMOR" si es interés/negociación/rumor.
 
 JSON esperado:
