@@ -53,11 +53,12 @@ function renderSkeletons() {
   const lead = document.getElementById("editorial-lead");
   const grid = document.getElementById("feed-container");
   if (lead) {
+    lead.classList.remove("hidden");
     lead.innerHTML = `
-      <div class="skeleton" style="min-height: 290px;"></div>
+      <div class="skeleton" style="min-height: 260px;"></div>
       <div class="secondary-slot">
-        <div class="skeleton" style="height: 138px;"></div>
-        <div class="skeleton" style="height: 138px;"></div>
+        <div class="skeleton" style="height: 124px;"></div>
+        <div class="skeleton" style="height: 124px;"></div>
       </div>
     `;
   }
@@ -69,7 +70,8 @@ function renderSkeletons() {
 }
 
 function getAllItems() {
-  return briefingData && Array.isArray(briefingData.items) ? briefingData.items : [];
+  if (!briefingData || !Array.isArray(briefingData.items)) return [];
+  return briefingData.items;
 }
 
 function updateCounts() {
@@ -123,14 +125,18 @@ function getPlayerFallbackAvatar(name) {
 
 function inferClubsFromHeadline(headline = "") {
   const cleaned = headline.replace(/\s+/g, " ").trim();
-  const arrowMatch = cleaned.match(/([A-ZÁÉÍÓÚÑ][\w\s.&'-]{1,22}?)\s*(?:->|→|➔|a|al|hacia|rumbo a)\s*([A-ZÁÉÍÓÚÑ][\w\s.&'-]{1,22})/i);
+  const arrowMatch = cleaned.match(
+    /([A-ZÁÉÍÓÚÑ][\w\s.&'-]{1,22}?)\s*(?:->|→|➔|a|al|hacia|rumbo a)\s*([A-ZÁÉÍÓÚÑ][\w\s.&'-]{1,22})/i
+  );
   if (arrowMatch) {
     return {
       from: arrowMatch[1].trim(),
       to: arrowMatch[2].trim(),
     };
   }
-  const clubMatch = cleaned.match(/\b(Milan|AC Milan|Inter|Juventus|Real Madrid|Barcelona|Manchester United|Manchester City|Arsenal|Liverpool|Chelsea|Bayern|PSG|Boca|River|Colo Colo|U\. de Chile|Palestino|Flamengo|Palmeiras|Botafogo|Fluminense)\b/gi);
+  const clubMatch = cleaned.match(
+    /\b(Milan|AC Milan|Inter|Juventus|Real Madrid|Barcelona|Manchester United|Manchester City|Arsenal|Liverpool|Chelsea|Bayern|PSG|Boca|River|Colo Colo|U\. de Chile|Palestino|Flamengo|Palmeiras|Botafogo|Fluminense)\b/gi
+  );
   if (clubMatch && clubMatch.length >= 2) {
     return { from: clubMatch[0], to: clubMatch[1] };
   }
@@ -151,8 +157,13 @@ function getKindLabel(item) {
   if (txt.includes("oficial") || txt.includes("confirmad") || txt.includes("anunció")) {
     return { text: "CONFIRMADO", cls: "is-confirmed" };
   }
-  if (txt.includes("rumor") || txt.includes("interés") || txt.includes("sondea") || txt.includes("apunta")) {
-    return { text: "RUMOR", cls: "" };
+  if (
+    txt.includes("rumor") ||
+    txt.includes("interés") ||
+    txt.includes("sondea") ||
+    txt.includes("apunta")
+  ) {
+    return { text: "RUMOR", cls: "is-rumor" };
   }
   return { text: "NOTICIA", cls: "" };
 }
@@ -177,7 +188,9 @@ function matchesSearch(item) {
 
 function buildEditorialCard(item, variant = "grid") {
   const card = document.createElement("article");
-  card.className = `news-card${variant === "hero" ? " is-hero" : ""}${variant === "compact" ? " is-compact" : ""}`;
+  card.className = `news-card${variant === "hero" ? " is-hero" : ""}${
+    variant === "compact" ? " is-compact" : ""
+  }`;
 
   const showFormal = currentMode === "all" || currentMode === "formal";
   const showTribuna = currentMode === "all" || currentMode === "tribuna";
@@ -222,12 +235,12 @@ function buildEditorialCard(item, variant = "grid") {
     <div class="card-content">
       <div class="card-top-meta">
         <div class="tags-row">
-          <span class="cat-tag">${item.category_label || item.category}</span>
+          <span class="cat-tag">${item.category_label || item.category || "Radar"}</span>
           <span class="kind-tag ${kind.cls}">${kind.text}</span>
         </div>
         <span class="card-date">${item.date || ""}</span>
       </div>
-      <h2 class="card-title">${item.headline}</h2>
+      <h2 class="card-title">${item.headline || "Sin titular"}</h2>
       ${formalHtml}
       ${tribunaHtml}
       ${linkHtml}
@@ -306,10 +319,10 @@ function renderTribunaSpotlight(filteredItems) {
     box.className = "tribuna-mini";
     box.innerHTML = `
       <div class="tribuna-mini-head">
-        <span class="cat-tag">${item.category_label || item.category}</span>
+        <span class="cat-tag">${item.category_label || item.category || "Radar"}</span>
         <span>${item.date || ""}</span>
       </div>
-      <h3>${item.headline}</h3>
+      <h3>${item.headline || ""}</h3>
       <p>${item.tribuna}</p>
       ${item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer">Ver noticia ↗</a>` : ""}
     `;
@@ -319,17 +332,27 @@ function renderTribunaSpotlight(filteredItems) {
 
 function render() {
   const leadSection = document.getElementById("editorial-lead");
-  const heroSlot = document.getElementById("hero-slot");
-  const secondarySlot = document.getElementById("secondary-slot");
   const grid = document.getElementById("feed-container");
   const heading = document.getElementById("latest-heading");
   const meta = document.getElementById("latest-meta");
 
   if (!grid) return;
 
+  // Reconstruimos siempre heroSlot y secondarySlot limpios para evitar nodos huérfanos
+  if (leadSection) {
+    leadSection.innerHTML = `
+      <div class="hero-slot" id="hero-slot"></div>
+      <aside class="secondary-slot" id="secondary-slot" aria-label="Noticias secundarias"></aside>
+    `;
+  }
+  const heroSlot = document.getElementById("hero-slot");
+  const secondarySlot = document.getElementById("secondary-slot");
+  grid.innerHTML = "";
+
   const allItems = getAllItems();
   const filtered = allItems.filter(
-    (item) => (currentCategory === "all" || item.category === currentCategory) && matchesSearch(item)
+    (item) =>
+      (currentCategory === "all" || item.category === currentCategory) && matchesSearch(item)
   );
 
   const activeChip = document.querySelector(`.cat-chip[data-cat="${currentCategory}"]`);
@@ -340,32 +363,38 @@ function render() {
       ? `Resultados para "${searchQuery}"`
       : currentCategory === "all"
       ? "Últimas noticias del radar"
-      : `${catName}`;
+      : catName;
   }
   if (meta) {
-    meta.textContent = `${filtered.length} ${filtered.length === 1 ? "publicación" : "publicaciones"}`;
+    meta.textContent = `${filtered.length} ${
+      filtered.length === 1 ? "publicación" : "publicaciones"
+    }`;
   }
 
-  renderTribunaSpotlight(filtered);
-
-  heroSlot.innerHTML = "";
-  secondarySlot.innerHTML = "";
-  grid.innerHTML = "";
+  try {
+    renderTribunaSpotlight(filtered);
+  } catch (e) {
+    console.warn("Tribuna spotlight:", e);
+  }
 
   if (filtered.length === 0) {
-    leadSection.classList.add("hidden");
+    if (leadSection) leadSection.classList.add("hidden");
     grid.innerHTML = `<div class="empty-state">No hay noticias que coincidan con el filtro o búsqueda actual.</div>`;
+    syncMobileNav();
     return;
   }
 
-  const showLead = currentCategory !== "fichajes" && !searchQuery && filtered.length >= 2;
+  const showLead =
+    Boolean(leadSection && heroSlot && secondarySlot) &&
+    currentCategory !== "fichajes" &&
+    !searchQuery &&
+    filtered.length >= 2;
 
   if (showLead) {
     leadSection.classList.remove("hidden");
     heroSlot.appendChild(buildEditorialCard(filtered[0], "hero"));
 
-    const secList = filtered.slice(1, 3);
-    secList.forEach((secItem) => {
+    filtered.slice(1, 3).forEach((secItem) => {
       secondarySlot.appendChild(
         secItem.category === "fichajes"
           ? buildTransferCard(secItem)
@@ -373,14 +402,21 @@ function render() {
       );
     });
 
-    const restItems = filtered.slice(3);
-    restItems.forEach((item) => {
-      grid.appendChild(item.category === "fichajes" ? buildTransferCard(item) : buildEditorialCard(item, "grid"));
+    filtered.slice(3).forEach((item) => {
+      grid.appendChild(
+        item.category === "fichajes"
+          ? buildTransferCard(item)
+          : buildEditorialCard(item, "grid")
+      );
     });
   } else {
-    leadSection.classList.add("hidden");
+    if (leadSection) leadSection.classList.add("hidden");
     filtered.forEach((item) => {
-      grid.appendChild(item.category === "fichajes" ? buildTransferCard(item) : buildEditorialCard(item, "grid"));
+      grid.appendChild(
+        item.category === "fichajes"
+          ? buildTransferCard(item)
+          : buildEditorialCard(item, "grid")
+      );
     });
   }
 
@@ -397,9 +433,17 @@ async function fetchLatestBriefing() {
   return await res.json();
 }
 
-async function loadBriefing(isManualClick = false) {
+async function applyDataAndRender(data) {
+  briefingData = data;
   const lastUpdatedEl = document.getElementById("last-updated");
+  if (lastUpdatedEl) {
+    lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at || "Recién"}`;
+  }
+  updateCounts();
+  render();
+}
 
+async function loadBriefing(isManualClick = false) {
   if (!briefingData) {
     renderSkeletons();
   }
@@ -428,16 +472,14 @@ async function loadBriefing(isManualClick = false) {
           await new Promise((r) => setTimeout(r, 8000));
           const candidate = await fetchLatestBriefing();
           if (candidate.updated_at !== previousTimestamp) {
-            briefingData = candidate;
-            if (lastUpdatedEl) {
-              lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at}`;
-            }
-            updateCounts();
-            render();
+            await applyDataAndRender(candidate);
             setStatus("✓ Noticias actualizadas", 4500);
             return;
           }
         }
+        // Si no cambió el timestamp aún, aseguramos que la vista actual esté pintada
+        const fallbackLatest = await fetchLatestBriefing();
+        await applyDataAndRender(fallbackLatest);
         setStatus("El robot sigue corriendo en GitHub; vuelve a pulsar en unos segundos.", 6000);
         return;
       }
@@ -446,13 +488,7 @@ async function loadBriefing(isManualClick = false) {
     }
 
     const latest = await fetchLatestBriefing();
-    briefingData = latest;
-
-    if (lastUpdatedEl) {
-      lastUpdatedEl.textContent = `Actualizado: ${briefingData.updated_at || "Recién"}`;
-    }
-    updateCounts();
-    render();
+    await applyDataAndRender(latest);
 
     if (isManualClick) {
       if (previousTimestamp && latest.updated_at === previousTimestamp) {
@@ -462,6 +498,7 @@ async function loadBriefing(isManualClick = false) {
       }
     }
   } catch (err) {
+    console.error("Error en loadBriefing:", err);
     if (!briefingData) {
       const grid = document.getElementById("feed-container");
       const lead = document.getElementById("editorial-lead");
