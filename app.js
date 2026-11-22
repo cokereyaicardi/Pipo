@@ -51,6 +51,17 @@ function syncModeButtons() {
   });
 }
 
+function getPlayerFallbackAvatar(name) {
+  const initials = (name || "FP")
+    .split(" ")
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0].toUpperCase())
+    .join("");
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"><rect width="80" height="80" rx="40" fill="#1b2634"/><text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" fill="#93c5fd" font-family="Arial, sans-serif" font-size="26" font-weight="700">${initials}</text></svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
 async function fetchLatestBriefing() {
   const res = await fetch(`${RAW_JSON_URL}?t=${Date.now()}`, {
     cache: "no-store",
@@ -147,6 +158,112 @@ async function loadBriefing(isManualClick = false) {
   }
 }
 
+function renderTransferCard(item) {
+  const card = document.createElement("article");
+  card.className = "card transfer-card";
+
+  const playerName = item.player_name || item.headline || "Futbolista";
+  const fromClub = item.from_club || "Origen por confirmar";
+  const toClub = item.to_club || "Destino por confirmar";
+  const statusTag = (item.transfer_status || "RUMOR").toUpperCase();
+  const isOfficial = statusTag.includes("OFICIAL");
+  const avatarSrc = item.image || getPlayerFallbackAvatar(playerName);
+  const fallbackAvatar = getPlayerFallbackAvatar(playerName);
+
+  const sourceLinkHtml = item.url
+    ? `<a class="transfer-link" href="${item.url}" target="_blank" rel="noopener noreferrer">Ver pase ↗</a>`
+    : "";
+
+  card.innerHTML = `
+    <div class="transfer-row">
+      <img
+        class="player-avatar"
+        src="${avatarSrc}"
+        alt="${playerName}"
+        loading="lazy"
+        decoding="async"
+        onerror="this.onerror=null;this.src='${fallbackAvatar}';"
+      />
+      <div class="transfer-player-info">
+        <div class="card-meta">
+          <span class="transfer-status ${isOfficial ? "is-official" : "is-rumor"}">${statusTag}</span>
+          <span class="date-tag">🗓️ ${item.date || ""}</span>
+        </div>
+        <h2 class="player-name">${playerName}</h2>
+      </div>
+    </div>
+
+    <div class="transfer-route" aria-label="Movimiento de fichaje">
+      <span class="club-pill club-from">${fromClub}</span>
+      <span class="transfer-arrow" aria-hidden="true">➔</span>
+      <span class="club-pill club-to">${toClub}</span>
+    </div>
+
+    <div class="transfer-footer">
+      <span class="transfer-caption">${item.headline || ""}</span>
+      ${sourceLinkHtml}
+    </div>
+  `;
+
+  return card;
+}
+
+function renderEditorialCard(item, index) {
+  const isHero = index === 0;
+  const card = document.createElement("article");
+  card.className = `card${isHero ? " is-hero" : ""}`;
+
+  const showFormal = currentMode === "all" || currentMode === "formal";
+  const showTribuna = currentMode === "all" || currentMode === "tribuna";
+  const bothClass = currentMode === "all" ? "both-tones" : "";
+
+  const imageHtml = item.image
+    ? `<div class="card-media">
+         <img
+           src="${item.image}"
+           alt=""
+           loading="lazy"
+           decoding="async"
+           onerror="this.parentElement.style.display='none'"
+         />
+       </div>`
+    : "";
+
+  const dateBadgeHtml = item.date
+    ? `<span class="date-tag">🗓️ ${item.date}</span>`
+    : "";
+
+  const sourceLinkHtml = item.url
+    ? `<div class="card-footer">
+         <a href="${item.url}" target="_blank" rel="noopener noreferrer">Leer noticia completa ↗</a>
+       </div>`
+    : "";
+
+  card.innerHTML = `
+    ${imageHtml}
+    <div class="card-body">
+      <div class="card-meta">
+        <span class="badge" data-cat="${item.category || ""}">${item.category_label || item.category}</span>
+        ${dateBadgeHtml}
+      </div>
+      <h2>${item.headline}</h2>
+      <div class="tones-wrapper ${bothClass}">
+        <div class="block-formal ${showFormal ? "" : "hidden"}">
+          <span class="block-label">📊 Dato / Análisis</span>
+          <p>${item.formal}</p>
+        </div>
+        <div class="block-tribuna ${showTribuna ? "" : "hidden"}">
+          <span class="block-label">🔥 La Tribuna de Pipo</span>
+          <p>${item.tribuna}</p>
+        </div>
+      </div>
+      ${sourceLinkHtml}
+    </div>
+  `;
+
+  return card;
+}
+
 function render() {
   const container = document.getElementById("feed-container");
   if (!container || !briefingData || !Array.isArray(briefingData.items)) {
@@ -164,59 +281,12 @@ function render() {
     return;
   }
 
-  const showFormal = currentMode === "all" || currentMode === "formal";
-  const showTribuna = currentMode === "all" || currentMode === "tribuna";
-  const bothClass = currentMode === "all" ? "both-tones" : "";
-
   items.forEach((item, index) => {
-    const isHero = index === 0;
-    const card = document.createElement("article");
-    card.className = `card${isHero ? " is-hero" : ""}`;
-
-    const imageHtml = item.image
-      ? `<div class="card-media">
-           <img
-             src="${item.image}"
-             alt=""
-             loading="lazy"
-             decoding="async"
-             onerror="this.parentElement.style.display='none'"
-           />
-         </div>`
-      : "";
-
-    const dateBadgeHtml = item.date
-      ? `<span class="date-tag">🗓️ ${item.date}</span>`
-      : "";
-
-    const sourceLinkHtml = item.url
-      ? `<div class="card-footer">
-           <a href="${item.url}" target="_blank" rel="noopener noreferrer">Leer noticia completa ↗</a>
-         </div>`
-      : "";
-
-    card.innerHTML = `
-      ${imageHtml}
-      <div class="card-body">
-        <div class="card-meta">
-          <span class="badge" data-cat="${item.category || ""}">${item.category_label || item.category}</span>
-          ${dateBadgeHtml}
-        </div>
-        <h2>${item.headline}</h2>
-        <div class="tones-wrapper ${bothClass}">
-          <div class="block-formal ${showFormal ? "" : "hidden"}">
-            <span class="block-label">📊 Dato / Análisis</span>
-            <p>${item.formal}</p>
-          </div>
-          <div class="block-tribuna ${showTribuna ? "" : "hidden"}">
-            <span class="block-label">🔥 La Tribuna de Pipo</span>
-            <p>${item.tribuna}</p>
-          </div>
-        </div>
-        ${sourceLinkHtml}
-      </div>
-    `;
-    container.appendChild(card);
+    if (item.category === "fichajes") {
+      container.appendChild(renderTransferCard(item));
+    } else {
+      container.appendChild(renderEditorialCard(item, index));
+    }
   });
 }
 
