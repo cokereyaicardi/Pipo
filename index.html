@@ -3,71 +3,161 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Radar de Pipo — Sin Algoritmo. Sin Humo.</title>
+  <title>RADAR DE PIPO — Portal Deportivo y Briefing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand-block">
-      <div class="brand-kicker">
-        <span class="radar-dot" id="radar-dot" aria-hidden="true"></span>
-        <span>RADAR EDITORIAL · MÁX. 48H</span>
-      </div>
-      <h1>RADAR DE PIPO</h1>
-      <p class="manifesto">Sin algoritmo. Sin humo. Economía, mercados y fútbol contados con contexto y calle.</p>
-      <div class="meta-strip">
-        <span id="last-updated">Pipo está revisando la pizarra...</span>
-        <span class="sep">·</span>
-        <span id="items-count">0 noticias</span>
-      </div>
-      <div class="action-bar">
-        <button id="refresh-btn" type="button" class="btn-primary">Actualizar noticias</button>
-        <button id="token-btn" type="button" class="btn-secondary" title="Configura tu token de GitHub para disparar el robot desde aquí">
-          ⚙️ Token
-        </button>
-        <a
-          href="https://github.com/cokereyaicardi/Pipo/actions/workflows/actualizar.yml"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-secondary btn-link"
-        >
-          Actions ↗
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <a href="#top" class="brand-logo" id="brand-home">
+          <span class="brand-mark" aria-hidden="true">
+            <span class="radar-ping" id="radar-ping"></span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="12" cy="12" r="9"></circle>
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M12 3v3M12 18v3M3 12h3M18 12h3"></path>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>RADAR DE PIPO</strong>
+            <small>SIN ALGORITMO · SIN HUMO</small>
+          </span>
         </a>
+        <div class="sync-pill" id="sync-pill">
+          <span id="last-updated">Sincronizando...</span>
+          <span class="dot">·</span>
+          <span id="items-count">0 notas</span>
+        </div>
       </div>
-      <p id="status-msg" class="status-msg" role="status" aria-live="polite"></p>
+
+      <div class="header-tools">
+        <label class="search-box" aria-label="Buscar noticias">
+          <span class="search-icon" aria-hidden="true">🔍</span>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Buscar equipo, jugador, mercado..."
+            autocomplete="off"
+          />
+          <button type="button" id="clear-search" class="clear-search hidden" aria-label="Limpiar búsqueda">✕</button>
+        </label>
+
+        <div class="mode-switch" role="tablist" aria-label="Modo de lectura">
+          <button type="button" class="mode-btn active" data-mode="all">Ambos</button>
+          <button type="button" class="mode-btn" data-mode="formal">Análisis</button>
+          <button type="button" class="mode-btn" data-mode="tribuna">Tribuna</button>
+        </div>
+
+        <div class="header-actions">
+          <button type="button" id="refresh-btn" class="btn-update">
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-label">Actualizar noticias</span>
+          </button>
+          <button type="button" id="token-btn" class="btn-icon" title="Configurar token de GitHub">
+            ⚙️
+          </button>
+          <a
+            href="https://github.com/cokereyaicardi/Pipo/actions/workflows/actualizar.yml"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-icon"
+            title="Ver GitHub Actions"
+          >
+            ⚡
+          </a>
+        </div>
+      </div>
     </div>
 
-    <div class="controls-right">
-      <span class="control-label">TONO DE LECTURA</span>
-      <div class="mode-switch" role="tablist" aria-label="Modo de lectura">
-        <button class="mode-btn active" type="button" data-mode="all">Ambos</button>
-        <button class="mode-btn" type="button" data-mode="formal">📊 Análisis</button>
-        <button class="mode-btn" type="button" data-mode="tribuna">🔥 Tribuna</button>
-      </div>
+    <div class="status-banner" id="status-banner" hidden>
+      <span id="status-msg"></span>
     </div>
+
+    <nav class="cat-nav" id="category-tabs" aria-label="Categorías y competiciones">
+      <button type="button" class="cat-chip active" data-cat="all">
+        Portada <span class="chip-count" data-count="all"></span>
+      </button>
+      <button type="button" class="cat-chip chip-special" data-cat="mis_equipos">
+        🔴⚫ AC Milan &amp; Palestino <span class="chip-count" data-count="mis_equipos"></span>
+      </button>
+      <button type="button" class="cat-chip chip-market" data-cat="fichajes">
+        🔄 Fichajes &amp; Rumores <span class="chip-count" data-count="fichajes"></span>
+      </button>
+      <button type="button" class="cat-chip" data-cat="economia">
+        📈 Economía <span class="chip-count" data-count="economia"></span>
+      </button>
+      <button type="button" class="cat-chip" data-cat="chile">
+        🇨🇱 Fútbol Chileno <span class="chip-count" data-count="chile"></span>
+      </button>
+      <button type="button" class="cat-chip" data-cat="argentina">
+        🇦🇷 Fútbol Argentino <span class="chip-count" data-count="argentina"></span>
+      </button>
+      <button type="button" class="cat-chip" data-cat="italia">
+        🇮🇹 Serie A / Italia <span class="chip-count" data-count="italia"></span>
+      </button>
+      <button type="button" class="cat-chip" data-cat="brasil">
+        🇧🇷 Brasileirão <span class="chip-count" data-count="brasil"></span>
+      </button>
+    </nav>
   </header>
 
-  <nav class="tabs" id="category-tabs" aria-label="Secciones">
-    <button class="tab active" type="button" data-cat="all">Todo <span class="tab-count" data-count="all"></span></button>
-    <button class="tab tab-highlight" type="button" data-cat="mis_equipos">🔴⚫ AC Milan & Palestino <span class="tab-count" data-count="mis_equipos"></span></button>
-    <button class="tab" type="button" data-cat="fichajes">🚨 Fichajes <span class="tab-count" data-count="fichajes"></span></button>
-    <button class="tab" type="button" data-cat="economia">📈 Economía <span class="tab-count" data-count="economia"></span></button>
-    <button class="tab" type="button" data-cat="chile">🇨🇱 Chile <span class="tab-count" data-count="chile"></span></button>
-    <button class="tab" type="button" data-cat="argentina">🇦🇷 Argentina <span class="tab-count" data-count="argentina"></span></button>
-    <button class="tab" type="button" data-cat="italia">🇮🇹 Italia <span class="tab-count" data-count="italia"></span></button>
-    <button class="tab" type="button" data-cat="brasil">🇧🇷 Brasil <span class="tab-count" data-count="brasil"></span></button>
+  <main class="page-main" id="top">
+    <section class="editorial-lead" id="editorial-lead" aria-label="Portada principal">
+      <div class="hero-slot" id="hero-slot"></div>
+      <aside class="secondary-slot" id="secondary-slot" aria-label="Noticias secundarias"></aside>
+    </section>
+
+    <section class="tribuna-spotlight" id="tribuna-spotlight" aria-label="La Tribuna de Pipo">
+      <div class="section-head">
+        <div class="section-title-group">
+          <span class="tribuna-badge">🔥 LA TRIBUNA DE PIPO</span>
+          <h2>La voz del hincha y la calle, sin filtro</h2>
+        </div>
+        <button type="button" class="link-action" id="focus-tribuna-btn">Ver solo Tribuna →</button>
+      </div>
+      <div class="tribuna-strip" id="tribuna-strip"></div>
+    </section>
+
+    <section class="latest-section" id="latest-section" aria-label="Últimas noticias">
+      <div class="section-head">
+        <div class="section-title-group">
+          <span class="latest-badge">🕒 ÚLTIMAS NOTICIAS</span>
+          <h2 id="latest-heading">Cobertura completa del briefing</h2>
+        </div>
+        <span class="section-meta" id="latest-meta"></span>
+      </div>
+      <div class="news-grid" id="feed-container"></div>
+    </section>
+  </main>
+
+  <nav class="mobile-bottom-nav" aria-label="Navegación rápida móvil">
+    <button type="button" class="mob-btn active" data-mob-nav="top">
+      <span>📰</span>
+      <small>Portada</small>
+    </button>
+    <button type="button" class="mob-btn" data-mob-nav="mis_equipos">
+      <span>🔴⚫</span>
+      <small>Mis Equipos</small>
+    </button>
+    <button type="button" class="mob-btn" data-mob-nav="fichajes">
+      <span>🔄</span>
+      <small>Fichajes</small>
+    </button>
+    <button type="button" class="mob-btn" data-mob-nav="tribuna">
+      <span>🔥</span>
+      <small>Tribuna</small>
+    </button>
   </nav>
 
-  <main id="feed-container" class="grid"></main>
-
-  <button id="scroll-top-btn" type="button" class="scroll-top" aria-label="Volver arriba" title="Volver arriba">
-    ↑ Arriba
+  <button type="button" id="scroll-top-btn" class="float-top" aria-label="Volver arriba" title="Volver arriba">
+    ↑
   </button>
 
   <script src="app.js"></script>
