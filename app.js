@@ -1,5 +1,6 @@
 const RAW_JSON_URL =
   "https://raw.githubusercontent.com/cokereyaicardi/Pipo/main/data/briefing.json";
+const LOCAL_JSON_URL = "./data/briefing.json";
 const WORKFLOW_DISPATCH_URL =
   "https://api.github.com/repos/cokereyaicardi/Pipo/actions/workflows/actualizar.yml/dispatches";
 const TOKEN_STORAGE_KEY = "pipo_gh_token";
@@ -338,7 +339,6 @@ function render() {
 
   if (!grid) return;
 
-  // Reconstruimos siempre heroSlot y secondarySlot limpios para evitar nodos huérfanos
   if (leadSection) {
     leadSection.innerHTML = `
       <div class="hero-slot" id="hero-slot"></div>
@@ -423,14 +423,31 @@ function render() {
   syncMobileNav();
 }
 
-async function fetchLatestBriefing() {
-  const res = await fetch(`${RAW_JSON_URL}?t=${Date.now()}`, {
-    cache: "no-store",
-  });
+async function parseBriefingResponse(res) {
   if (!res.ok) {
     throw new Error(`HTTP ${res.status}`);
   }
-  return await res.json();
+  const rawText = await res.text();
+  try {
+    return JSON.parse(rawText);
+  } catch (_) {
+    const cleaned = rawText.replace(/[\u0000-\u001F]+/g, " ");
+    return JSON.parse(cleaned);
+  }
+}
+
+async function fetchLatestBriefing() {
+  try {
+    const res = await fetch(`${RAW_JSON_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+    });
+    return await parseBriefingResponse(res);
+  } catch (primaryErr) {
+    const fallbackRes = await fetch(`${LOCAL_JSON_URL}?t=${Date.now()}`, {
+      cache: "no-store",
+    });
+    return await parseBriefingResponse(fallbackRes);
+  }
 }
 
 async function applyDataAndRender(data) {
@@ -477,7 +494,6 @@ async function loadBriefing(isManualClick = false) {
             return;
           }
         }
-        // Si no cambió el timestamp aún, aseguramos que la vista actual esté pintada
         const fallbackLatest = await fetchLatestBriefing();
         await applyDataAndRender(fallbackLatest);
         setStatus("El robot sigue corriendo en GitHub; vuelve a pulsar en unos segundos.", 6000);
