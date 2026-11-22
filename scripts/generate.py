@@ -252,27 +252,44 @@ Procesa las noticias entregadas y devuelve un JSON estricto con estas cantidades
 - italia: **3 tarjetas** de fútbol italiano
 - brasil: **3 tarjetas** de fútbol brasileño
 - mis_equipos: **3 tarjetas** enfocadas en AC Milan y/o Palestino
-- fichajes: **3 tarjetas** enfocadas en fichajes, traspasos, renovaciones o rumores de mercado
+- fichajes: **4 tarjetas** enfocadas en fichajes, traspasos o rumores de mercado
 
 Reglas obligatorias por tarjeta:
-1. "category": Debe ser exactamente uno de: "economia", "chile", "argentina", "italia", "brasil", "mis_equipos", "fichajes". No omitas ninguna categoría.
+1. "category": Debe ser exactamente uno de: "economia", "chile", "argentina", "italia", "brasil", "mis_equipos", "fichajes".
 2. "headline": Titular claro y con gancho (máx 12 palabras).
 3. "url": Copia EXACTAMENTE el link de la noticia original entregada. No inventes URLs.
 4. "date": Copia la fecha [DD/MM/YYYY] de esa noticia específica (si no aparece, usa la fecha de hoy en Chile).
-5. "formal": Dato duro y contexto serio/objetivo (2 oraciones breves). **IMPORTANTE: Comienza siempre indicando la fecha de la noticia, por ejemplo: "Publicado el DD/MM/YYYY: ..."**
-6. "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia; reacciones auténticas, debates reales de tablón o sentir ciudadano directo (2 oraciones breves, sin difamar ni insultar con odio).
+5. Para categorías distintas a "fichajes":
+   - "formal": Dato duro y contexto serio/objetivo (2 oraciones breves). Comienza siempre con "Publicado el DD/MM/YYYY: ...".
+   - "tribuna": Pulso real de la calle, hinchas y gente común frente a la noticia (2 oraciones breves, sin difamar ni insultar con odio).
+6. Para la categoría "fichajes", además de "headline", "url" y "date", incluye estos campos cortos y limpios:
+   - "player_name": Nombre del futbolista involucrado (o protagonista del movimiento).
+   - "from_club": Club de origen actual o "Agente libre" (máx 4 palabras).
+   - "to_club": Club destino rumoreado o confirmado (máx 4 palabras).
+   - "transfer_status": "OFICIAL" si ya se cerró/anunció o "RUMOR" si es interés/negociación/rumor.
 
 JSON esperado:
 {{
   "items": [
     {{
-      "category": "economia | chile | argentina | italia | brasil | mis_equipos | fichajes",
+      "category": "economia | chile | argentina | italia | brasil | mis_equipos",
       "category_label": "Nombre legible",
       "headline": "...",
       "url": "https://...",
       "date": "DD/MM/YYYY",
       "formal": "Publicado el DD/MM/YYYY: ...",
       "tribuna": "..."
+    }},
+    {{
+      "category": "fichajes",
+      "category_label": "Fichajes & Rumores",
+      "headline": "...",
+      "url": "https://...",
+      "date": "DD/MM/YYYY",
+      "player_name": "Nombre Jugador",
+      "from_club": "Club Origen",
+      "to_club": "Club Destino",
+      "transfer_status": "RUMOR | OFICIAL"
     }}
   ]
 }}
@@ -291,7 +308,7 @@ Noticias recientes (máximo 2 días de antigüedad):
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
-                    temperature=0.8,
+                    temperature=0.7,
                 ),
             )
             print(f"Respuesta obtenida con {model_name}")
@@ -322,9 +339,10 @@ Noticias recientes (máximo 2 días de antigüedad):
         real_date = date_map.get(item_url) or item.get("date") or default_date
         item["date"] = real_date
 
-        formal_txt = item.get("formal", "").strip()
-        if real_date not in formal_txt:
-            item["formal"] = f"Publicado el {real_date}: {formal_txt}"
+        if cat != "fichajes":
+            formal_txt = item.get("formal", "").strip()
+            if formal_txt and real_date not in formal_txt:
+                item["formal"] = f"Publicado el {real_date}: {formal_txt}"
 
     return {
         "updated_at": now_str,
