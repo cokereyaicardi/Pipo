@@ -1033,3 +1033,87 @@ a {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+/* Fix definitivo para barra de categorías en móvil sin amontonamientos */
+.cat-nav {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 8px 14px 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.cat-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-chip {
+  flex: 0 0 auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.cat-chip:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.cat-chip.active {
+  background: var(--brand);
+  color: #061018;
+  border-color: var(--brand);
+  font-weight: 700;
+}
+
+.cat-chip.chip-special:not(.active) {
+  border-color: rgba(244, 63, 94, 0.42);
+  color: #fda4af;
+}
+
+.cat-chip.chip-market:not(.active) {
+  border-color: rgba(192, 132, 252, 0.4);
+  color: #e9d5ff;
+}
+
+.chip-count {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cat-chip.active .chip-count {
+  background: rgba(6, 16, 24, 0.18);
+  color: #061018;
+}
+
+@media (max-width: 480px) {
+  .cat-chip {
+    padding: 7px 11px;
+    font-size: 0.77rem;
+    gap: 6px;
+  }
+  .mob-btn span {
+    letter-spacing: 2px;
+  }
+}
